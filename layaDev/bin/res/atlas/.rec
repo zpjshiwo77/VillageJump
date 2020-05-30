@@ -41,8 +41,8 @@ R F58C8AFC kuang1.png
 R 7E8F0024 kuang2.png
 P 08317577 title.png
 D images/reg
-P 56A9366A btn.png
 P A2E7FFFF login.png
+P 56A9366A ok.png
 R 0EF786CC read.png
 P 9F30B346 title.png
 D images/result
@@ -55,8 +55,8 @@ P 419BE4F6 rank.png
 P 2697395E rankBtn.png
 R 8DC20340 shareBtn.png
 D images/rule
-R 0AF94600 box.png
-P FE773794 btn.png
+P FE773794 close.png
+R 0AF94600 cont.png
 P 814E47DF vscroll$bar.png
 P EAEEE540 vscroll$down.png
 P EAEEE540 vscroll$up.png
@@ -79,6 +79,7 @@ P B8524EBF 21.png
 P 1EA809EB 22.png
 P 57156934 23.png
 P 7BA5F157 24.png
+P F35D6773 25.png
 P 285EF304 3.png
 P 1E6AC6F2 4.png
 P C74571E9 5.png

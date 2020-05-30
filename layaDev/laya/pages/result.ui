@@ -1,8 +1,7 @@
 {
-    "x":0,
     "type":"View",
-    "selectedBox":21,
-    "selecteID":20,
+    "selectedBox":1,
+    "selecteID":7,
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
     "label":"View",
@@ -13,12 +12,11 @@
     "compId":1,
     "child":[
         {
-            "x":15,
             "type":"Sprite",
             "props":{"y":0,"x":0,"name":"bg"},
             "nodeParent":1,
             "label":"Sprite(bg)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -38,7 +36,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},
             "nodeParent":1,
@@ -50,7 +47,6 @@
             "compId":3,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":46,"skin":"images/result/logo.png","name":"logo"},
                     "nodeParent":3,
@@ -63,7 +59,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":46,"x":211,"skin":"images/index/block.png","name":"block"},
                     "nodeParent":3,
@@ -76,7 +71,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":640,"x":375,"width":638,"pivotY":75,"pivotX":319,"name":"couponBox","height":149},
                     "nodeParent":3,
@@ -104,7 +98,7 @@
                             "props":{"y":28,"x":63,"width":555,"var":"couponScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":94},
                             "nodeParent":9,
                             "label":"Panel(couponScroll)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -123,12 +117,47 @@
                                         ]
                                 }],
                             "$LOCKED":true
+                        },
+                        {
+                            "type":"Sprite",
+                            "props":{"y":22,"x":35,"width":573,"var":"couponNone","height":96},
+                            "nodeParent":9,
+                            "label":"Sprite(couponNone)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":22,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":16,"x":46,"skin":"images/icon/block.png"},
+                                    "nodeParent":22,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":23,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Text",
+                                    "props":{"y":36,"x":125,"width":388,"text":"本局没有抢到优惠券，还要继续努力~","height":36,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true},
+                                    "nodeParent":22,
+                                    "label":"Text",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":24,
+                                    "child":[
+                                        ]
+                                }]
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
-                    "props":{"y":347,"x":73,"width":246,"name":"pointBox","height":184},
+                    "props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},
                     "nodeParent":3,
                     "label":"Box(pointBox)",
                     "isOpen":false,
@@ -152,9 +181,9 @@
                         },
                         {
                             "type":"Text",
-                            "props":{"y":10,"x":55,"width":155,"text":"0","height":50,"fontSize":50,"color":"#000000","bold":true},
+                            "props":{"y":0,"x":45,"width":155,"var":"coinNum","text":"0","height":50,"fontSize":50,"color":"#000000","bold":true},
                             "nodeParent":14,
-                            "label":"Text",
+                            "label":"Text(coinNum)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -164,7 +193,7 @@
                         },
                         {
                             "type":"Text",
-                            "props":{"y":67,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false},
+                            "props":{"y":75,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false},
                             "nodeParent":14,
                             "label":"Text",
                             "isDirectory":false,
@@ -176,7 +205,7 @@
                         },
                         {
                             "type":"Text",
-                            "props":{"y":70,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false},
+                            "props":{"y":77,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false},
                             "nodeParent":14,
                             "label":"Text",
                             "isDirectory":false,
@@ -188,9 +217,9 @@
                         },
                         {
                             "type":"Text",
-                            "props":{"y":67,"x":55,"width":38,"text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"},
+                            "props":{"y":75,"x":45,"width":63,"var":"pointNum","text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"},
                             "nodeParent":14,
-                            "label":"Text",
+                            "label":"Text(pointNum)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -200,7 +229,7 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"y":128,"x":2,"width":35,"skin":"images/icon/coupon.png","height":20},
+                            "props":{"y":145,"x":2,"width":35,"skin":"images/icon/coupon.png","height":20},
                             "nodeParent":14,
                             "label":"Image",
                             "isDirectory":false,
@@ -212,9 +241,9 @@
                         },
                         {
                             "type":"Text",
-                            "props":{"y":113,"x":55,"width":38,"text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"},
+                            "props":{"y":130,"x":45,"width":38,"var":"couponNum","text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"},
                             "nodeParent":14,
-                            "label":"Text",
+                            "label":"Text(couponNum)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -224,21 +253,19 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":757,"x":375,"width":638,"pivotX":319,"name":"btnBox","height":90},
                     "nodeParent":3,
                     "label":"Box(btnBox)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":21,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":45,"x":319,"width":290,"var":"againBtn","skin":"images/result/btn3.png","pivotY":45,"pivotX":145,"height":90},
+                            "props":{"y":45,"x":319,"width":290,"visible":false,"var":"againBtn","skin":"images/result/btn3.png","pivotY":45,"pivotX":145,"height":90},
                             "nodeParent":21,
                             "label":"Image(againBtn)",
                             "isDirectory":false,
@@ -247,14 +274,492 @@
                             "compId":20,
                             "child":[
                                 ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"var":"giveupBtn","skin":"images/result/btn1.png"},
+                            "nodeParent":21,
+                            "label":"Image(giveupBtn)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":25,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":0,"x":349,"var":"awardBtn","skin":"images/result/btn2.png"},
+                            "nodeParent":21,
+                            "label":"Image(awardBtn)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Box",
+                    "props":{"y":1129,"x":58,"name":"shareBox"},
+                    "nodeParent":3,
+                    "label":"Box(shareBox)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":30,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"skin":"images/result/shareBtn.png"},
+                            "nodeParent":30,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":27,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Sprite",
+                            "props":{"y":0,"width":216,"var":"otherBtn","height":51},
+                            "nodeParent":30,
+                            "label":"Sprite(otherBtn)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":28,
+                            "child":[
+                                ],
+                            "$HIDDEN":true
+                        },
+                        {
+                            "type":"Sprite",
+                            "props":{"y":0,"x":389,"width":249,"var":"shareBtn","height":53},
+                            "nodeParent":30,
+                            "label":"Sprite(shareBtn)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":29,
+                            "child":[
+                                ],
+                            "$HIDDEN":true
+                        }]
+                },
+                {
+                    "type":"Box",
+                    "props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},
+                    "nodeParent":3,
+                    "label":"Box(rankBox)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":32,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"x":298,"skin":"images/result/rank.png"},
+                            "nodeParent":32,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":31,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":41,"x":570,"var":"rankBtn","skin":"images/result/rankBtn.png"},
+                            "nodeParent":32,
+                            "label":"Image(rankBtn)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":33,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"y":85,"x":218,"width":74,"var":"rank1","height":74},
+                            "nodeParent":32,
+                            "label":"Box(rank1)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":35,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":0,"x":0,"width":74,"skin":"images/stores/1.png","name":"head","height":74},
+                                    "nodeParent":35,
+                                    "label":"Image(head)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":34,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Text",
+                                    "props":{"y":75,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
+                                    "nodeParent":35,
+                                    "label":"Text(nickname)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":36,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15},
+                                    "nodeParent":35,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":37,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Text",
+                                    "props":{"y":98,"x":17,"width":56,"text":"0","name":"nickname","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"},
+                                    "nodeParent":35,
+                                    "label":"Text(nickname)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":38,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"y":85,"x":338,"width":74,"var":"rank2","height":74},
+                            "nodeParent":32,
+                            "label":"Box(rank2)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":39,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":0,"x":0,"width":74,"skin":"images/stores/1.png","name":"head","height":74},
+                                    "nodeParent":39,
+                                    "label":"Image(head)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":40,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Text",
+                                    "props":{"y":75,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
+                                    "nodeParent":39,
+                                    "label":"Text(nickname)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":41,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15},
+                                    "nodeParent":39,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":42,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Text",
+                                    "props":{"y":98,"x":17,"width":56,"text":"0","name":"nickname","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"},
+                                    "nodeParent":39,
+                                    "label":"Text(nickname)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":43,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"y":85,"x":458,"width":74,"var":"rank3","height":74},
+                            "nodeParent":32,
+                            "label":"Box(rank3)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":44,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":0,"x":0,"width":74,"skin":"images/stores/1.png","name":"head","height":74},
+                                    "nodeParent":44,
+                                    "label":"Image(head)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":45,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Text",
+                                    "props":{"y":75,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
+                                    "nodeParent":44,
+                                    "label":"Text(nickname)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":46,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15},
+                                    "nodeParent":44,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":47,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Text",
+                                    "props":{"y":98,"x":17,"width":56,"text":"0","name":"nickname","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"},
+                                    "nodeParent":44,
+                                    "label":"Text(nickname)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":48,
+                                    "child":[
+                                        ]
+                                }]
                         }]
                 }]
         }],
     "animations":[
         {
             "nodes":[
-                ],
-            "name":"ani1",
+                {
+                    "target":6,
+                    "keyframes":{
+                        "y":[
+                            {
+                                "value":-124,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":6,
+                                "key":"y",
+                                "index":0
+                            },
+                            {
+                                "value":2,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":6,
+                                "key":"y",
+                                "index":9
+                            }],
+                        "x":[
+                            {
+                                "value":-138,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":6,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":46,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":6,
+                                "key":"x",
+                                "index":9
+                            }]
+                    }
+                },
+                {
+                    "target":7,
+                    "keyframes":{
+                        "y":[
+                            {
+                                "value":-134,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"y",
+                                "index":0
+                            },
+                            {
+                                "value":46,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"y",
+                                "index":9
+                            }],
+                        "x":[
+                            {
+                                "value":811,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":211,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":7,
+                                "key":"x",
+                                "index":9
+                            }]
+                    }
+                },
+                {
+                    "target":32,
+                    "keyframes":{
+                        "y":[
+                            {
+                                "value":1450,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":32,
+                                "key":"y",
+                                "index":0
+                            },
+                            {
+                                "value":900,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":32,
+                                "key":"y",
+                                "index":9
+                            }]
+                    }
+                },
+                {
+                    "target":30,
+                    "keyframes":{
+                        "y":[
+                            {
+                                "value":1680,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":30,
+                                "key":"y",
+                                "index":0
+                            },
+                            {
+                                "value":1130,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":30,
+                                "key":"y",
+                                "index":9
+                            }]
+                    }
+                },
+                {
+                    "target":14,
+                    "keyframes":{
+                        "x":[
+                            {
+                                "value":-250,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":14,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":73,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":14,
+                                "key":"x",
+                                "index":9
+                            }]
+                    }
+                },
+                {
+                    "target":9,
+                    "keyframes":{
+                        "x":[
+                            {
+                                "value":-375,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":375,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":9,
+                                "key":"x",
+                                "index":9
+                            }]
+                    }
+                },
+                {
+                    "target":21,
+                    "keyframes":{
+                        "x":[
+                            {
+                                "value":1100,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":21,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":375,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":21,
+                                "key":"x",
+                                "index":9
+                            }]
+                    }
+                }],
+            "name":"showAni",
             "id":1,
             "frameRate":24,
             "action":0
