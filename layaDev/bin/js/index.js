@@ -1,4 +1,6 @@
 ﻿function layaInit() {
+    //初始化微信小游戏
+    Laya.MiniAdpter.init();
     //初始化引擎
     Laya.init(750, 1624, true);
 
@@ -23,8 +25,9 @@
 
     CountPageSize();
 
+    
+    iWX = new wxFunc();
     iWX.checkUpdateGame();
-    iWX.wxCreateUserInfo();
     iWX.shareInit("快来一起玩吧~");
     iWX.login();
 }
@@ -35,12 +38,12 @@ layaInit();
  */
 function preLoadComplate() {
     iIndexPage.init();
-    RequestStoreInfoTest();
+    // RequestStoreInfoTest();
     // DevelopTest();
 
     // Laya.URL.basePath = "https://beatsAdgame.beats-digital.com/";
 
-    Laya.loader.load(Resources, laya.utils.Handler.create(this, loadUIComplate));
+    // Laya.loader.load(Resources, laya.utils.Handler.create(this, loadUIComplate));
 }
 
 /**

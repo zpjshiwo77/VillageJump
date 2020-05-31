@@ -5,15 +5,15 @@ function importAPI() {
 
     _self.SessionKey = "";
 
-    var requestDomain = "https://wechat.dhteam.net/mazda/ajax/getdata.ashx";
+    var requestDomain = "https://happycs.bestcake.com/api/";
 
     function _Ajax(opts) {
         if (iWX.isWX) {
-            return WxAjax(opts.API, opts.data);
+            return WxAjax(opts.API, opts.data, opts.method);
         }
         else {
             return new Promise((resolve, reject) => {
-                normalAjax(opts.API, opts.data)
+                normalAjax(opts.API, opts.data, opts.method)
                     .then((res) => {
                         res = eval('(' + res + ')');
                         if (res.errcode == 0) resolve(res);
@@ -28,17 +28,28 @@ function importAPI() {
      * @param method 
      * @param data 
      */
-    function WxAjax(method, data) {
+    function WxAjax(Api, data, method) {
         return new Promise((resolve, reject) => {
+            let header = {
+                'content-type': "application/x-www-form-urlencoded"
+            };
             if (_self.SessionKey) data.SessionKey = _self.SessionKey;
 
+            if (method == "POST") {
+                let signature = iEncryption.getMD5Staff(data);
+                header = {
+                    'content-type': "application/json",
+                    'timestamp': iEncryption.timestamp,
+                    'nonce': iEncryption.nonce,
+                    'signature': signature
+                }
+            }
+
             iWX.wx.request({
-                url: requestDomain + method,
+                url: requestDomain + Api,
                 data: data,
-                method: "POST",
-                header: {
-                    'content-type': "application/x-www-form-urlencoded"
-                },
+                method: method,
+                header: header,
                 dataType: 'json',
                 success: (res) => {
                     resolve(res.data);
@@ -55,11 +66,11 @@ function importAPI() {
      * @param method 
      * @param data 
      */
-    function normalAjax(method, data) {
+    function normalAjax(Api, data, method) {
         return new Promise((resolve, reject) => {
             var xhr = new XMLHttpRequest();
-            xhr.open('post', requestDomain + method);
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.open('post', requestDomain + Api);
+            xhr.setRequestHeader("Content-type", method == "POST" ? "application/json": "application/x-www-form-urlencoded");
             let idata = "";
             for (let key in data) {
                 idata += key + "=" + data[key] + "&";
@@ -81,8 +92,80 @@ function importAPI() {
      */
     _self.wxLogin = function (data) {
         return _Ajax({
-            API: "Login",
-            data: data
+            API: "Authorize/Getweixinopenid",
+            data: data,
+            method: "GET"
+        });
+    }//end func
+
+    /**
+     * 获取活动规则
+     */
+    _self.getRule = function () {
+        return _Ajax({
+            API: "game/GetGameRules",
+            data: {},
+            method: "GET"
+        });
+    }//end func
+
+    /**
+     * 获取隐私条款
+     */
+    _self.getPrivacy = function () {
+        return _Ajax({
+            API: "game/GetRules",
+            data: {},
+            method: "GET"
+        });
+    }//end func
+
+    /**
+     * 获取店铺优惠券
+     */
+    _self.GetCouponsInfoByStore = function (data) {
+        return _Ajax({
+            API: "game/GetCouponsInfoByStore",
+            data: data,
+            method: "GET"
+        });
+    }//end func
+
+    /**
+     * 监测，pv
+     * @param {*} data 参数
+     */
+    _self.addPV = function (data) {
+        data.openid = iWX.openId;
+        return _Ajax({
+            API: "view/AddPV",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 监测，uv
+     * @param {*} data 参数
+     */
+    _self.addUV = function (data) {
+        data.openid = iWX.openId;
+        return _Ajax({
+            API: "view/adduv",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 添加用户
+     * @param {*} data 参数
+     */
+    _self.addUser = function (data) {
+        return _Ajax({
+            API: "game/StartGame",
+            data: data,
+            method: "POST"
         });
     }//end func
 

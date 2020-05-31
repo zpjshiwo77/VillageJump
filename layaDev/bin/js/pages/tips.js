@@ -25,6 +25,7 @@ var tipsPage = function(){
      */
     _self.show = function(){
         page.popup();
+        API.addPV({pagepath:"/pages/awardtips"});
     }
 
     /**

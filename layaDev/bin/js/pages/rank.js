@@ -25,6 +25,7 @@ var rankPage = function(){
      */
     _self.show = function(){
         page.popup();
+        API.addPV({pagepath:"/pages/rank"});
     }
 
     /**

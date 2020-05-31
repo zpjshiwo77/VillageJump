@@ -30,6 +30,7 @@ var resultPage = function(){
         Laya.Tween.to(page, {
             alpha: 1
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
+        API.addPV({pagepath:"/pages/result"});
     }
 
     /**

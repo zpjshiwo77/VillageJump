@@ -2,8 +2,14 @@ var wxFunc = function () {
     var _self = this;
     var isWX = Browser.onMiniGame ? true : false;
     var wx = Browser.window.wx;
-    var openId = "";
-    var systemInfo,userInfo,auth;
+    // var openId = "";
+    var openId = "omFZq5N4I2_M1GTxAUYer4rQjRpU";
+    var systemInfo, userInfo, auth;
+    userInfo = {
+        nickName: "测试",
+        avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIvaoPfI1GfVuibg0Ifr2J1XQ0IqlrZ0FZdNJyia790RRe0VGplg1SjNB4oJlFdwSUUILSXBMQDVOwg/132",
+        gender: 1
+    };
 
     _self.isWX = isWX;
     _self.wx = wx;
@@ -21,17 +27,57 @@ var wxFunc = function () {
                 success(res) {
                     if (res.code) {
                         API.wxLogin({ code: res.code }).then((res) => {
-                            if (res.errcode == 0) {
-                                API.SessionKey = res.result.SessionKey;
-                                openId = res.result.OpenID;
+                            if (res.Status == "ok") {
+                                API.SessionKey = res.Tag.seesionKey;
+                                openId = res.Tag.openid;
                                 _self.openId = openId;
                             }
                         })
                     } else {
-                        console.log('登录失败！' + res.errMsg)
+                        console.log('登录失败！' + res.Msg)
                     }
                 }
             })
+        }
+    }
+
+    /**
+     * alert
+     */
+    _self.alert = function (word, callback) {
+        if (isWX) {
+            wx.showModal({
+                title: word,
+                mask: true,
+                success(res) {
+                    if (res.confirm) {
+                        callback(true);
+                    } else if (res.cancel) {
+                        callback(false);
+                    }
+                }
+            })
+        }
+    }
+
+    /**
+     * 显示loading
+     */
+    _self.showLoading = function (word) {
+        if (isWX) {
+            wx.showLoading({
+                title: word,
+                mask: true
+            })
+        }
+    }
+
+    /**
+     * 隐藏loading
+     */
+    _self.hideLoading = function () {
+        if (isWX) {
+            wx.hideLoading();
         }
     }
 
@@ -40,9 +86,9 @@ var wxFunc = function () {
      * @param name key
      * @param val 值
      */
-    _self.SetWxStorage = function(name,data){
-        if(isWX){
-            wx.setStorage({key:name,data:val});
+    _self.SetWxStorage = function (name, data) {
+        if (isWX) {
+            wx.setStorage({ key: name, data: val });
         }
     }
 
@@ -52,15 +98,15 @@ var wxFunc = function () {
      * @param success 成功的回调 返回参数res
      * @param fail 失败的回调 返回参数res
      */
-    _self.GetWxStorage = function(name,success,fail){
-        if(isWX){
+    _self.GetWxStorage = function (name, success, fail) {
+        if (isWX) {
             wx.getStorage({
-                key:name,
-                success:function(res){
-                    if(success) success(res);
+                key: name,
+                success: function (res) {
+                    if (success) success(res);
                 },
-                fail:function(res){
-                    if(fail) fail(res);
+                fail: function (res) {
+                    if (fail) fail(res);
                 }
             })
         }
@@ -69,21 +115,22 @@ var wxFunc = function () {
     /**
      * 初始化wx的授权按钮 暂时全屏显示 点一下就会授权成功
      */
-    _self.wxCreateUserInfo = function () {
+    _self.wxCreateUserInfo = function (callback) {
         if (isWX) {
             if (wx.createUserInfoButton) {
                 systemInfo = wx.getSystemInfoSync();
                 _self.systemInfo = systemInfo;
+                // console.log(systemInfo)
                 var button = wx.createUserInfoButton({
                     type: 'image',
-                    image: 'common/blank.png',
+                    image: 'images/common/blank.png',
                     // text: 'test',
                     style: {
                         // backgroundColor:"#ffffff",
-                        left: 0,
-                        top: 0,
-                        width: systemInfo.screenWidth,
-                        height: systemInfo.screenHeight
+                        left: 98 / systemInfo.pixelRatio,
+                        top: systemInfo.screenHeight / 2 - 180 / systemInfo.pixelRatio,
+                        width: 320 / systemInfo.pixelRatio,
+                        height: 360 / systemInfo.pixelRatio
                     }
                 })
                 button.onTap((res) => {
@@ -99,6 +146,7 @@ var wxFunc = function () {
                         _self.userInfo = userInfo;
                         _self.auth = auth;
                         button.destroy();
+                        callback();
                     }
                 })
             }
@@ -148,10 +196,10 @@ var wxFunc = function () {
      * 分享初始化
      * @param word 分享文案
      */
-    _self.shareInit = function(word){
-        if(isWX){
-            wx.onShareAppMessage(function(){
-                return {title:word, imageUrl:"share.jpg"};
+    _self.shareInit = function (word) {
+        if (isWX) {
+            wx.onShareAppMessage(function () {
+                return { title: word, imageUrl: "images/common/share.jpg" };
             });
             wx.showShareMenu();
         }
@@ -164,12 +212,8 @@ var wxFunc = function () {
         if (isWX) {
             wx.shareAppMessage({
                 title: word,
-                imageUrl: "share.jpg"
+                imageUrl: "images/common/share.jpg"
             });
         }
     }
 }
-
-//初始化微信小游戏
-Laya.MiniAdpter.init();
-var iWX = new wxFunc();

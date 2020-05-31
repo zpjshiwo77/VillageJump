@@ -47,6 +47,10 @@ var gamePage = function () {
         setItemXY(Player, -STORE_DIS / 2, imath.countRightY(-STORE_DIS / 2, PLAYER_STORE_DIS));
 
         enterAnime();
+
+        let nowStore = Sence_Stores[nowStoreIndex];
+        if (nowStore.infoData.ActiveTitle) showInfoBox(nowStore.infoData);
+        API.addPV({pagepath:"/pages/game"});
     }
 
     /**
@@ -254,8 +258,9 @@ var gamePage = function () {
 
             updateCoinNum(COIN_UNIT);
             let nowStore = Sence_Stores[nowStoreIndex];
-            if (nowStore.infoData.couponName) couponAnime(Player.sprite.x, Player.sprite.y);
-            if (nowStore.infoData.info) showInfoBox(nowStore.infoData.info);
+            judgeCoinNumsCoupon(Player.sprite.x, Player.sprite.y);
+            if (nowStore.infoData.ContainsCoupons > 0) requestStoreCoupon(nowStore.infoData,Player.sprite.x, Player.sprite.y);
+            if (nowStore.infoData.ActiveTitle) showInfoBox(nowStore.infoData);
 
             setTimeout(function () {
                 pressFlag = true;
@@ -264,13 +269,42 @@ var gamePage = function () {
     }
 
     /**
+     * 判断一定数量的金币获取优惠券
+     */
+    function judgeCoinNumsCoupon(x,y){
+        for (var i = 0; i < AddUpCoinGiveCoupon.length; i++) {
+            if(coinNum >= AddUpCoinGiveCoupon[i].needcoins){
+                let item = AddUpCoinGiveCoupon.shift();
+                item.id = item.couponid;
+                item.CouponName = item.needcoins + "金币优惠券";
+                couponList.push(item);
+                couponAnime(x,y,1);
+                return;
+            }
+        }
+    }
+
+    /**
+     * 请求优惠券
+     */
+    function requestStoreCoupon(info,x,y){
+        API.GetCouponsInfoByStore({storekey:info.StoreKey})
+        .then(function(res){
+            if(res.Status == "ok" && res.Tag.length > 0){
+                couponList.push(...res.Tag);
+                couponAnime(x,y,res.Tag.length);
+            }
+        })
+    }
+
+    /**
      * 显示商店信息
      */
     function showInfoBox(info) {
         let word = "";
-        word += info.title + "\n";
-        word += info.date + "\n";
-        word += info.cont;
+        word += info.ActiveTitle + "\n";
+        word += info.ActiveDate + "\n";
+        word += info.ActiveContents;
         updateStoreInfo(word);
 
         Laya.Tween.to(wordBox, {
@@ -348,7 +382,7 @@ var gamePage = function () {
     /**
      * 获得优惠券的动画
      */
-    function couponAnime(x, y) {
+    function couponAnime(x, y, num) {
         couponBox.alpha = 1;
         couponBox.x = x;
         couponBox.y = y - 100;
@@ -359,7 +393,7 @@ var gamePage = function () {
             alpha: 0
         }, 500, Laya.Ease.linearIn, null, 1000);
 
-        updateCouponNum(1);
+        updateCouponNum(num);
     }
 
     /**

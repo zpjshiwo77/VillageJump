@@ -9,7 +9,7 @@ var store = function(box){
      * 换皮肤
      */
     _self.changeSkin = function(url){
-        let img = url || _self.infoData.src;
+        let img = url || _self.infoData.StoreImgurl;
         this.sprite.store.source = Laya.Loader.getRes(img);
     }
 

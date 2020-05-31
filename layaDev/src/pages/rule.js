@@ -10,6 +10,7 @@ var rulePage = function(){
         showFlag = true;
         uiInit();
         eventInit();
+        requestPrivacy();
     }
 
     /**
@@ -25,6 +26,27 @@ var rulePage = function(){
      */
     _self.show = function(){
         page.popup();
+        API.addPV({pagepath:"/pages/rule"});
+    }
+
+    /**
+     * 请求隐私条款
+     */
+    function requestPrivacy(){
+        API.getPrivacy().then(function(res){
+            if(res.Status = "ok"){
+                let cont = "";
+                
+                for (var i = 0; i < res.Tag.RegRule.list.length; i++) {
+                    var item = res.Tag.RegRule.list[i];
+                    cont += item.itemtitle + "\n" + item.contents + ( i == res.Tag.RegRule.list.length-1 ? "" :"\n");
+                }
+                page.title.text = res.Tag.RegRule.title;
+                page.ruleWord.text = cont;
+
+                page.ruleScroll.refresh();
+            }
+        })
     }
 
     /**
