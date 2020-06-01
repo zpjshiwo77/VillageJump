@@ -34,7 +34,7 @@ var rulePage = function(){
      */
     function requestPrivacy(){
         API.getPrivacy().then(function(res){
-            if(res.Status = "ok"){
+            if(res.Status == "ok"){
                 let cont = "";
                 
                 for (var i = 0; i < res.Tag.RegRule.list.length; i++) {

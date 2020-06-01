@@ -2,6 +2,28 @@ var CLASS$=Laya.class;
 var STATICATTR$=Laya.static;
 var View=laya.ui.View;
 var Dialog=laya.ui.Dialog;
+var couponUI=(function(_super){
+		function couponUI(){
+			
+		    this.word=null;
+		    this.num=null;
+
+			couponUI.__super.call(this);
+		}
+
+		CLASS$(couponUI,'ui.couponUI',_super);
+		var __proto__=couponUI.prototype;
+		__proto__.createChildren=function(){
+		    			View.regComponent("Text",laya.display.Text);
+
+			laya.ui.Component.prototype.createChildren.call(this);
+			this.createView(couponUI.uiView);
+
+		}
+
+		couponUI.uiView={"type":"View","props":{"width":470,"height":47},"child":[{"type":"Sprite","props":{"y":0,"x":0,"width":470,"height":47},"child":[{"type":"Text","props":{"y":0,"x":0,"width":420,"var":"word","valign":"middle","height":47,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}},{"type":"Text","props":{"y":0,"x":420,"width":50,"var":"num","valign":"middle","text":"x 1","height":47,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true,"align":"right"}}]}]};
+		return couponUI;
+	})(View);
 var gameUI=(function(_super){
 		function gameUI(){
 			
@@ -29,7 +51,7 @@ var gameUI=(function(_super){
 
 		}
 
-		gameUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":100,"x":30,"width":200,"var":"coinBox","height":83},"child":[{"type":"Image","props":{"y":0,"x":7,"skin":"images/icon/coin.png"}},{"type":"Image","props":{"y":57,"x":0,"width":46,"skin":"images/icon/coupon.png","height":26}},{"type":"Text","props":{"y":3,"x":57,"width":129,"var":"coinNum","text":"0","height":37,"fontSize":40,"font":"Microsoft YaHei","color":"#000","bold":false}},{"type":"Text","props":{"y":52,"x":57,"width":129,"var":"couponNum","text":"0","height":37,"fontSize":40,"font":"Microsoft YaHei","color":"#000","bold":false}}]},{"type":"Box","props":{"y":444,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Sprite","props":{"y":71,"x":65,"width":130,"var":"coupon","pivotY":71,"pivotX":65,"height":142,"alpha":0},"child":[{"type":"Animation","props":{"var":"couponAni","source":"images/icon/coupon/001.png,images/icon/coupon/002.png,images/icon/coupon/003.png,images/icon/coupon/004.png,images/icon/coupon/005.png,images/icon/coupon/006.png,images/icon/coupon/007.png,images/icon/coupon/008.png,images/icon/coupon/009.png,images/icon/coupon/010.png,images/icon/coupon/012.png,images/icon/coupon/013.png,images/icon/coupon/014.png,images/icon/coupon/015.png,images/icon/coupon/016.png,images/icon/coupon/017.png,images/icon/coupon/018.png,images/icon/coupon/019.png,images/icon/coupon/020.png","interval":66,"autoPlay":false}}]}]},{"type":"Sprite","props":{"y":0,"x":0,"width":750,"var":"controlBtn","height":1624}},{"type":"Box","props":{"y":100,"x":250,"visible":true,"var":"wordBox","alpha":0},"child":[{"type":"Image","props":{"x":0,"skin":"images/game/block.png"}},{"type":"Panel","props":{"y":20,"x":20,"width":440,"var":"infoScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":205},"child":[{"type":"Text","props":{"y":0,"x":0,"wordWrap":true,"width":425,"var":"infoWord","text":"星巴克2020.03.24-2020.09.102020.03.24-2020.0当季新品已上市！当季新品已上市！当季新品 已上市！当季新品已上市！当季新品已上市！ 当季新品已上市！当季新品已上市！当季新品 已上市！当季新品已上市！当季新品已上市！","overflow":"scroll","leading":10,"fontSize":21,"font":"Microsoft YaHei","color":"#000","bold":false}}]}]}]};
+		gameUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":100,"x":30,"width":200,"var":"coinBox","height":83},"child":[{"type":"Image","props":{"y":0,"x":7,"skin":"images/icon/coin.png"}},{"type":"Image","props":{"y":57,"x":0,"width":46,"skin":"images/icon/coupon.png","height":26}},{"type":"Text","props":{"y":4,"x":57,"width":129,"var":"coinNum","text":"0","height":37,"fontSize":40,"font":"Microsoft YaHei","color":"#000","bold":false}},{"type":"Text","props":{"y":53,"x":57,"width":129,"var":"couponNum","text":"0","height":37,"fontSize":40,"font":"Microsoft YaHei","color":"#000","bold":false}}]},{"type":"Box","props":{"y":444,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Sprite","props":{"y":71,"x":65,"width":130,"var":"coupon","pivotY":71,"pivotX":65,"height":142,"alpha":0},"child":[{"type":"Animation","props":{"var":"couponAni","source":"images/icon/coupon/001.png,images/icon/coupon/002.png,images/icon/coupon/003.png,images/icon/coupon/004.png,images/icon/coupon/005.png,images/icon/coupon/006.png,images/icon/coupon/007.png,images/icon/coupon/008.png,images/icon/coupon/009.png,images/icon/coupon/010.png,images/icon/coupon/012.png,images/icon/coupon/013.png,images/icon/coupon/014.png,images/icon/coupon/015.png,images/icon/coupon/016.png,images/icon/coupon/017.png,images/icon/coupon/018.png,images/icon/coupon/019.png,images/icon/coupon/020.png","interval":66,"autoPlay":false}}]}]},{"type":"Sprite","props":{"y":0,"x":0,"width":750,"var":"controlBtn","height":1624}},{"type":"Box","props":{"y":100,"x":250,"visible":true,"var":"wordBox","alpha":0},"child":[{"type":"Image","props":{"x":0,"skin":"images/game/block.png"}},{"type":"Panel","props":{"y":20,"x":20,"width":440,"var":"infoScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":205},"child":[{"type":"Text","props":{"y":0,"x":0,"wordWrap":true,"width":425,"var":"infoWord","text":"星巴克2020.03.24-2020.09.102020.03.24-2020.0当季新品已上市！当季新品已上市！当季新品 已上市！当季新品已上市！当季新品已上市！ 当季新品已上市！当季新品已上市！当季新品 已上市！当季新品已上市！当季新品已上市！","overflow":"scroll","leading":10,"fontSize":21,"font":"Microsoft YaHei","color":"#000","bold":false}}]}]}]};
 		return gameUI;
 	})(View);
 var indexUI=(function(_super){
@@ -61,7 +83,6 @@ var loginUI=(function(_super){
 		function loginUI(){
 			
 		    this.cont=null;
-		    this.getCodeBtn=null;
 		    this.readed=null;
 		    this.ruleBtn=null;
 		    this.loginBtn=null;
@@ -69,6 +90,9 @@ var loginUI=(function(_super){
 		    this.backBtn=null;
 		    this.phone=null;
 		    this.code=null;
+		    this.getCodeBtn=null;
+		    this.codeWord=null;
+		    this.readedBtn=null;
 
 			loginUI.__super.call(this);
 		}
@@ -76,13 +100,14 @@ var loginUI=(function(_super){
 		CLASS$(loginUI,'ui.loginUI',_super);
 		var __proto__=loginUI.prototype;
 		__proto__.createChildren=function(){
-		    
+		    			View.regComponent("Text",laya.display.Text);
+
 			laya.ui.Component.prototype.createChildren.call(this);
 			this.createView(loginUI.uiView);
 
 		}
 
-		loginUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":50,"x":248,"skin":"images/login/title.png"}},{"type":"Image","props":{"y":151,"x":88,"skin":"images/login/b1.png"}},{"type":"Image","props":{"y":266,"x":88,"skin":"images/login/b2.png"}},{"type":"Image","props":{"y":263,"x":412,"var":"getCodeBtn","skin":"images/login/btn1.png"}},{"type":"Image","props":{"y":376,"x":88,"skin":"images/login/read.png"}},{"type":"Sprite","props":{"y":381,"x":93,"visible":false,"var":"readed"},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":20,"lineWidth":1,"height":20,"fillColor":"#000000"}}]},{"type":"Sprite","props":{"y":376,"x":331,"width":321,"var":"ruleBtn","height":28}},{"type":"Image","props":{"y":541,"x":230,"var":"loginBtn","skin":"images/login/btn2.png"}},{"type":"Image","props":{"y":665,"x":247,"var":"gotoReg","skin":"images/login/reg.png"}},{"type":"Image","props":{"y":1073,"x":50,"var":"backBtn","skin":"images/icon/back.png"}},{"type":"TextInput","props":{"y":166,"x":110,"width":533,"var":"phone","type":"number","promptColor":"#9fa0a0","prompt":"手机号","height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"TextInput","props":{"y":282,"x":110,"width":274,"var":"code","type":"number","promptColor":"#9fa0a0","prompt":"验证码","height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}}]}]};
+		loginUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":50,"x":248,"skin":"images/login/title.png"}},{"type":"Image","props":{"y":151,"x":88,"skin":"images/login/b1.png"}},{"type":"Image","props":{"y":266,"x":88,"skin":"images/login/b2.png"}},{"type":"Image","props":{"y":376,"x":88,"skin":"images/login/read.png"}},{"type":"Sprite","props":{"y":381,"x":93,"visible":false,"var":"readed"},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":20,"lineWidth":1,"height":20,"fillColor":"#000000"}}]},{"type":"Sprite","props":{"y":376,"x":331,"width":321,"var":"ruleBtn","height":28}},{"type":"Image","props":{"y":541,"x":230,"var":"loginBtn","skin":"images/login/btn2.png"}},{"type":"Image","props":{"y":665,"x":247,"var":"gotoReg","skin":"images/login/reg.png"}},{"type":"Image","props":{"y":1073,"x":50,"var":"backBtn","skin":"images/icon/back.png"}},{"type":"TextInput","props":{"y":166,"x":110,"width":533,"var":"phone","type":"number","promptColor":"#9fa0a0","prompt":"手机号","maxChars":11,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"TextInput","props":{"y":282,"x":110,"width":274,"var":"code","type":"number","promptColor":"#9fa0a0","prompt":"验证码","maxChars":8,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"Box","props":{"y":263,"x":412,"var":"getCodeBtn"},"child":[{"type":"Image","props":{"skin":"images/login/btn1.png"}},{"type":"Text","props":{"y":5,"x":0,"width":251,"var":"codeWord","valign":"middle","text":"获取验证码","height":86,"fontSize":30,"font":"Microsoft YaHei","color":"#000","align":"center"}}]},{"type":"Sprite","props":{"y":368,"x":83,"width":243,"var":"readedBtn","height":39}}]}]};
 		return loginUI;
 	})(View);
 var navIconUI=(function(_super){
@@ -133,8 +158,11 @@ var rankUI=(function(_super){
 		    this.closeBtn=null;
 		    this.shareBtn=null;
 		    this.rankScroll=null;
-		    this.rankBox=null;
 		    this.self=null;
+		    this.rank=null;
+		    this.head=null;
+		    this.nickname=null;
+		    this.coin=null;
 
 			rankUI.__super.call(this);
 		}
@@ -149,14 +177,37 @@ var rankUI=(function(_super){
 
 		}
 
-		rankUI.uiView={"type":"Dialog","props":{"width":647,"height":1120},"child":[{"type":"Image","props":{"y":1047,"x":0,"var":"closeBtn","skin":"images/icon/back.png"}},{"type":"Image","props":{"y":1057,"x":600,"var":"shareBtn","skin":"images/icon/share.png"}},{"type":"Image","props":{"y":0,"x":156,"skin":"images/rank/title.png"}},{"type":"Image","props":{"y":130,"x":0,"skin":"images/rank/kuang1.png"}},{"type":"Image","props":{"y":780,"skin":"images/rank/kuang2.png"}},{"type":"Panel","props":{"y":175,"x":30,"width":590,"var":"rankScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":500},"child":[{"type":"Sprite","props":{"width":560,"var":"rankBox"}}]},{"type":"Box","props":{"y":810,"x":30,"width":560,"name":"selfBox","height":110},"child":[{"type":"Sprite","props":{"y":0,"width":560,"var":"self","height":110},"child":[{"type":"Text","props":{"y":0,"x":0,"width":95,"valign":"middle","text":"0","name":"rank","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":true,"align":"center"}},{"type":"Image","props":{"y":0,"x":95,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":0,"x":185,"width":222,"valign":"middle","text":"测试","name":"nickname","height":74,"fontSize":40,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}},{"type":"Image","props":{"y":24,"x":410,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":450,"width":108,"valign":"middle","text":"00000","name":"nickname","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}}]}]}]};
+		rankUI.uiView={"type":"Dialog","props":{"width":647,"height":1120},"child":[{"type":"Image","props":{"y":1047,"x":0,"var":"closeBtn","skin":"images/icon/back.png"}},{"type":"Image","props":{"y":1057,"x":600,"visible":false,"var":"shareBtn","skin":"images/icon/share.png"}},{"type":"Image","props":{"y":0,"x":156,"skin":"images/rank/title.png"}},{"type":"Image","props":{"y":130,"x":0,"skin":"images/rank/kuang1.png"}},{"type":"Image","props":{"y":780,"skin":"images/rank/kuang2.png"}},{"type":"Panel","props":{"y":175,"x":30,"width":590,"var":"rankScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":500}},{"type":"Box","props":{"y":810,"x":30,"width":560,"name":"selfBox","height":110},"child":[{"type":"Sprite","props":{"y":0,"width":560,"var":"self","height":110},"child":[{"type":"Text","props":{"y":0,"x":0,"width":95,"var":"rank","valign":"middle","text":"0","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":true,"align":"center"}},{"type":"Image","props":{"y":0,"x":95,"width":74,"var":"head","skin":"images/game/store.png","height":74}},{"type":"Text","props":{"y":0,"x":185,"width":222,"var":"nickname","valign":"middle","text":"测试","height":74,"fontSize":32,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}},{"type":"Image","props":{"y":15,"x":410,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":450,"width":108,"var":"coin","valign":"middle","text":"00000","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}}]}]}]};
 		return rankUI;
 	})(Dialog);
+var rankRowUI=(function(_super){
+		function rankRowUI(){
+			
+		    this.rank=null;
+		    this.head=null;
+		    this.nickname=null;
+		    this.coin=null;
+
+			rankRowUI.__super.call(this);
+		}
+
+		CLASS$(rankRowUI,'ui.rankRowUI',_super);
+		var __proto__=rankRowUI.prototype;
+		__proto__.createChildren=function(){
+		    			View.regComponent("Text",laya.display.Text);
+
+			laya.ui.Component.prototype.createChildren.call(this);
+			this.createView(rankRowUI.uiView);
+
+		}
+
+		rankRowUI.uiView={"type":"View","props":{"width":560,"height":110},"child":[{"type":"Sprite","props":{"y":0,"x":0,"width":560,"height":110},"child":[{"type":"Text","props":{"y":0,"x":0,"width":95,"var":"rank","valign":"middle","text":"0","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":true,"align":"center"}},{"type":"Image","props":{"y":0,"x":95,"width":74,"var":"head","skin":"images/game/store.png","height":74}},{"type":"Text","props":{"y":0,"x":185,"width":222,"var":"nickname","valign":"middle","text":"测试","height":74,"fontSize":32,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}},{"type":"Image","props":{"y":15,"x":410,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":450,"width":108,"var":"coin","valign":"middle","text":"00000","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}}]}]};
+		return rankRowUI;
+	})(View);
 var regUI=(function(_super){
 		function regUI(){
 			
 		    this.cont=null;
-		    this.getCodeBtn=null;
 		    this.readed=null;
 		    this.ruleBtn=null;
 		    this.regBtn=null;
@@ -164,6 +215,9 @@ var regUI=(function(_super){
 		    this.backBtn=null;
 		    this.phone=null;
 		    this.code=null;
+		    this.getCodeBtn=null;
+		    this.codeWord=null;
+		    this.readedBtn=null;
 
 			regUI.__super.call(this);
 		}
@@ -171,13 +225,14 @@ var regUI=(function(_super){
 		CLASS$(regUI,'ui.regUI',_super);
 		var __proto__=regUI.prototype;
 		__proto__.createChildren=function(){
-		    
+		    			View.regComponent("Text",laya.display.Text);
+
 			laya.ui.Component.prototype.createChildren.call(this);
 			this.createView(regUI.uiView);
 
 		}
 
-		regUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":50,"x":215,"skin":"images/reg/title.png"}},{"type":"Image","props":{"y":151,"x":88,"skin":"images/login/b1.png"}},{"type":"Image","props":{"y":266,"x":88,"skin":"images/login/b2.png"}},{"type":"Image","props":{"y":263,"x":412,"var":"getCodeBtn","skin":"images/login/btn1.png"}},{"type":"Image","props":{"y":376,"x":88,"skin":"images/login/read.png"}},{"type":"Sprite","props":{"y":381,"x":93,"visible":false,"var":"readed"},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":20,"lineWidth":1,"height":20,"fillColor":"#000000"}}]},{"type":"Sprite","props":{"y":376,"x":331,"width":321,"var":"ruleBtn","height":28}},{"type":"Image","props":{"y":541,"x":230,"var":"regBtn","skin":"images/reg/ok.png"}},{"type":"Image","props":{"y":665,"x":276,"var":"gotoLogin","skin":"images/reg/login.png"}},{"type":"Image","props":{"y":1073,"x":50,"var":"backBtn","skin":"images/icon/back.png"}},{"type":"TextInput","props":{"y":166,"x":110,"width":533,"var":"phone","type":"number","promptColor":"#9fa0a0","prompt":"手机号","height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"TextInput","props":{"y":282,"x":110,"width":274,"var":"code","type":"number","promptColor":"#9fa0a0","prompt":"验证码","height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}}]}]};
+		regUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":50,"x":215,"skin":"images/reg/title.png"}},{"type":"Image","props":{"y":151,"x":88,"skin":"images/login/b1.png"}},{"type":"Image","props":{"y":266,"x":88,"skin":"images/login/b2.png"}},{"type":"Image","props":{"y":376,"x":88,"skin":"images/login/read.png"}},{"type":"Sprite","props":{"y":381,"x":93,"visible":false,"var":"readed"},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":20,"lineWidth":1,"height":20,"fillColor":"#000000"}}]},{"type":"Sprite","props":{"y":376,"x":331,"width":321,"var":"ruleBtn","height":28}},{"type":"Image","props":{"y":541,"x":230,"var":"regBtn","skin":"images/reg/ok.png"}},{"type":"Image","props":{"y":665,"x":276,"var":"gotoLogin","skin":"images/reg/login.png"}},{"type":"Image","props":{"y":1073,"x":50,"var":"backBtn","skin":"images/icon/back.png"}},{"type":"TextInput","props":{"y":166,"x":110,"width":533,"var":"phone","type":"number","promptColor":"#9fa0a0","prompt":"手机号","maxChars":11,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"TextInput","props":{"y":282,"x":110,"width":274,"var":"code","type":"number","promptColor":"#9fa0a0","prompt":"验证码","maxChars":8,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"Box","props":{"y":263,"x":412,"var":"getCodeBtn"},"child":[{"type":"Image","props":{"skin":"images/login/btn1.png"}},{"type":"Text","props":{"y":0,"x":0,"width":251,"var":"codeWord","valign":"middle","text":"获取验证码","height":91,"fontSize":30,"font":"Microsoft YaHei","color":"#000","align":"center"}}]}]},{"type":"Sprite","props":{"y":570,"x":82,"width":243,"var":"readedBtn","height":39}}]};
 		return regUI;
 	})(View);
 var resultUI=(function(_super){
@@ -186,7 +241,6 @@ var resultUI=(function(_super){
 		    this.showAni=null;
 		    this.cont=null;
 		    this.couponScroll=null;
-		    this.couponWord=null;
 		    this.couponNone=null;
 		    this.coinNum=null;
 		    this.pointNum=null;
@@ -214,7 +268,7 @@ var resultUI=(function(_super){
 
 		}
 
-		resultUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":2,"x":46,"skin":"images/result/logo.png","name":"logo"},"compId":6},{"type":"Image","props":{"y":46,"x":211,"skin":"images/index/block.png","name":"block"},"compId":7},{"type":"Box","props":{"y":640,"x":375,"width":638,"pivotY":75,"pivotX":319,"name":"couponBox","height":149},"compId":9,"child":[{"type":"Image","props":{"skin":"images/result/kuang.png"}},{"type":"Panel","props":{"y":28,"x":63,"width":555,"var":"couponScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":94},"child":[{"type":"Text","props":{"y":20,"x":0,"wordWrap":true,"width":470,"var":"couponWord","overflow":"scroll","leading":7,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]},{"type":"Sprite","props":{"y":22,"x":35,"width":573,"var":"couponNone","height":96},"child":[{"type":"Image","props":{"y":16,"x":46,"skin":"images/icon/block.png"}},{"type":"Text","props":{"y":36,"x":125,"width":388,"text":"本局没有抢到优惠券，还要继续努力~","height":36,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]}]},{"type":"Box","props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},"compId":14,"child":[{"type":"Image","props":{"y":6,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":45,"width":155,"var":"coinNum","text":"0","height":50,"fontSize":50,"color":"#000000","bold":true}},{"type":"Text","props":{"y":75,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":77,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":75,"x":45,"width":63,"var":"pointNum","text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"}},{"type":"Image","props":{"y":145,"x":2,"width":35,"skin":"images/icon/coupon.png","height":20}},{"type":"Text","props":{"y":130,"x":45,"width":38,"var":"couponNum","text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"}}]},{"type":"Box","props":{"y":757,"x":375,"width":638,"pivotX":319,"name":"btnBox","height":90},"compId":21,"child":[{"type":"Image","props":{"y":45,"x":319,"width":290,"visible":false,"var":"againBtn","skin":"images/result/btn3.png","pivotY":45,"pivotX":145,"height":90}},{"type":"Image","props":{"var":"giveupBtn","skin":"images/result/btn1.png"}},{"type":"Image","props":{"y":0,"x":349,"var":"awardBtn","skin":"images/result/btn2.png"}}]},{"type":"Box","props":{"y":1130,"x":58,"name":"shareBox"},"compId":30,"child":[{"type":"Image","props":{"y":0,"x":0,"skin":"images/result/shareBtn.png"}},{"type":"Sprite","props":{"y":0,"width":216,"var":"otherBtn","height":51}},{"type":"Sprite","props":{"y":0,"x":389,"width":249,"var":"shareBtn","height":53}}]},{"type":"Box","props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},"compId":32,"child":[{"type":"Image","props":{"x":298,"skin":"images/result/rank.png"}},{"type":"Image","props":{"y":41,"x":570,"var":"rankBtn","skin":"images/result/rankBtn.png"}},{"type":"Box","props":{"y":85,"x":218,"width":74,"var":"rank1","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":75,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":98,"x":17,"width":56,"text":"0","name":"nickname","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":338,"width":74,"var":"rank2","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":75,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":98,"x":17,"width":56,"text":"0","name":"nickname","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":458,"width":74,"var":"rank3","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":75,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":98,"x":17,"width":56,"text":"0","name":"nickname","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]}]}]}],"animations":[{"nodes":[{"target":6,"keyframes":{"y":[{"value":-124,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":0},{"value":2,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":5}],"x":[{"value":-138,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":5}]}},{"target":7,"keyframes":{"y":[{"value":-134,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":5}],"x":[{"value":811,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":0},{"value":211,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":5}]}},{"target":32,"keyframes":{"y":[{"value":1450,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":0},{"value":900,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":5}]}},{"target":30,"keyframes":{"y":[{"value":1680,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":0},{"value":1130,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":5}]}},{"target":14,"keyframes":{"x":[{"value":-250,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":0},{"value":73,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":5}]}},{"target":9,"keyframes":{"x":[{"value":-375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":5}]}},{"target":21,"keyframes":{"x":[{"value":1100,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":5}]}}],"name":"showAni","id":1,"frameRate":24,"action":0}]};
+		resultUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":2,"x":46,"skin":"images/result/logo.png","name":"logo"},"compId":6},{"type":"Image","props":{"y":46,"x":211,"skin":"images/index/block.png","name":"block"},"compId":7},{"type":"Box","props":{"y":640,"x":375,"width":638,"pivotY":75,"pivotX":319,"name":"couponBox","height":149},"compId":9,"child":[{"type":"Image","props":{"skin":"images/result/kuang.png"}},{"type":"Panel","props":{"y":28,"x":63,"width":555,"var":"couponScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":94}},{"type":"Sprite","props":{"y":22,"x":35,"width":573,"var":"couponNone","height":96},"child":[{"type":"Image","props":{"y":16,"x":46,"skin":"images/icon/block.png"}},{"type":"Text","props":{"y":44,"x":125,"width":388,"text":"本局没有抢到优惠券，还要继续努力~","height":36,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]}]},{"type":"Box","props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},"compId":14,"child":[{"type":"Image","props":{"y":6,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":6,"x":45,"width":155,"var":"coinNum","text":"0","height":50,"fontSize":50,"color":"#000000","bold":true}},{"type":"Text","props":{"y":78,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":80,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":76,"x":45,"width":63,"var":"pointNum","text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"}},{"type":"Image","props":{"y":145,"x":2,"width":35,"skin":"images/icon/coupon.png","height":20}},{"type":"Text","props":{"y":132,"x":45,"width":38,"var":"couponNum","text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"}}]},{"type":"Box","props":{"y":757,"x":375,"width":638,"pivotX":319,"name":"btnBox","height":90},"compId":21,"child":[{"type":"Image","props":{"y":45,"x":319,"width":290,"visible":false,"var":"againBtn","skin":"images/result/btn3.png","pivotY":45,"pivotX":145,"height":90}},{"type":"Image","props":{"var":"giveupBtn","skin":"images/result/btn1.png"}},{"type":"Image","props":{"y":0,"x":349,"var":"awardBtn","skin":"images/result/btn2.png"}}]},{"type":"Box","props":{"y":1130,"x":58,"name":"shareBox"},"compId":30,"child":[{"type":"Image","props":{"y":0,"x":0,"skin":"images/result/shareBtn.png"}},{"type":"Sprite","props":{"y":0,"width":216,"var":"otherBtn","height":51}},{"type":"Sprite","props":{"y":0,"x":389,"width":249,"var":"shareBtn","height":53}}]},{"type":"Box","props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},"compId":32,"child":[{"type":"Image","props":{"x":298,"skin":"images/result/rank.png"}},{"type":"Image","props":{"y":41,"x":570,"var":"rankBtn","skin":"images/result/rankBtn.png"}},{"type":"Box","props":{"y":85,"x":218,"width":74,"var":"rank1","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":338,"width":74,"var":"rank2","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":458,"width":74,"var":"rank3","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]}]}]}],"animations":[{"nodes":[{"target":6,"keyframes":{"y":[{"value":-124,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":0},{"value":2,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":5}],"x":[{"value":-138,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":5}]}},{"target":7,"keyframes":{"y":[{"value":-134,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":5}],"x":[{"value":811,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":0},{"value":211,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":5}]}},{"target":32,"keyframes":{"y":[{"value":1450,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":0},{"value":900,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":5}]}},{"target":30,"keyframes":{"y":[{"value":1680,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":0},{"value":1130,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":5}]}},{"target":14,"keyframes":{"x":[{"value":-250,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":0},{"value":73,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":5}]}},{"target":9,"keyframes":{"x":[{"value":-375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":5}]}},{"target":21,"keyframes":{"x":[{"value":1100,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":5}]}}],"name":"showAni","id":1,"frameRate":24,"action":0}]};
 		return resultUI;
 	})(View);
 var ruleUI=(function(_super){
@@ -289,7 +343,7 @@ const Stat = Laya.Stat;
 
 const STORE_NUM = 7;                            //显示的商店总数量
 const STORE_DIS = 320;                          //跳到商店中心点的位置
-const STORE_DIS_MIN = 280, STORE_DIS_MAX = 400;  //商店间最大，最小的距离
+const STORE_DIS_MIN = 280, STORE_DIS_MAX = 400; //商店间最大，最小的距离
 const PRESS_TIME = 1000;                        //按压的时间
 const JUMP_TIME = 500;                          //跳的时间
 const PLAYER_STORE_DIS = -150;                  //玩家与商店的垂直距离
@@ -306,7 +360,7 @@ let iWX;
 let BgPageY = 0, WindowH = 0;
 let GameContH = 0;
 
-let coinNums = 0, couponList = [];
+let CoinNum = 0,couponList = [];
 
 let storeDatas = [];
 let storeDataCount = 0;
@@ -317,6 +371,7 @@ let AddUpCoinGiveCoupon = [];                   //一定积分以后可获得的
 let CurrentCoins = 0;                           //当前用户的金币
 let CurrentScores = 0;                          //当前用户的积分
 let IsMember = false;                           //当前用户是否是会员
+let Mobile = null;                              //当前用户的电话
 
 let storeData = {
     "Id": 1,
@@ -335,7 +390,7 @@ let storeData = {
     "CoinCount": 0,
     "State": 1
 }
-var unpackImg = ["images/index/rule.png","images/login/b1.png","images/login/read.png","images/rank/kuang1.png","images/rank/kuang2.png","images/reg/read.png","images/result/kuang.png","images/result/shareBtn.png","images/rule/box.png","images/tips/award.png"];
+var unpackImg = ["images/common/blank.png","images/common/share.jpg","images/index/rule.png","images/login/b1.png","images/login/read.png","images/navs/1.png","images/navs/2.png","images/navs/3.png","images/navs/4.png","images/navs/5.png","images/navs/6.png","images/navs/7.png","images/navs/8.png","images/rank/kuang1.png","images/rank/kuang2.png","images/reg/read.png","images/result/kuang.png","images/result/shareBtn.png","images/rule/cont.png","images/tips/award.png"];
 
 var PreResources = [
     { url: 'res/atlas/images/common.atlas', type: Loader.ATLAS },
@@ -348,7 +403,6 @@ var PreResources = [
     { url: 'res/atlas/images/reg.atlas', type: Loader.ATLAS },
     { url: 'res/atlas/images/result.atlas', type: Loader.ATLAS },
     { url: 'res/atlas/images/rule.atlas', type: Loader.ATLAS },
-    { url: 'res/atlas/images/navs.atlas', type: Loader.ATLAS },
     { url: 'res/atlas/images/icon/coupon.atlas', type: Loader.ATLAS },
 ];
 var Resources = [
@@ -481,6 +535,53 @@ var utils = function(){
 		if(typeof(o) === 'object') return Array == o.constructor ? 'array' : 'object';
 		else return null;
 	} //end func
+
+	/**
+	 * 常用正则
+	 */
+	_self.checkStr = function (str, type) {
+		if (str && str != '') {
+			type = type || 0;
+			switch (type) {
+				case 0:
+					var reg = new RegExp(/^1[3-9]\d{9}$/); //手机号码验证
+					break;
+				case 1:
+					var reg = new RegExp(/^[1-9]\d{5}$/); //邮政编码验证
+					break;
+				case 2:
+					var reg = new RegExp(/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/); //匹配EMAIL
+					break;
+				case 3:
+					var reg = new RegExp(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/); //匹配身份证
+					break;
+				case 4:
+					var reg = new RegExp(/^\d+$/); //是否为0-9的数字
+					break;
+				case 5:
+					var reg = new RegExp(/^[a-zA-Z\u0391-\uFFE5]*[\w\u0391-\uFFE5]*$/); //不能以数字或符号开头
+					break;
+				case 6:
+					var reg = new RegExp(/^\w+$/); //匹配由数字、26个英文字母或者下划线组成的字符串
+					break;
+				case 7:
+					var reg = new RegExp(/^[\u0391-\uFFE5]+$/); //匹配中文
+					break;
+				case 8:
+					var reg = new RegExp(/^[a-zA-Z\u0391-\uFFE5]+$/); //不能包含数字和符号
+					break;
+				case 9:
+					var reg = new RegExp(/^\d{6}$/); //6位验证码验证
+					break;
+				case 10:
+					var reg = new RegExp(/^\d{4}$/); //4位验证码验证
+					break;
+			} //end switch
+			if (reg.exec(str)) return true;
+			else return false;
+		} //end if
+		else return false;
+	}
 }
 
 var iUtils = new utils();
@@ -1202,6 +1303,66 @@ function importAPI() {
         });
     }//end func
 
+    /**
+     * 继续游戏
+     * @param {*} data 参数
+     */
+    _self.ContinuePlayGame = function (data) {
+        return _Ajax({
+            API: "game/ContinuePlayGame",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 扣除会员积分
+     * @param {*} data 参数
+     */
+    _self.ReduceScores = function (data) {
+        return _Ajax({
+            API: "game/ReduceScores",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 获取验证码
+     * @param {*} data 参数
+     */
+    _self.SendPhoneCode = function (data) {
+        return _Ajax({
+            API: "game/SendPhoneCode",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 登录注册
+     * @param {*} data 参数
+     */
+    _self.login = function (data) {
+        return _Ajax({
+            API: "game/Login",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 游戏结束记录
+     * @param {*} data 参数
+     */
+    _self.EndGame = function (data) {
+        return _Ajax({
+            API: "game/EndGame",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
 }//end import
 var indexPage = function () {
     var _self = this;
@@ -1313,6 +1474,7 @@ var indexPage = function () {
         CurrentCoins = data.CurrentCoins;
         CurrentScores = data.CurrentScores;
         IsMember = data.IsMember == "0" ? false : true;
+        Mobile = data.Mobile;
     }
 
     /**
@@ -1320,7 +1482,7 @@ var indexPage = function () {
      */
     function requestRule() {
         API.getRule().then(function (res) {
-            if (res.Status = "ok") {
+            if (res.Status == "ok") {
                 page.ruleWord.text = res.Tag.contents;
                 page.ruleScroll.refresh();
             }
@@ -1404,7 +1566,7 @@ var gamePage = function () {
     /**
      * 重置游戏
      */
-    _self.resetGame = function () {
+    _self.resetGame = function (continueGame) {
         Store_dis = STORE_DIS;
         Move_dir = 0;
         Change_dir = false;
@@ -1412,8 +1574,15 @@ var gamePage = function () {
         recordFlag = false;
         pressTime = 0;
         nowStoreIndex = 0;
-        coinNum = 0;
-        couponNum = 0;
+        Player.sprite.zOrder = 99;
+        
+        if(!continueGame){
+            coinNum = 0;
+            CoinNum = 0;
+            couponNum = 0;
+            storeDataCount = 0;
+            couponList = [];
+        }
 
         updateCoinNum(0);
         updateCouponNum(0);
@@ -1443,7 +1612,7 @@ var gamePage = function () {
      */
     function gameOver() {
         // console.log("gameOver");
-        iResultPage.show();
+        iResultPage.show(coinNum);
     }
 
     /**
@@ -1517,12 +1686,12 @@ var gamePage = function () {
         let x = (Move_dir ? -1 : 1) * 200 * time / (PRESS_TIME * GAME_LEVEL);
 
         //跳出屏幕
-        if ((!Move_dir && x > Max) || (Move_dir && x < Max)) {
-            let x = nowStore.sprite.x + (Move_dir ? -1 : 1) * 1500;
-            let y = nowStore.sprite.x - 1000;
-            Player.jumpOver(x, y, gameOver);
-            return;
-        }
+        // if ((!Move_dir && x > Max) || (Move_dir && x < Max)) {
+        //     let x = nowStore.sprite.x + (Move_dir ? -1 : 1) * 1500;
+        //     let y = nowStore.sprite.x - 1000;
+        //     Player.jumpOver(x, y, gameOver);
+        //     return;
+        // }
 
         // x = 0;
         if (!Move_dir) {
@@ -1536,6 +1705,7 @@ var gamePage = function () {
         let y = Move_dir ? imath.countLeftY(x, PLAYER_STORE_DIS) : imath.countRightY(x, PLAYER_STORE_DIS);
 
         Player.jumping(x + centerX, y + centerY, function () {
+            if((!Move_dir && x > Max) || (Move_dir && x < Min)) Player.sprite.zOrder = nextStore.sprite.zOrder - 1;
             setItemXY(Player, x, y);
             if (imath.judgeInTwoNums(x, [Min, Max])) {
                 countNextData();
@@ -1707,6 +1877,7 @@ var gamePage = function () {
     function updateCoinNum(num) {
         coinNum += num;
         coinNumText.text = coinNum;
+        CoinNum = coinNum;
     }
 
     /**
@@ -1883,10 +2054,11 @@ var gamePage = function () {
 
 var iGamePage = new gamePage();
 
-var resultPage = function(){
+var resultPage = function () {
     var _self = this;
     var page;
     var showFlag = false;
+    var step = 0;
 
     /**
      * 初始化
@@ -1908,58 +2080,213 @@ var resultPage = function(){
     /**
      * 显示
      */
-    _self.show = function(){
+    _self.show = function (coinNum) {
+        renderPage(coinNum);
+        step = coinNum;
+
         page.visible = true;
         page.alpha = 0;
-        page.showAni.play(0,false);
+        page.showAni.play(0, false);
         Laya.Tween.to(page, {
             alpha: 1
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
-        API.addPV({pagepath:"/pages/result"});
+
+        requestRank();
+        API.addPV({ pagepath: "/pages/result" });
     }
 
     /**
      * 隐藏
      */
-    _self.hide = function(){
+    _self.hide = function () {
         Laya.Tween.to(page, {
             alpha: 0
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
 
-        setTimeout(function(){
+        setTimeout(function () {
             page.visible = false;
-        },PAGE_TRF_TIME+20);
+        }, PAGE_TRF_TIME + 20);
+    }
+
+    /**
+     * 更新是否是会员
+     */
+    _self.updateIsMember = function () {
+        IsMember = true;
+        page.againBtn.visible = true;
+        page.giveupBtn.visible = false;
+        page.awardBtn.visible = false;
     }
 
     /**
      * 事件初始化
      */
-    function eventInit(){
-        page.againBtn.on(Laya.Event.CLICK,this,hidePage);
-        page.giveupBtn.on(Laya.Event.CLICK,this,hidePage);
-        page.awardBtn.on(Laya.Event.CLICK,this,showLoginPage);
-        page.rankBtn.on(Laya.Event.CLICK,this,showRankPage);
+    function eventInit() {
+        page.againBtn.on(Laya.Event.CLICK, this, hidePage);
+        page.giveupBtn.on(Laya.Event.CLICK, this, hidePage);
+        page.awardBtn.on(Laya.Event.CLICK, this, showLoginPage);
+        page.rankBtn.on(Laya.Event.CLICK, this, showRankPage);
+        page.otherBtn.on(Laya.Event.CLICK, this, gotoOtherApp);
+        page.shareBtn.on(Laya.Event.CLICK, this, makePoster);
+    }
+
+    /**
+     * 请求排行榜
+     */
+    function requestRank() {
+
+    }
+
+    /**
+     * 制作海报
+     */
+    function makePoster() {
+
+    }
+
+    /**
+     * 去另一个小程序
+     */
+    function gotoOtherApp() {
+
+    }
+
+    /**
+     * 继续游戏
+     */
+    function ContinuePlayGame() {
+        iWX.alert("是否要继续游戏", function (bool) {
+            if (bool) {
+                API.ContinuePlayGame({
+                    mobile: Mobile,
+                    playkey: PlayKey,
+                    currentstep: step
+                })
+                    .then(function (res) {
+                        if (res.Status == "ok") {
+                            if (res.Tag.continuepaly) {
+                                ReduceScores();
+                            }
+                            else iWX.alert("复活需要的积分不足");
+                        }
+                        else iWX.alert(res.Msg);
+                    })
+            }
+            else hidePage();
+        })
+    }
+
+    /**
+     * 扣除积分
+     */
+    function ReduceScores() {
+        API.ReduceScores({
+            mobile: Mobile,
+            playkey: PlayKey
+        })
+            .then(function (res) {
+                if (res.Status == "ok") {
+                    iGamePage.resetGame(true);
+                    iGamePage.gameStart();
+                    _self.hide();
+                }
+                else iWX.alert(res.Msg);
+            })
+    }
+
+    /**
+     * 渲染页面
+     */
+    function renderPage(coinNum) {
+        page.coinNum.text = coinNum;
+        page.pointNum.text = CurrentScores;
+        page.couponNum.text = couponList.length;
+
+        var len = couponList.length;
+        if (len > 0) {
+            page.couponNone.visible = false;
+            page.couponScroll.visible = true;
+            page.couponScroll.removeChildren();
+            for (var i = 0; i < len; i++) {
+                var ele = couponList[i];
+                var item = creatCouponSprite(ele.CouponName);
+                item.y = item.height * i;
+                page.couponScroll.addChild(item);
+            }
+            page.couponScroll.refresh();
+        }
+        else {
+            page.couponScroll.visible = false;
+            page.couponNone.visible = true;
+        }
+
+        if (IsMember) {
+            page.againBtn.visible = true;
+            page.giveupBtn.visible = false;
+            page.awardBtn.visible = false;
+        }
+        else {
+            page.againBtn.visible = false;
+            page.giveupBtn.visible = true;
+            page.awardBtn.visible = true;
+        }
+
+        if (IsMember) sendGameData();
+    }
+
+    /**
+     * 发送游戏数据
+     */
+    function sendGameData() {
+        let couponid = "";
+        for (var i = 0; i < couponList.length; i++) {
+            couponid += (i == 0 ? "" : ",") + couponList[i].id
+        }
+        let data = {
+            openid: iWX.openId,
+            playkey: PlayKey,
+            mobile: Mobile,
+            totalcoins: CoinNum,
+            steps: CoinNum,
+            couponid: couponid
+        }
+        API.EndGame(data)
+            .then(function (res) {
+                if (res.Status == "ok") {
+                    if (couponList.length > 0) iTipsPage.show();
+                }
+                // else iWX.alert(res.Msg);
+            })
+    }
+
+    /**
+     * 创建
+     */
+    function creatCouponSprite(name) {
+        let sp = new couponUI();
+        sp.word.text = name;
+        return sp;
     }
 
     /**
      * 显示登陆页面
      */
-    function showLoginPage(){
+    function showLoginPage() {
         iLoginPage.show();
     }
 
     /**
      * 显示排行榜页面
      */
-    function showRankPage(){
+    function showRankPage() {
         iRankPage.show();
     }
 
     /**
      * 隐藏页面
      */
-    function hidePage(){
-        iGamePage.resetGame();
+    function hidePage() {
+        iGamePage.resetGame(false);
         iGamePage.gameStart();
         _self.hide();
     }
@@ -1976,10 +2303,11 @@ var resultPage = function(){
 }
 
 var iResultPage = new resultPage();
-var regPage = function(){
+var regPage = function () {
     var _self = this;
     var page;
     var showFlag = false;
+    var readFlag = false;
 
     /**
      * 初始化
@@ -2001,42 +2329,136 @@ var regPage = function(){
     /**
      * 显示
      */
-    _self.show = function(){
+    _self.show = function () {
         page.visible = true;
         page.alpha = 0;
         Laya.Tween.to(page, {
             alpha: 1
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
-        API.addPV({pagepath:"/pages/reg"});
+        API.addPV({ pagepath: "/pages/reg" });
     }
 
     /**
      * 事件初始化
      */
-    function eventInit(){
-        page.backBtn.on(Laya.Event.CLICK,this,hide);
-        page.gotoLogin.on(Laya.Event.CLICK,this,hide);
-        page.ruleBtn.on(Laya.Event.CLICK,this,showRulePage);
+    function eventInit() {
+        page.backBtn.on(Laya.Event.CLICK, this, hide);
+        page.gotoLogin.on(Laya.Event.CLICK, this, hide);
+        page.ruleBtn.on(Laya.Event.CLICK, this, showRulePage);
+
+        page.readedBtn.on(Laya.Event.CLICK, this, readPrivacy);
+        page.getCodeBtn.on(Laya.Event.CLICK, this, getCode);
+        page.regBtn.on(Laya.Event.CLICK, this, login);
+    }
+
+    /**
+     * 登录
+     */
+    function login() {
+        let phone = page.phone.text;
+        let code = page.code.text;
+
+        if(!readFlag) iWX.alert("请先阅读三里屯太古里用户隐私政策");
+        else if (!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
+        else if (code == "") iWX.alert("请输入验证码");
+        else {
+            let couponid = "";
+            for (var i = 0; i < couponList.length; i++) {
+                couponid += (i == 0 ? "" : ",") + couponList[i].id
+            }
+            let param = {
+                openid: iWX.openId,
+                mobile: phone,
+                code: code,
+                type: "REG",// LOGIN 或 REG
+                playkey: PlayKey
+            };
+            let gift =
+                {
+                    openid: iWX.openId,
+                    playkey: PlayKey,
+                    mobile: phone,
+                    totalcoins: CoinNum,
+                    steps: CoinNum,
+                    couponid: couponid
+                };
+            API.login({ logininfo: JSON.stringify(param), giftinfo: JSON.stringify(gift) })
+                .then(function (res) {
+                    if (res.Status == "ok") {
+                        iLoginPage.hide();
+                        hide();
+                        if (couponList.length > 0) iTipsPage.show();
+                        iResultPage.updateIsMember();
+                        Mobile = phone;
+                    }
+                    else iWX.alert(res.Msg);
+                })
+        }
+    }
+
+    /**
+     * 获取验证码
+     */
+    function getCode() {
+        var phone = page.phone.text;
+        if (page.codeWord.text != "获取验证码") return;
+        if (!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
+        else {
+            page.codeWord.text = "60s";
+            API.SendPhoneCode({ mobile: phone })
+                .then(function (res) {
+                    if (res.Status == "ok") {
+                        codeCount();
+                    }
+                    else {
+                        iWX.alert(res.Msg);
+                        page.codeWord.text = "获取验证码";
+                    }
+                })
+        }
+    }
+
+    /**
+     * 获取验证码倒计时
+     */
+    function codeCount() {
+        var time = 60;
+        var timer = setInterval(function () {
+            time--;
+            if (time > 0) page.codeWord.text = time + "s";
+            else {
+                page.codeWord.text = "获取验证码";
+                clearInterval(timer);
+            }
+        }, 1000);
+    }
+
+    /**
+     * 阅读隐私政策
+     */
+    function readPrivacy() {
+        readFlag = !readFlag;
+        page.readed.visible = readFlag;
     }
 
     /**
      * 显示规则页面
      */
-    function showRulePage(){
+    function showRulePage() {
         iRulePage.show();
     }
 
     /**
      * 隐藏
      */
-    function hide(){
+    function hide() {
         Laya.Tween.to(page, {
             alpha: 0
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
 
-        setTimeout(function(){
+        setTimeout(function () {
             page.visible = false;
-        },PAGE_TRF_TIME+20);
+        }, PAGE_TRF_TIME + 20);
     }
 
     /**
@@ -2055,6 +2477,7 @@ var loginPage = function(){
     var _self = this;
     var page;
     var showFlag = false;
+    var readFlag = false;
 
     /**
      * 初始化
@@ -2086,12 +2509,126 @@ var loginPage = function(){
     }
 
     /**
+     * 隐藏
+     */
+    _self.hide = function(){
+        Laya.Tween.to(page, {
+            alpha: 0
+        }, PAGE_TRF_TIME, Laya.Ease.linearIn);
+
+        setTimeout(function(){
+            page.visible = false;
+        },PAGE_TRF_TIME+20);
+    }
+
+    /**
      * 事件初始化
      */
     function eventInit(){
-        page.backBtn.on(Laya.Event.CLICK,this,hide);
+        page.backBtn.on(Laya.Event.CLICK,this,hidePage);
         page.gotoReg.on(Laya.Event.CLICK,this,showRegPage);
         page.ruleBtn.on(Laya.Event.CLICK,this,showRulePage);
+
+        page.readedBtn.on(Laya.Event.CLICK,this,readPrivacy);
+        page.getCodeBtn.on(Laya.Event.CLICK,this,getCode);
+        page.loginBtn.on(Laya.Event.CLICK,this,login);
+    }
+
+
+    /**
+     * 登录
+     */
+    function login(){
+        let phone = page.phone.text;
+        let code = page.code.text;
+
+        if(!readFlag) iWX.alert("请先阅读三里屯太古里用户隐私政策");
+        else if(!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
+        else if(code == "") iWX.alert("请输入验证码");
+        else{
+            let couponid = "";
+            for (var i = 0; i < couponList.length; i++) {
+                couponid += (i == 0 ? "" : ",") + couponList[i].id
+            }
+            let param = {
+                openid: iWX.openId,
+                mobile: phone,
+                code: code,
+                type: "LOGIN",// LOGIN 或 REG
+                playkey: PlayKey
+            };
+            let gift =
+            {
+                openid: iWX.openId,
+                playkey: PlayKey,
+                mobile: phone,
+                totalcoins: CoinNum,
+                steps: CoinNum,
+                couponid: couponid
+            };
+            API.login({logininfo: JSON.stringify(param), giftinfo: JSON.stringify(gift)})
+            .then(function(res){
+                if(res.Status == "ok"){
+                    hidePage();
+                    if(couponList.length > 0) iTipsPage.show();
+                    iResultPage.updateIsMember();
+                    Mobile = phone;
+                }
+                else iWX.alert(res.Msg);
+            })
+        }
+    }
+
+    /**
+     * 获取验证码
+     */
+    function getCode(){
+        let phone = page.phone.text;
+        if(page.codeWord.text != "获取验证码") return;
+        if(!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
+        else{
+            page.codeWord.text = "60s";
+            API.SendPhoneCode({mobile:phone})
+            .then(function(res){
+                if(res.Status == "ok"){
+                    codeCount();
+                }
+                else {
+                    iWX.alert(res.Msg);
+                    page.codeWord.text = "获取验证码";
+                }
+            })
+        }
+    }
+
+    /**
+     * 获取验证码倒计时
+     */
+    function codeCount(){
+        var time = 60;
+        var timer = setInterval(function(){
+            time--;
+            if(time > 0) page.codeWord.text = time+"s";
+            else{
+                page.codeWord.text = "获取验证码";
+                clearInterval(timer);
+            }
+        },1000);
+    }
+
+    /**
+     * 隐藏
+     */
+    function hidePage(){
+        _self.hide();
+    }
+
+    /**
+     * 阅读隐私政策
+     */
+    function readPrivacy(){
+        readFlag = !readFlag;
+        page.readed.visible = readFlag;
     }
 
     /**
@@ -2106,19 +2643,6 @@ var loginPage = function(){
      */
     function showRegPage(){
         iRegPage.show();
-    }
-
-    /**
-     * 隐藏
-     */
-    function hide(){
-        Laya.Tween.to(page, {
-            alpha: 0
-        }, PAGE_TRF_TIME, Laya.Ease.linearIn);
-
-        setTimeout(function(){
-            page.visible = false;
-        },PAGE_TRF_TIME+20);
     }
 
     /**
@@ -2186,7 +2710,7 @@ var tipsPage = function(){
 }
 
 var iTipsPage = new tipsPage();
-var rankPage = function(){
+var rankPage = function () {
     var _self = this;
     var page;
     var showFlag = false;
@@ -2211,23 +2735,59 @@ var rankPage = function(){
     /**
      * 显示
      */
-    _self.show = function(){
+    _self.show = function () {
         page.popup();
-        API.addPV({pagepath:"/pages/rank"});
+        requestRank();
+        API.addPV({ pagepath: "/pages/rank" });
+    }
+
+    /**
+     * 请求排行榜
+     */
+    function requestRank() {
+        renderRank();
+    }
+
+    /**
+     * 渲染页面
+     */
+    function renderRank() {
+        page.rankScroll.removeChildren();
+        for (var i = 0; i < 20; i++) {
+            var item = CreatRankRow(i);
+            item.y = item.height * i;
+            page.rankScroll.addChild(item);
+        }
+        page.rankScroll.refresh();
+    }
+
+    /**
+     * 创建排行榜
+     */
+    function CreatRankRow(i) {
+        let sp = new rankRowUI();
+        sp.rank.text = i;
+        let url = "https://www.seventh77.com/view/food/img/head.jpg";
+        Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+            sp.head.source = Laya.Loader.getRes(url);
+        }));
+        sp.nickname.text = "测试";
+        sp.coin.text = 9999;
+        return sp;
     }
 
     /**
      * 隐藏
      */
-    function hide(){
+    function hide() {
         page.close();
     }
 
     /**
      * 事件初始化
      */
-    function eventInit(){
-        page.closeBtn.on(Laya.Event.CLICK,this,hide);
+    function eventInit() {
+        page.closeBtn.on(Laya.Event.CLICK, this, hide);
     }
 
     /**
@@ -2275,7 +2835,7 @@ var rulePage = function(){
      */
     function requestPrivacy(){
         API.getPrivacy().then(function(res){
-            if(res.Status = "ok"){
+            if(res.Status == "ok"){
                 let cont = "";
                 
                 for (var i = 0; i < res.Tag.RegRule.list.length; i++) {
@@ -2323,7 +2883,7 @@ var Nav = function (box) {
      * 换皮肤
      */
     _self.changeSkin = function (url) {
-        let img = url || 'images/navs/' + imath.randomRange(1,2) +'.png';
+        let img = url || 'images/navs/' + imath.randomRange(1,8) +'.png';
         this.sprite.nav.source = Laya.Loader.getRes(img);
     }
 

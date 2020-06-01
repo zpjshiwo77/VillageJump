@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":5,
+    "selectedBox":19,
+    "selecteID":20,
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
     "label":"View",
@@ -85,19 +85,6 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":8,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":263,"x":412,"var":"getCodeBtn","skin":"images/login/btn1.png"},
-                    "nodeParent":5,
-                    "label":"Image(getCodeBtn)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
                     "child":[
                         ]
                 },
@@ -196,7 +183,7 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":166,"x":110,"width":533,"var":"phone","type":"number","promptColor":"#9fa0a0","prompt":"手机号","height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"},
+                    "props":{"y":166,"x":110,"width":533,"var":"phone","type":"number","promptColor":"#9fa0a0","prompt":"手机号","maxChars":11,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":5,
                     "label":"TextInput(phone)",
                     "isDirectory":false,
@@ -210,7 +197,7 @@
                 {
                     "x":30,
                     "type":"TextInput",
-                    "props":{"y":282,"x":110,"width":274,"var":"code","type":"number","promptColor":"#9fa0a0","prompt":"验证码","height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"},
+                    "props":{"y":282,"x":110,"width":274,"var":"code","type":"number","promptColor":"#9fa0a0","prompt":"验证码","maxChars":8,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":5,
                     "label":"TextInput(code)",
                     "isDirectory":false,
@@ -219,7 +206,60 @@
                     "compId":18,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":263,"x":412,"var":"getCodeBtn"},
+                    "nodeParent":5,
+                    "label":"Box(getCodeBtn)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":19,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"skin":"images/login/btn1.png"},
+                            "nodeParent":19,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":9,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Text",
+                            "props":{"y":0,"x":0,"width":251,"var":"codeWord","valign":"middle","text":"获取验证码","height":91,"fontSize":30,"font":"Microsoft YaHei","color":"#000","align":"center"},
+                            "nodeParent":19,
+                            "label":"Text(codeWord)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":20,
+                            "child":[
+                                ]
+                        }]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "props":{"y":570,"x":82,"width":243,"var":"readedBtn","height":39},
+            "nodeParent":1,
+            "label":"Sprite(readedBtn)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":21,
+            "child":[
+                ],
+            "$HIDDEN":true
         }],
     "animations":[
         {

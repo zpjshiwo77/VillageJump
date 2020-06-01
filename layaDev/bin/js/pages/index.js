@@ -108,6 +108,7 @@ var indexPage = function () {
         CurrentCoins = data.CurrentCoins;
         CurrentScores = data.CurrentScores;
         IsMember = data.IsMember == "0" ? false : true;
+        Mobile = data.Mobile;
     }
 
     /**
@@ -115,7 +116,7 @@ var indexPage = function () {
      */
     function requestRule() {
         API.getRule().then(function (res) {
-            if (res.Status = "ok") {
+            if (res.Status == "ok") {
                 page.ruleWord.text = res.Tag.contents;
                 page.ruleScroll.refresh();
             }

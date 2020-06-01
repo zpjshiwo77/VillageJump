@@ -1,4 +1,4 @@
-var unpackImg = ["images/index/rule.png","images/login/b1.png","images/login/read.png","images/rank/kuang1.png","images/rank/kuang2.png","images/reg/read.png","images/result/kuang.png","images/result/shareBtn.png","images/rule/box.png","images/tips/award.png"];
+var unpackImg = ["images/common/blank.png","images/common/share.jpg","images/index/rule.png","images/login/b1.png","images/login/read.png","images/navs/1.png","images/navs/2.png","images/navs/3.png","images/navs/4.png","images/navs/5.png","images/navs/6.png","images/navs/7.png","images/navs/8.png","images/rank/kuang1.png","images/rank/kuang2.png","images/reg/read.png","images/result/kuang.png","images/result/shareBtn.png","images/rule/cont.png","images/tips/award.png"];
 
 var PreResources = [
     { url: 'res/atlas/images/common.atlas', type: Loader.ATLAS },
@@ -11,7 +11,6 @@ var PreResources = [
     { url: 'res/atlas/images/reg.atlas', type: Loader.ATLAS },
     { url: 'res/atlas/images/result.atlas', type: Loader.ATLAS },
     { url: 'res/atlas/images/rule.atlas', type: Loader.ATLAS },
-    { url: 'res/atlas/images/navs.atlas', type: Loader.ATLAS },
     { url: 'res/atlas/images/icon/coupon.atlas', type: Loader.ATLAS },
 ];
 var Resources = [

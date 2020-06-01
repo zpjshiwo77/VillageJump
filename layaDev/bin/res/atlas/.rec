@@ -1,6 +1,8 @@
 D .
 D images
 D images/common
+R D51D8BB6 blank.png
+R A400651B share.jpg
 P 52107B89 vscroll$bar.png
 P E26B933E vscroll$down.png
 P B9680947 vscroll$up.png
@@ -26,14 +28,20 @@ P EAEEE540 vscroll.png
 D images/login
 R 2B3BBDA8 b1.png
 P C2025BB0 b2.png
-P 364670CD btn1.png
+P 1D9026CF btn1.png
 P 2A823DFC btn2.png
 R 47DF4273 read.png
 P 8FB216C8 reg.png
 P 4D290FF1 title.png
 D images/navs
-P AC111259 1.png
-P 494F2DD0 2.png
+R 7E631759 1.png
+R 6F46580E 2.png
+R F4DB9024 3.png
+R A1F9317A 4.png
+R CF663743 5.png
+R 00E01B55 6.png
+R A03160C4 7.png
+R B38548A9 8.png
 D images/player
 P ABD41FCC p.png
 D images/rank

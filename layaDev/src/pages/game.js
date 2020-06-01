@@ -56,7 +56,7 @@ var gamePage = function () {
     /**
      * 重置游戏
      */
-    _self.resetGame = function () {
+    _self.resetGame = function (continueGame) {
         Store_dis = STORE_DIS;
         Move_dir = 0;
         Change_dir = false;
@@ -64,8 +64,15 @@ var gamePage = function () {
         recordFlag = false;
         pressTime = 0;
         nowStoreIndex = 0;
-        coinNum = 0;
-        couponNum = 0;
+        Player.sprite.zOrder = 99;
+        
+        if(!continueGame){
+            coinNum = 0;
+            CoinNum = 0;
+            couponNum = 0;
+            storeDataCount = 0;
+            couponList = [];
+        }
 
         updateCoinNum(0);
         updateCouponNum(0);
@@ -95,7 +102,7 @@ var gamePage = function () {
      */
     function gameOver() {
         // console.log("gameOver");
-        iResultPage.show();
+        iResultPage.show(coinNum);
     }
 
     /**
@@ -169,12 +176,12 @@ var gamePage = function () {
         let x = (Move_dir ? -1 : 1) * 200 * time / (PRESS_TIME * GAME_LEVEL);
 
         //跳出屏幕
-        if ((!Move_dir && x > Max) || (Move_dir && x < Max)) {
-            let x = nowStore.sprite.x + (Move_dir ? -1 : 1) * 1500;
-            let y = nowStore.sprite.x - 1000;
-            Player.jumpOver(x, y, gameOver);
-            return;
-        }
+        // if ((!Move_dir && x > Max) || (Move_dir && x < Max)) {
+        //     let x = nowStore.sprite.x + (Move_dir ? -1 : 1) * 1500;
+        //     let y = nowStore.sprite.x - 1000;
+        //     Player.jumpOver(x, y, gameOver);
+        //     return;
+        // }
 
         // x = 0;
         if (!Move_dir) {
@@ -188,6 +195,7 @@ var gamePage = function () {
         let y = Move_dir ? imath.countLeftY(x, PLAYER_STORE_DIS) : imath.countRightY(x, PLAYER_STORE_DIS);
 
         Player.jumping(x + centerX, y + centerY, function () {
+            if((!Move_dir && x > Max) || (Move_dir && x < Min)) Player.sprite.zOrder = nextStore.sprite.zOrder - 1;
             setItemXY(Player, x, y);
             if (imath.judgeInTwoNums(x, [Min, Max])) {
                 countNextData();
@@ -359,6 +367,7 @@ var gamePage = function () {
     function updateCoinNum(num) {
         coinNum += num;
         coinNumText.text = coinNum;
+        CoinNum = coinNum;
     }
 
     /**

@@ -8,7 +8,7 @@ var Nav = function (box) {
      * 换皮肤
      */
     _self.changeSkin = function (url) {
-        let img = url || 'images/navs/' + imath.randomRange(1,2) +'.png';
+        let img = url || 'images/navs/' + imath.randomRange(1,8) +'.png';
         this.sprite.nav.source = Laya.Loader.getRes(img);
     }
 

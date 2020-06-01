@@ -169,4 +169,64 @@ function importAPI() {
         });
     }//end func
 
+    /**
+     * 继续游戏
+     * @param {*} data 参数
+     */
+    _self.ContinuePlayGame = function (data) {
+        return _Ajax({
+            API: "game/ContinuePlayGame",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 扣除会员积分
+     * @param {*} data 参数
+     */
+    _self.ReduceScores = function (data) {
+        return _Ajax({
+            API: "game/ReduceScores",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 获取验证码
+     * @param {*} data 参数
+     */
+    _self.SendPhoneCode = function (data) {
+        return _Ajax({
+            API: "game/SendPhoneCode",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 登录注册
+     * @param {*} data 参数
+     */
+    _self.login = function (data) {
+        return _Ajax({
+            API: "game/Login",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
+    /**
+     * 游戏结束记录
+     * @param {*} data 参数
+     */
+    _self.EndGame = function (data) {
+        return _Ajax({
+            API: "game/EndGame",
+            data: data,
+            method: "POST"
+        });
+    }//end func
+
 }//end import
