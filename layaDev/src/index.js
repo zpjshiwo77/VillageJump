@@ -38,6 +38,7 @@ layaInit();
  */
 function preLoadComplate() {
     iIndexPage.init();
+    iBgm.init();
     // RequestStoreInfoTest();
     // DevelopTest();
 

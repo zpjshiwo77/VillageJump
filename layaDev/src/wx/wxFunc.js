@@ -51,9 +51,9 @@ var wxFunc = function () {
                 mask: true,
                 success(res) {
                     if (res.confirm) {
-                        callback(true);
+                        if (callback) callback(true);
                     } else if (res.cancel) {
-                        callback(false);
+                        if (callback) callback(false);
                     }
                 }
             })
@@ -216,4 +216,51 @@ var wxFunc = function () {
             });
         }
     }
+
+    /**
+     * 生成分享到朋友圈的图片
+     */
+    _self.shareGameToTimeline = function () {
+        if (isWX) {
+            const canvas = wx.createCanvas();
+            canvas.width = 750;
+            canvas.height = 1624;
+            const context = canvas.getContext('2d');
+
+            context.fillStyle = '#fff4d6';
+            context.fillRect(0, 0, 750, 1624);
+            // context.draw();
+
+            canvas.toTempFilePath({
+                success: (res) => {
+                    wx.saveImageToPhotosAlbum({
+                        filePath: res.tempFilePath,
+                        success: () => {
+                            console.log("保存图片到相册成功");
+                        },
+                        fail: (err) => {
+                            console.log("保存图片到相册失败 : " + err);
+                        }
+                    })
+                }
+            })
+        }
+    }
+
+
+    /**
+     * 显示微信的键盘
+     */
+    _self.showKeyboard = function () {
+        if (isWX) {
+            wx.showKeyboard({
+                defaultValue: "",
+                maxLength: 16,
+                multiple: false,
+                confirmHold: true,
+                confirmType: "完成"
+            })
+        }
+    }
+
 }

@@ -2,6 +2,26 @@ var CLASS$=Laya.class;
 var STATICATTR$=Laya.static;
 var View=laya.ui.View;
 var Dialog=laya.ui.Dialog;
+var bgmBtnUI=(function(_super){
+		function bgmBtnUI(){
+			
+		    this.bgmBtn=null;
+
+			bgmBtnUI.__super.call(this);
+		}
+
+		CLASS$(bgmBtnUI,'ui.bgmBtnUI',_super);
+		var __proto__=bgmBtnUI.prototype;
+		__proto__.createChildren=function(){
+		    
+			laya.ui.Component.prototype.createChildren.call(this);
+			this.createView(bgmBtnUI.uiView);
+
+		}
+
+		bgmBtnUI.uiView={"type":"View","props":{"width":58,"height":58},"child":[{"type":"Image","props":{"var":"bgmBtn","skin":"images/common/play.png"}}]};
+		return bgmBtnUI;
+	})(View);
 var couponUI=(function(_super){
 		function couponUI(){
 			
@@ -134,8 +154,8 @@ var navIconUI=(function(_super){
 var playerUI=(function(_super){
 		function playerUI(){
 			
-		    this.somersaultAni=null;
-		    this.img=null;
+		    this.warmUpAni=null;
+		    this.jumpAni=null;
 
 			playerUI.__super.call(this);
 		}
@@ -149,7 +169,7 @@ var playerUI=(function(_super){
 
 		}
 
-		playerUI.uiView={"type":"View","props":{"y":91,"x":51,"width":103,"pivotY":91,"pivotX":51,"height":181},"child":[{"type":"Image","props":{"y":91,"x":51,"width":103,"var":"img","skin":"images/player/p.png","pivotY":91,"pivotX":51,"height":181,"bottom":0},"compId":2}],"animations":[{"nodes":[{"target":2,"keyframes":{"rotation":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":2,"key":"rotation","index":0},{"value":360,"tweenMethod":"linearNone","tween":true,"target":2,"key":"rotation","index":12}]}}],"name":"somersaultAni","id":1,"frameRate":24,"action":0}]};
+		playerUI.uiView={"type":"View","props":{"y":60,"x":50,"width":100,"pivotY":60,"pivotX":50,"height":135},"child":[{"type":"Animation","props":{"var":"warmUpAni","source":"images/player/01.png,images/player/02.png,images/player/03.png,images/player/04.png,images/player/05.png,images/player/06.png,images/player/07.png,images/player/08.png,images/player/09.png,images/player/10.png","scaleY":0.5,"scaleX":0.5,"interval":100}},{"type":"Animation","props":{"visible":false,"var":"jumpAni","source":"images/player/11.png,images/player/12.png,images/player/13.png,images/player/14.png,images/player/15.png,images/player/16.png,images/player/17.png,images/player/18.png,images/player/19.png,images/player/20.png,images/player/21.png,images/player/22.png","scaleY":0.5,"scaleX":0.5,"interval":33}}]};
 		return playerUI;
 	})(View);
 var rankUI=(function(_super){
@@ -232,7 +252,7 @@ var regUI=(function(_super){
 
 		}
 
-		regUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":50,"x":215,"skin":"images/reg/title.png"}},{"type":"Image","props":{"y":151,"x":88,"skin":"images/login/b1.png"}},{"type":"Image","props":{"y":266,"x":88,"skin":"images/login/b2.png"}},{"type":"Image","props":{"y":376,"x":88,"skin":"images/login/read.png"}},{"type":"Sprite","props":{"y":381,"x":93,"visible":false,"var":"readed"},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":20,"lineWidth":1,"height":20,"fillColor":"#000000"}}]},{"type":"Sprite","props":{"y":376,"x":331,"width":321,"var":"ruleBtn","height":28}},{"type":"Image","props":{"y":541,"x":230,"var":"regBtn","skin":"images/reg/ok.png"}},{"type":"Image","props":{"y":665,"x":276,"var":"gotoLogin","skin":"images/reg/login.png"}},{"type":"Image","props":{"y":1073,"x":50,"var":"backBtn","skin":"images/icon/back.png"}},{"type":"TextInput","props":{"y":166,"x":110,"width":533,"var":"phone","type":"number","promptColor":"#9fa0a0","prompt":"手机号","maxChars":11,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"TextInput","props":{"y":282,"x":110,"width":274,"var":"code","type":"number","promptColor":"#9fa0a0","prompt":"验证码","maxChars":8,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"Box","props":{"y":263,"x":412,"var":"getCodeBtn"},"child":[{"type":"Image","props":{"skin":"images/login/btn1.png"}},{"type":"Text","props":{"y":0,"x":0,"width":251,"var":"codeWord","valign":"middle","text":"获取验证码","height":91,"fontSize":30,"font":"Microsoft YaHei","color":"#000","align":"center"}}]}]},{"type":"Sprite","props":{"y":570,"x":82,"width":243,"var":"readedBtn","height":39}}]};
+		regUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":50,"x":215,"skin":"images/reg/title.png"}},{"type":"Image","props":{"y":151,"x":88,"skin":"images/login/b1.png"}},{"type":"Image","props":{"y":266,"x":88,"skin":"images/login/b2.png"}},{"type":"Image","props":{"y":376,"x":88,"skin":"images/login/read.png"}},{"type":"Sprite","props":{"y":381,"x":93,"visible":false,"var":"readed"},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":20,"lineWidth":1,"height":20,"fillColor":"#000000"}}]},{"type":"Sprite","props":{"y":376,"x":331,"width":321,"var":"ruleBtn","height":28}},{"type":"Image","props":{"y":541,"x":230,"var":"regBtn","skin":"images/reg/ok.png"}},{"type":"Image","props":{"y":665,"x":276,"var":"gotoLogin","skin":"images/reg/login.png"}},{"type":"Image","props":{"y":1073,"x":50,"var":"backBtn","skin":"images/icon/back.png"}},{"type":"TextInput","props":{"y":166,"x":110,"width":533,"var":"phone","type":"number","promptColor":"#9fa0a0","prompt":"手机号","maxChars":11,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"TextInput","props":{"y":282,"x":110,"width":274,"var":"code","type":"number","promptColor":"#9fa0a0","prompt":"验证码","maxChars":8,"height":55,"fontSize":25,"font":"Microsoft YaHei","color":"#000000"}},{"type":"Box","props":{"y":263,"x":412,"var":"getCodeBtn"},"child":[{"type":"Image","props":{"skin":"images/login/btn1.png"}},{"type":"Text","props":{"y":0,"x":0,"width":251,"var":"codeWord","valign":"middle","text":"获取验证码","height":91,"fontSize":30,"font":"Microsoft YaHei","color":"#000","align":"center"}}]},{"type":"Sprite","props":{"y":370,"x":82,"width":243,"var":"readedBtn","height":39}}]}]};
 		return regUI;
 	})(View);
 var resultUI=(function(_super){
@@ -268,7 +288,7 @@ var resultUI=(function(_super){
 
 		}
 
-		resultUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":2,"x":46,"skin":"images/result/logo.png","name":"logo"},"compId":6},{"type":"Image","props":{"y":46,"x":211,"skin":"images/index/block.png","name":"block"},"compId":7},{"type":"Box","props":{"y":640,"x":375,"width":638,"pivotY":75,"pivotX":319,"name":"couponBox","height":149},"compId":9,"child":[{"type":"Image","props":{"skin":"images/result/kuang.png"}},{"type":"Panel","props":{"y":28,"x":63,"width":555,"var":"couponScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":94}},{"type":"Sprite","props":{"y":22,"x":35,"width":573,"var":"couponNone","height":96},"child":[{"type":"Image","props":{"y":16,"x":46,"skin":"images/icon/block.png"}},{"type":"Text","props":{"y":44,"x":125,"width":388,"text":"本局没有抢到优惠券，还要继续努力~","height":36,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]}]},{"type":"Box","props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},"compId":14,"child":[{"type":"Image","props":{"y":6,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":6,"x":45,"width":155,"var":"coinNum","text":"0","height":50,"fontSize":50,"color":"#000000","bold":true}},{"type":"Text","props":{"y":78,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":80,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":76,"x":45,"width":63,"var":"pointNum","text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"}},{"type":"Image","props":{"y":145,"x":2,"width":35,"skin":"images/icon/coupon.png","height":20}},{"type":"Text","props":{"y":132,"x":45,"width":38,"var":"couponNum","text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"}}]},{"type":"Box","props":{"y":757,"x":375,"width":638,"pivotX":319,"name":"btnBox","height":90},"compId":21,"child":[{"type":"Image","props":{"y":45,"x":319,"width":290,"visible":false,"var":"againBtn","skin":"images/result/btn3.png","pivotY":45,"pivotX":145,"height":90}},{"type":"Image","props":{"var":"giveupBtn","skin":"images/result/btn1.png"}},{"type":"Image","props":{"y":0,"x":349,"var":"awardBtn","skin":"images/result/btn2.png"}}]},{"type":"Box","props":{"y":1130,"x":58,"name":"shareBox"},"compId":30,"child":[{"type":"Image","props":{"y":0,"x":0,"skin":"images/result/shareBtn.png"}},{"type":"Sprite","props":{"y":0,"width":216,"var":"otherBtn","height":51}},{"type":"Sprite","props":{"y":0,"x":389,"width":249,"var":"shareBtn","height":53}}]},{"type":"Box","props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},"compId":32,"child":[{"type":"Image","props":{"x":298,"skin":"images/result/rank.png"}},{"type":"Image","props":{"y":41,"x":570,"var":"rankBtn","skin":"images/result/rankBtn.png"}},{"type":"Box","props":{"y":85,"x":218,"width":74,"var":"rank1","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":338,"width":74,"var":"rank2","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":458,"width":74,"var":"rank3","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]}]}]}],"animations":[{"nodes":[{"target":6,"keyframes":{"y":[{"value":-124,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":0},{"value":2,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":5}],"x":[{"value":-138,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":5}]}},{"target":7,"keyframes":{"y":[{"value":-134,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":5}],"x":[{"value":811,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":0},{"value":211,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":5}]}},{"target":32,"keyframes":{"y":[{"value":1450,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":0},{"value":900,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":5}]}},{"target":30,"keyframes":{"y":[{"value":1680,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":0},{"value":1130,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":5}]}},{"target":14,"keyframes":{"x":[{"value":-250,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":0},{"value":73,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":5}]}},{"target":9,"keyframes":{"x":[{"value":-375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":5}]}},{"target":21,"keyframes":{"x":[{"value":1100,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":5}]}}],"name":"showAni","id":1,"frameRate":24,"action":0}]};
+		resultUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":2,"x":46,"skin":"images/result/logo.png","name":"logo"},"compId":6},{"type":"Image","props":{"y":46,"x":211,"skin":"images/index/block.png","name":"block"},"compId":7},{"type":"Box","props":{"y":640,"x":375,"width":638,"pivotY":75,"pivotX":319,"name":"couponBox","height":149},"compId":9,"child":[{"type":"Image","props":{"skin":"images/result/kuang.png"}},{"type":"Panel","props":{"y":28,"x":63,"width":555,"var":"couponScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":94}},{"type":"Sprite","props":{"y":22,"x":35,"width":573,"var":"couponNone","height":96},"child":[{"type":"Image","props":{"y":16,"x":46,"skin":"images/icon/block.png"}},{"type":"Text","props":{"y":44,"x":125,"width":388,"text":"本局没有抢到优惠券，还要继续努力~","height":36,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]}]},{"type":"Box","props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},"compId":14,"child":[{"type":"Image","props":{"y":6,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":6,"x":45,"width":155,"var":"coinNum","text":"0","height":50,"fontSize":50,"color":"#000000","bold":true}},{"type":"Text","props":{"y":78,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":80,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":76,"x":45,"width":63,"var":"pointNum","text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"}},{"type":"Image","props":{"y":145,"x":2,"width":35,"skin":"images/icon/coupon.png","height":20}},{"type":"Text","props":{"y":132,"x":45,"width":38,"var":"couponNum","text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"}}]},{"type":"Box","props":{"y":757,"x":375,"width":638,"pivotX":319,"name":"btnBox","height":90},"compId":21,"child":[{"type":"Image","props":{"y":45,"x":319,"width":290,"visible":false,"var":"againBtn","skin":"images/result/btn3.png","pivotY":45,"pivotX":145,"height":90}},{"type":"Image","props":{"var":"giveupBtn","skin":"images/result/btn1.png"}},{"type":"Image","props":{"y":0,"x":349,"var":"awardBtn","skin":"images/result/btn2.png"}}]},{"type":"Box","props":{"y":1130,"x":58,"name":"shareBox"},"compId":30,"child":[{"type":"Image","props":{"y":0,"x":0,"skin":"images/result/shareBtn.png"}},{"type":"Sprite","props":{"y":0,"width":216,"var":"otherBtn","height":51}},{"type":"Sprite","props":{"y":0,"x":389,"width":249,"var":"shareBtn","height":53}}]},{"type":"Box","props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},"compId":32,"child":[{"type":"Image","props":{"x":298,"skin":"images/result/rank.png"}},{"type":"Image","props":{"y":41,"x":570,"var":"rankBtn","skin":"images/result/rankBtn.png"}},{"type":"Box","props":{"y":85,"x":218,"width":74,"visible":false,"var":"rank1","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":338,"width":74,"visible":false,"var":"rank2","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":458,"width":74,"visible":false,"var":"rank3","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]}]}]}],"animations":[{"nodes":[{"target":6,"keyframes":{"y":[{"value":-124,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":0},{"value":2,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":5}],"x":[{"value":-138,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":5}]}},{"target":7,"keyframes":{"y":[{"value":-134,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":5}],"x":[{"value":811,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":0},{"value":211,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":5}]}},{"target":32,"keyframes":{"y":[{"value":1450,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":0},{"value":900,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":5}]}},{"target":30,"keyframes":{"y":[{"value":1680,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":0},{"value":1130,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":5}]}},{"target":14,"keyframes":{"x":[{"value":-250,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":0},{"value":73,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":5}]}},{"target":9,"keyframes":{"x":[{"value":-375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":5}]}},{"target":21,"keyframes":{"x":[{"value":1100,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":5}]}}],"name":"showAni","id":1,"frameRate":24,"action":0}]};
 		return resultUI;
 	})(View);
 var ruleUI=(function(_super){
@@ -350,9 +370,7 @@ const PLAYER_STORE_DIS = -150;                  //玩家与商店的垂直距离
 const NAV_STORE_DIS = 50;                       //导航与商店的垂直距离
 const SENCE_MOVE_TIME = 500;                    //场景移动的时间
 const STORE_WIDTH = 160;                        //块的可站立宽度
-const COIN_UNIT = 1;                            //成功一次的金币数量
 const PAGE_TRF_TIME = 300;                      //页面过渡时间
-const GAME_LEVEL = 2;                           //游戏等级
 
 //变量
 let iWX;
@@ -360,10 +378,13 @@ let iWX;
 let BgPageY = 0, WindowH = 0;
 let GameContH = 0;
 
-let CoinNum = 0,couponList = [];
+let CoinNum = 0,couponList = [], CoinVal = 0, CoinToScores = 0;
+let GAME_LEVEL = 2;                             //游戏等级
 
 let storeDatas = [];
 let storeDataCount = 0;
+
+let BgmUrl = "https://wechat.dhteam.net/osm/audio/bgm.mp3";
 
 let PlayKey = "";                               //关键字符
 let ContinuePlayGame = false;                   //是否继续游戏
@@ -691,9 +712,9 @@ var wxFunc = function () {
                 mask: true,
                 success(res) {
                     if (res.confirm) {
-                        callback(true);
+                        if (callback) callback(true);
                     } else if (res.cancel) {
-                        callback(false);
+                        if (callback) callback(false);
                     }
                 }
             })
@@ -856,6 +877,53 @@ var wxFunc = function () {
             });
         }
     }
+
+    /**
+     * 生成分享到朋友圈的图片
+     */
+    _self.shareGameToTimeline = function () {
+        if (isWX) {
+            const canvas = wx.createCanvas();
+            canvas.width = 750;
+            canvas.height = 1624;
+            const context = canvas.getContext('2d');
+
+            context.fillStyle = '#fff4d6';
+            context.fillRect(0, 0, 750, 1624);
+            // context.draw();
+
+            canvas.toTempFilePath({
+                success: (res) => {
+                    wx.saveImageToPhotosAlbum({
+                        filePath: res.tempFilePath,
+                        success: () => {
+                            console.log("保存图片到相册成功");
+                        },
+                        fail: (err) => {
+                            console.log("保存图片到相册失败 : " + err);
+                        }
+                    })
+                }
+            })
+        }
+    }
+
+
+    /**
+     * 显示微信的键盘
+     */
+    _self.showKeyboard = function () {
+        if (isWX) {
+            wx.showKeyboard({
+                defaultValue: "",
+                maxLength: 16,
+                multiple: false,
+                confirmHold: true,
+                confirmType: "完成"
+            })
+        }
+    }
+
 }
 
 var encryption = function () {
@@ -1167,7 +1235,7 @@ function importAPI() {
             let header = {
                 'content-type': "application/x-www-form-urlencoded"
             };
-            if (_self.SessionKey) data.SessionKey = _self.SessionKey;
+            // if (_self.SessionKey) data.SessionKey = _self.SessionKey;
 
             if (method == "POST") {
                 let signature = iEncryption.getMD5Staff(data);
@@ -1254,12 +1322,31 @@ function importAPI() {
         });
     }//end func
 
+    _self.getallrank = function(data){
+        return _Ajax({
+            API: "game/getallrank",
+            data: data,
+            method: "GET"
+        });
+    }
+
     /**
      * 获取店铺优惠券
      */
     _self.GetCouponsInfoByStore = function (data) {
         return _Ajax({
             API: "game/GetCouponsInfoByStore",
+            data: data,
+            method: "GET"
+        });
+    }//end func
+
+    /**
+     * 获取金币优惠券
+     */
+    _self.GetCouponsInfo = function (data) {
+        return _Ajax({
+            API: "game/GetCouponsInfo",
             data: data,
             method: "GET"
         });
@@ -1475,6 +1562,9 @@ var indexPage = function () {
         CurrentScores = data.CurrentScores;
         IsMember = data.IsMember == "0" ? false : true;
         Mobile = data.Mobile;
+        CoinToScores = data.CoinToScores;
+        CoinVal = data.NEXTSTEP;
+        GAME_LEVEL = data.GameLevel;
     }
 
     /**
@@ -1560,7 +1650,7 @@ var gamePage = function () {
 
         let nowStore = Sence_Stores[nowStoreIndex];
         if (nowStore.infoData.ActiveTitle) showInfoBox(nowStore.infoData);
-        API.addPV({pagepath:"/pages/game"});
+        API.addPV({ pagepath: "/pages/game" });
     }
 
     /**
@@ -1575,8 +1665,8 @@ var gamePage = function () {
         pressTime = 0;
         nowStoreIndex = 0;
         Player.sprite.zOrder = 99;
-        
-        if(!continueGame){
+
+        if (!continueGame) {
             coinNum = 0;
             CoinNum = 0;
             couponNum = 0;
@@ -1705,7 +1795,8 @@ var gamePage = function () {
         let y = Move_dir ? imath.countLeftY(x, PLAYER_STORE_DIS) : imath.countRightY(x, PLAYER_STORE_DIS);
 
         Player.jumping(x + centerX, y + centerY, function () {
-            if((!Move_dir && x > Max) || (Move_dir && x < Min)) Player.sprite.zOrder = nextStore.sprite.zOrder - 1;
+            if ((!Move_dir && x > Max) || (Move_dir && x < Max)) Player.sprite.zOrder = nextStore.sprite.zOrder - 1;
+            else if ((!Move_dir && x < Min) || (Move_dir && x > Min)) Player.sprite.zOrder = nowStore.sprite.zOrder - 1;
             setItemXY(Player, x, y);
             if (imath.judgeInTwoNums(x, [Min, Max])) {
                 countNextData();
@@ -1774,10 +1865,10 @@ var gamePage = function () {
             iAnime.fallAnime(lastStore.sprite, 0);
             iAnime.showAnime(lastNav.sprite, 400);
 
-            updateCoinNum(COIN_UNIT);
+            updateCoinNum(1);
             let nowStore = Sence_Stores[nowStoreIndex];
             judgeCoinNumsCoupon(Player.sprite.x, Player.sprite.y);
-            if (nowStore.infoData.ContainsCoupons > 0) requestStoreCoupon(nowStore.infoData,Player.sprite.x, Player.sprite.y);
+            if (nowStore.infoData.ContainsCoupons > 0) requestStoreCoupon(nowStore.infoData, Player.sprite.x, Player.sprite.y);
             if (nowStore.infoData.ActiveTitle) showInfoBox(nowStore.infoData);
 
             setTimeout(function () {
@@ -1789,14 +1880,17 @@ var gamePage = function () {
     /**
      * 判断一定数量的金币获取优惠券
      */
-    function judgeCoinNumsCoupon(x,y){
+    function judgeCoinNumsCoupon(x, y) {
         for (var i = 0; i < AddUpCoinGiveCoupon.length; i++) {
-            if(coinNum >= AddUpCoinGiveCoupon[i].needcoins){
+            if (coinNum >= AddUpCoinGiveCoupon[i].needcoins) {
                 let item = AddUpCoinGiveCoupon.shift();
-                item.id = item.couponid;
-                item.CouponName = item.needcoins + "金币优惠券";
-                couponList.push(item);
-                couponAnime(x,y,1);
+                API.GetCouponsInfo({ ids: item.couponid })
+                    .then(function (res) {
+                        if (res.Status == "ok") {
+                            couponList.push(...res.Tag);
+                            couponAnime(x, y, 1);
+                        }
+                    })
                 return;
             }
         }
@@ -1805,14 +1899,14 @@ var gamePage = function () {
     /**
      * 请求优惠券
      */
-    function requestStoreCoupon(info,x,y){
-        API.GetCouponsInfoByStore({storekey:info.StoreKey})
-        .then(function(res){
-            if(res.Status == "ok" && res.Tag.length > 0){
-                couponList.push(...res.Tag);
-                couponAnime(x,y,res.Tag.length);
-            }
-        })
+    function requestStoreCoupon(info, x, y) {
+        API.GetCouponsInfoByStore({ storekey: info.StoreKey })
+            .then(function (res) {
+                if (res.Status == "ok" && res.Tag.length > 0) {
+                    couponList.push(...res.Tag);
+                    couponAnime(x, y, res.Tag.length);
+                }
+            })
     }
 
     /**
@@ -1876,7 +1970,7 @@ var gamePage = function () {
      */
     function updateCoinNum(num) {
         coinNum += num;
-        coinNumText.text = coinNum;
+        coinNumText.text = coinNum * CoinVal;
         CoinNum = coinNum;
     }
 
@@ -2134,14 +2228,46 @@ var resultPage = function () {
      * 请求排行榜
      */
     function requestRank() {
+        API.getallrank({ openid: iWX.openId, top: 50 })
+            .then(function (res) {
+                if (res.Status == "ok") {
+                    if (res.Tag.ranklist.length == 1) {
+                        renderRank([page.rank2], res.Tag.ranklist)
+                    }
+                    else if (res.Tag.ranklist.length == 2) {
+                        renderRank([page.rank1, page.rank3], res.Tag.ranklist)
+                    }
+                    else {
+                        renderRank([page.rank1, page.rank2, page.rank3], res.Tag.ranklist)
+                    }
+                }
+            })
+    }
 
+    /**
+     * 渲染排行榜
+     */
+    function renderRank(boxs, list) {
+        for (let i = 0; i < boxs.length; i++) {
+            let box = boxs[i];
+            let info = list[i]
+            let url = info.headimg;
+            if(url.indexOf("http") == -1) break;
+            Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+                console.log(box)
+                box.getChildByName("head").source = Laya.Loader.getRes(url);
+                box.getChildByName("nickname").text = iUtils.setString(info.nickname, 6);
+                box.getChildByName("coin").text = info.coins;
+                box.visible = true;
+            }));
+        }
     }
 
     /**
      * 制作海报
      */
     function makePoster() {
-
+        // iWX.shareGameToTimeline();
     }
 
     /**
@@ -2198,8 +2324,8 @@ var resultPage = function () {
      * 渲染页面
      */
     function renderPage(coinNum) {
-        page.coinNum.text = coinNum;
-        page.pointNum.text = CurrentScores;
+        page.coinNum.text = coinNum * CoinVal;
+        page.pointNum.text = parseInt(coinNum * CoinVal * CoinToScores);
         page.couponNum.text = couponList.length;
 
         var len = couponList.length;
@@ -2246,7 +2372,7 @@ var resultPage = function () {
             openid: iWX.openId,
             playkey: PlayKey,
             mobile: Mobile,
-            totalcoins: CoinNum,
+            totalcoins: CoinNum * CoinVal,
             steps: CoinNum,
             couponid: couponid
         }
@@ -2378,7 +2504,7 @@ var regPage = function () {
                     openid: iWX.openId,
                     playkey: PlayKey,
                     mobile: phone,
-                    totalcoins: CoinNum,
+                    totalcoins: CoinNum  * CoinVal,
                     steps: CoinNum,
                     couponid: couponid
                 };
@@ -2532,6 +2658,15 @@ var loginPage = function(){
         page.readedBtn.on(Laya.Event.CLICK,this,readPrivacy);
         page.getCodeBtn.on(Laya.Event.CLICK,this,getCode);
         page.loginBtn.on(Laya.Event.CLICK,this,login);
+
+        // page.phone.on(Laya.Event.INPUT,this,updatePhone);
+    }
+
+    /**
+     * 更新电话
+     */
+    function updatePhone(){
+        
     }
 
 
@@ -2562,7 +2697,7 @@ var loginPage = function(){
                 openid: iWX.openId,
                 playkey: PlayKey,
                 mobile: phone,
-                totalcoins: CoinNum,
+                totalcoins: CoinNum * CoinVal,
                 steps: CoinNum,
                 couponid: couponid
             };
@@ -2938,15 +3073,15 @@ var player = function (box) {
     _self.x = 0;
     _self.y = 0;
 
-    var warmUpAni;
+    var warmUpAni,jumpAni;
 
     /**
      * 准备动作
      */
     _self.warmUp = function () {
-        warmUpAni = Laya.Tween.to(_self.sprite.img, {
-            height: 100
-        }, PRESS_TIME, Laya.Ease.linearIn);
+        warmUpAni.visible = true;
+        jumpAni.visible = false;
+        warmUpAni.play(0,false);
     }
 
     /**
@@ -2961,7 +3096,9 @@ var player = function (box) {
      * 跳出屏幕
      */
     _self.jumpOver = function (x, y, callback) {
-        warmUpAni.complete();
+        warmUpAni.visible = false;
+        jumpAni.visible = true;
+
         _self.sprite.img.height = 181;
 
         Laya.Tween.to(_self.sprite, {
@@ -2985,13 +3122,11 @@ var player = function (box) {
      * 跳跃动画
      */
     _self.jumping = function (x, y, callback) {
-        warmUpAni.complete();
-        _self.sprite.img.height = 181;
+        warmUpAni.visible = false;
+        jumpAni.visible = true;
+        jumpAni.play(0,false);
 
         let max = y - 200;
-
-        _self.sprite.somersaultAni.play(0, false);
-
         Laya.Tween.to(_self.sprite, {
             y: max
         }, JUMP_TIME / 2, Laya.Ease.sineOut);
@@ -3015,10 +3150,102 @@ var player = function (box) {
         _self.sprite.alpha = 0;
         _self.sprite.zOrder = 99;
         box.addChild(_self.sprite);
+        warmUpAni = _self.sprite.warmUpAni;
+        jumpAni = _self.sprite.jumpAni;
     }
     init();
 }
 
+var bgm = function () {
+    var _self = this;
+    var bgmFlag = true;
+    var sprite;
+    var bgm;
+
+    _self.play = function () {
+        playBgm();
+    }
+
+    _self.pause = function () {
+        pauseBgm();
+    }
+
+    /**
+     * 初始化
+     */
+    _self.init = function() {
+        sprite = new bgmBtnUI();
+        sprite.zOrder = 9999;
+        Laya.stage.addChild(sprite);
+        bgm = Laya.SoundManager.playMusic(BgmUrl);
+        changeTipsPos();
+        eventInit();
+    }
+
+    /**
+     * 事件初始化
+     */
+    function eventInit() {
+        sprite.bgmBtn.on(Laya.Event.CLICK, this, controlBgm);
+
+        if (iWX.isWX) {
+            iWX.wx.onHide(() => {
+                if(bgmFlag) pauseBgm();
+            });
+            iWX.wx.onShow(() => {
+                if(!bgmFlag) playBgm();
+            });
+        }
+    }
+
+    /**
+     * 控制音乐
+     */
+    function controlBgm() {
+        if(bgmFlag) pauseBgm();
+        else playBgm();
+    }
+
+    /**
+     * 播放音乐
+     */
+    function playBgm() {
+        bgmFlag = true;
+        sprite.bgmBtn.source = Laya.Loader.getRes('images/common/play.png');
+        bgm.resume();
+    }
+
+    /**
+     * 暂停音乐
+     */
+    function pauseBgm() {
+        bgmFlag = false;
+        sprite.bgmBtn.source = Laya.Loader.getRes('images/common/off.png');
+        bgm.pause();
+    }
+
+    /**
+     * 修改位置
+     */
+    function changeTipsPos(){
+        sprite.visible = false;
+        setTimeout(() => {
+            if (iWX.isWX) {
+                let res = iWX.wx.getMenuButtonBoundingClientRect();
+                let top = res.top * 2 + 6;
+                sprite.y = top + 5;
+                sprite.x = 28;
+                sprite.visible = true;
+            }
+            else {
+                sprite.y = 100;
+                sprite.x = 680;
+            }
+        }, 500);
+    }
+}
+
+var iBgm = new bgm();
 function layaInit() {
     //初始化微信小游戏
     Laya.MiniAdpter.init();
@@ -3059,6 +3286,7 @@ layaInit();
  */
 function preLoadComplate() {
     iIndexPage.init();
+    iBgm.init();
     // RequestStoreInfoTest();
     // DevelopTest();
 

@@ -13,9 +13,7 @@ const PLAYER_STORE_DIS = -150;                  //玩家与商店的垂直距离
 const NAV_STORE_DIS = 50;                       //导航与商店的垂直距离
 const SENCE_MOVE_TIME = 500;                    //场景移动的时间
 const STORE_WIDTH = 160;                        //块的可站立宽度
-const COIN_UNIT = 1;                            //成功一次的金币数量
 const PAGE_TRF_TIME = 300;                      //页面过渡时间
-const GAME_LEVEL = 2;                           //游戏等级
 
 //变量
 let iWX;
@@ -23,10 +21,13 @@ let iWX;
 let BgPageY = 0, WindowH = 0;
 let GameContH = 0;
 
-let CoinNum = 0,couponList = [];
+let CoinNum = 0,couponList = [], CoinVal = 0, CoinToScores = 0;
+let GAME_LEVEL = 2;                             //游戏等级
 
 let storeDatas = [];
 let storeDataCount = 0;
+
+let BgmUrl = "https://wechat.dhteam.net/osm/audio/bgm.mp3";
 
 let PlayKey = "";                               //关键字符
 let ContinuePlayGame = false;                   //是否继续游戏

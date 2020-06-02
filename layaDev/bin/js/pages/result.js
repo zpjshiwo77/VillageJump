@@ -78,14 +78,46 @@ var resultPage = function () {
      * 请求排行榜
      */
     function requestRank() {
+        API.getallrank({ openid: iWX.openId, top: 50 })
+            .then(function (res) {
+                if (res.Status == "ok") {
+                    if (res.Tag.ranklist.length == 1) {
+                        renderRank([page.rank2], res.Tag.ranklist)
+                    }
+                    else if (res.Tag.ranklist.length == 2) {
+                        renderRank([page.rank1, page.rank3], res.Tag.ranklist)
+                    }
+                    else {
+                        renderRank([page.rank1, page.rank2, page.rank3], res.Tag.ranklist)
+                    }
+                }
+            })
+    }
 
+    /**
+     * 渲染排行榜
+     */
+    function renderRank(boxs, list) {
+        for (let i = 0; i < boxs.length; i++) {
+            let box = boxs[i];
+            let info = list[i]
+            let url = info.headimg;
+            if(url.indexOf("http") == -1) break;
+            Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+                console.log(box)
+                box.getChildByName("head").source = Laya.Loader.getRes(url);
+                box.getChildByName("nickname").text = iUtils.setString(info.nickname, 6);
+                box.getChildByName("coin").text = info.coins;
+                box.visible = true;
+            }));
+        }
     }
 
     /**
      * 制作海报
      */
     function makePoster() {
-
+        // iWX.shareGameToTimeline();
     }
 
     /**
@@ -142,8 +174,8 @@ var resultPage = function () {
      * 渲染页面
      */
     function renderPage(coinNum) {
-        page.coinNum.text = coinNum;
-        page.pointNum.text = CurrentScores;
+        page.coinNum.text = coinNum * CoinVal;
+        page.pointNum.text = parseInt(coinNum * CoinVal * CoinToScores);
         page.couponNum.text = couponList.length;
 
         var len = couponList.length;
@@ -190,7 +222,7 @@ var resultPage = function () {
             openid: iWX.openId,
             playkey: PlayKey,
             mobile: Mobile,
-            totalcoins: CoinNum,
+            totalcoins: CoinNum * CoinVal,
             steps: CoinNum,
             couponid: couponid
         }

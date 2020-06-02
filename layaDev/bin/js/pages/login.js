@@ -57,6 +57,15 @@ var loginPage = function(){
         page.readedBtn.on(Laya.Event.CLICK,this,readPrivacy);
         page.getCodeBtn.on(Laya.Event.CLICK,this,getCode);
         page.loginBtn.on(Laya.Event.CLICK,this,login);
+
+        // page.phone.on(Laya.Event.INPUT,this,updatePhone);
+    }
+
+    /**
+     * 更新电话
+     */
+    function updatePhone(){
+        
     }
 
 
@@ -87,7 +96,7 @@ var loginPage = function(){
                 openid: iWX.openId,
                 playkey: PlayKey,
                 mobile: phone,
-                totalcoins: CoinNum,
+                totalcoins: CoinNum * CoinVal,
                 steps: CoinNum,
                 couponid: couponid
             };

@@ -33,7 +33,7 @@ function importAPI() {
             let header = {
                 'content-type': "application/x-www-form-urlencoded"
             };
-            if (_self.SessionKey) data.SessionKey = _self.SessionKey;
+            // if (_self.SessionKey) data.SessionKey = _self.SessionKey;
 
             if (method == "POST") {
                 let signature = iEncryption.getMD5Staff(data);
@@ -120,12 +120,31 @@ function importAPI() {
         });
     }//end func
 
+    _self.getallrank = function(data){
+        return _Ajax({
+            API: "game/getallrank",
+            data: data,
+            method: "GET"
+        });
+    }
+
     /**
      * 获取店铺优惠券
      */
     _self.GetCouponsInfoByStore = function (data) {
         return _Ajax({
             API: "game/GetCouponsInfoByStore",
+            data: data,
+            method: "GET"
+        });
+    }//end func
+
+    /**
+     * 获取金币优惠券
+     */
+    _self.GetCouponsInfo = function (data) {
+        return _Ajax({
+            API: "game/GetCouponsInfo",
             data: data,
             method: "GET"
         });

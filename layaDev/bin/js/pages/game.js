@@ -50,7 +50,7 @@ var gamePage = function () {
 
         let nowStore = Sence_Stores[nowStoreIndex];
         if (nowStore.infoData.ActiveTitle) showInfoBox(nowStore.infoData);
-        API.addPV({pagepath:"/pages/game"});
+        API.addPV({ pagepath: "/pages/game" });
     }
 
     /**
@@ -65,8 +65,8 @@ var gamePage = function () {
         pressTime = 0;
         nowStoreIndex = 0;
         Player.sprite.zOrder = 99;
-        
-        if(!continueGame){
+
+        if (!continueGame) {
             coinNum = 0;
             CoinNum = 0;
             couponNum = 0;
@@ -195,7 +195,8 @@ var gamePage = function () {
         let y = Move_dir ? imath.countLeftY(x, PLAYER_STORE_DIS) : imath.countRightY(x, PLAYER_STORE_DIS);
 
         Player.jumping(x + centerX, y + centerY, function () {
-            if((!Move_dir && x > Max) || (Move_dir && x < Min)) Player.sprite.zOrder = nextStore.sprite.zOrder - 1;
+            if ((!Move_dir && x > Max) || (Move_dir && x < Max)) Player.sprite.zOrder = nextStore.sprite.zOrder - 1;
+            else if ((!Move_dir && x < Min) || (Move_dir && x > Min)) Player.sprite.zOrder = nowStore.sprite.zOrder - 1;
             setItemXY(Player, x, y);
             if (imath.judgeInTwoNums(x, [Min, Max])) {
                 countNextData();
@@ -264,10 +265,10 @@ var gamePage = function () {
             iAnime.fallAnime(lastStore.sprite, 0);
             iAnime.showAnime(lastNav.sprite, 400);
 
-            updateCoinNum(COIN_UNIT);
+            updateCoinNum(1);
             let nowStore = Sence_Stores[nowStoreIndex];
             judgeCoinNumsCoupon(Player.sprite.x, Player.sprite.y);
-            if (nowStore.infoData.ContainsCoupons > 0) requestStoreCoupon(nowStore.infoData,Player.sprite.x, Player.sprite.y);
+            if (nowStore.infoData.ContainsCoupons > 0) requestStoreCoupon(nowStore.infoData, Player.sprite.x, Player.sprite.y);
             if (nowStore.infoData.ActiveTitle) showInfoBox(nowStore.infoData);
 
             setTimeout(function () {
@@ -279,14 +280,17 @@ var gamePage = function () {
     /**
      * 判断一定数量的金币获取优惠券
      */
-    function judgeCoinNumsCoupon(x,y){
+    function judgeCoinNumsCoupon(x, y) {
         for (var i = 0; i < AddUpCoinGiveCoupon.length; i++) {
-            if(coinNum >= AddUpCoinGiveCoupon[i].needcoins){
+            if (coinNum >= AddUpCoinGiveCoupon[i].needcoins) {
                 let item = AddUpCoinGiveCoupon.shift();
-                item.id = item.couponid;
-                item.CouponName = item.needcoins + "金币优惠券";
-                couponList.push(item);
-                couponAnime(x,y,1);
+                API.GetCouponsInfo({ ids: item.couponid })
+                    .then(function (res) {
+                        if (res.Status == "ok") {
+                            couponList.push(...res.Tag);
+                            couponAnime(x, y, 1);
+                        }
+                    })
                 return;
             }
         }
@@ -295,14 +299,14 @@ var gamePage = function () {
     /**
      * 请求优惠券
      */
-    function requestStoreCoupon(info,x,y){
-        API.GetCouponsInfoByStore({storekey:info.StoreKey})
-        .then(function(res){
-            if(res.Status == "ok" && res.Tag.length > 0){
-                couponList.push(...res.Tag);
-                couponAnime(x,y,res.Tag.length);
-            }
-        })
+    function requestStoreCoupon(info, x, y) {
+        API.GetCouponsInfoByStore({ storekey: info.StoreKey })
+            .then(function (res) {
+                if (res.Status == "ok" && res.Tag.length > 0) {
+                    couponList.push(...res.Tag);
+                    couponAnime(x, y, res.Tag.length);
+                }
+            })
     }
 
     /**
@@ -366,7 +370,7 @@ var gamePage = function () {
      */
     function updateCoinNum(num) {
         coinNum += num;
-        coinNumText.text = coinNum;
+        coinNumText.text = coinNum * CoinVal;
         CoinNum = coinNum;
     }
 

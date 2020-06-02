@@ -109,6 +109,9 @@ var indexPage = function () {
         CurrentScores = data.CurrentScores;
         IsMember = data.IsMember == "0" ? false : true;
         Mobile = data.Mobile;
+        CoinToScores = data.CoinToScores;
+        CoinVal = data.NEXTSTEP;
+        GAME_LEVEL = data.GameLevel;
     }
 
     /**

@@ -73,7 +73,7 @@ var regPage = function () {
                     openid: iWX.openId,
                     playkey: PlayKey,
                     mobile: phone,
-                    totalcoins: CoinNum,
+                    totalcoins: CoinNum  * CoinVal,
                     steps: CoinNum,
                     couponid: couponid
                 };

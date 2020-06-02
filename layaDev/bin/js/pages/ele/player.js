@@ -4,15 +4,15 @@ var player = function (box) {
     _self.x = 0;
     _self.y = 0;
 
-    var warmUpAni;
+    var warmUpAni,jumpAni;
 
     /**
      * 准备动作
      */
     _self.warmUp = function () {
-        warmUpAni = Laya.Tween.to(_self.sprite.img, {
-            height: 100
-        }, PRESS_TIME, Laya.Ease.linearIn);
+        warmUpAni.visible = true;
+        jumpAni.visible = false;
+        warmUpAni.play(0,false);
     }
 
     /**
@@ -27,7 +27,9 @@ var player = function (box) {
      * 跳出屏幕
      */
     _self.jumpOver = function (x, y, callback) {
-        warmUpAni.complete();
+        warmUpAni.visible = false;
+        jumpAni.visible = true;
+
         _self.sprite.img.height = 181;
 
         Laya.Tween.to(_self.sprite, {
@@ -51,13 +53,11 @@ var player = function (box) {
      * 跳跃动画
      */
     _self.jumping = function (x, y, callback) {
-        warmUpAni.complete();
-        _self.sprite.img.height = 181;
+        warmUpAni.visible = false;
+        jumpAni.visible = true;
+        jumpAni.play(0,false);
 
         let max = y - 200;
-
-        _self.sprite.somersaultAni.play(0, false);
-
         Laya.Tween.to(_self.sprite, {
             y: max
         }, JUMP_TIME / 2, Laya.Ease.sineOut);
@@ -81,6 +81,8 @@ var player = function (box) {
         _self.sprite.alpha = 0;
         _self.sprite.zOrder = 99;
         box.addChild(_self.sprite);
+        warmUpAni = _self.sprite.warmUpAni;
+        jumpAni = _self.sprite.jumpAni;
     }
     init();
 }
