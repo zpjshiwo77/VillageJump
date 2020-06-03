@@ -2048,6 +2048,11 @@ var gamePage = function () {
         centerX = page.cont.width / 2;
         centerY = page.cont.height / 2;
 
+        if(iWX.systemInfo.windowWidth / iWX.systemInfo.windowHeight < 0.54) {
+            page.coinBox.y = 180;
+            page.wordBox.y = 180;
+        }
+
         wordBox = page.wordBox;
         storeInfo = page.infoWord;
         coinNumText = page.coinNum;
@@ -2260,8 +2265,10 @@ var resultPage = function () {
         API.getallrank({ openid: iWX.openId, top: 50 })
             .then(function (res) {
                 if (res.Status == "ok") {
-                    headImg = res.Tag.my.headimg;
-                    nickname = res.Tag.my.nickname;
+                    if(res.Tag.my){
+                        headImg = res.Tag.my.headimg;
+                        nickname = res.Tag.my.nickname;
+                    }
                     if (res.Tag.ranklist.length == 1) {
                         renderRank([page.rank2], res.Tag.ranklist)
                     }
@@ -3008,17 +3015,26 @@ var rankPage = function () {
             .then(function (res) {
                 if (res.Status == "ok") {
                     let info = res.Tag.my;
-                    let url = info.headimg;
-                    Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
-                        page.rank.text = info.rankid + 1;
-                        page.head.source = Laya.Loader.getRes(url);
-                        page.nickname.text = iUtils.setString(info.nickname, 11);
-                        page.coin.text = info.coins;
-                    }));
+                    if(info) renderMyRnak(info);
+                    else page.self.visible = false;
                     renderRank(res.Tag.ranklist);
                 }
             })
 
+    }
+
+    /**
+     * 渲染我的排行榜
+     */
+    function renderMyRnak(info) {
+        let url = info.headimg;
+        Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+            page.rank.text = info.rankid + 1;
+            page.head.source = Laya.Loader.getRes(url);
+            page.nickname.text = iUtils.setString(info.nickname, 11);
+            page.coin.text = info.coins;
+            page.self.visible = false;
+        }));
     }
 
     /**
@@ -3216,7 +3232,9 @@ var store = function(box){
      */
     _self.changeSkin = function(url){
         let img = url || _self.infoData.StoreImgurl;
-        this.sprite.store.source = Laya.Loader.getRes(img);
+        Laya.loader.load([{ url: img, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+            this.sprite.store.source = Laya.Loader.getRes(img);
+        }));
     }
 
     /**

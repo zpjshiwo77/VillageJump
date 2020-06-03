@@ -420,6 +420,11 @@ var gamePage = function () {
         centerX = page.cont.width / 2;
         centerY = page.cont.height / 2;
 
+        if(iWX.systemInfo.windowWidth / iWX.systemInfo.windowHeight < 0.54) {
+            page.coinBox.y = 180;
+            page.wordBox.y = 180;
+        }
+
         wordBox = page.wordBox;
         storeInfo = page.infoWord;
         coinNumText = page.coinNum;

@@ -10,7 +10,9 @@ var store = function(box){
      */
     _self.changeSkin = function(url){
         let img = url || _self.infoData.StoreImgurl;
-        this.sprite.store.source = Laya.Loader.getRes(img);
+        Laya.loader.load([{ url: img, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+            this.sprite.store.source = Laya.Loader.getRes(img);
+        }));
     }
 
     /**

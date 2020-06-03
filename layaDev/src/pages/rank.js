@@ -37,17 +37,26 @@ var rankPage = function () {
             .then(function (res) {
                 if (res.Status == "ok") {
                     let info = res.Tag.my;
-                    let url = info.headimg;
-                    Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
-                        page.rank.text = info.rankid + 1;
-                        page.head.source = Laya.Loader.getRes(url);
-                        page.nickname.text = iUtils.setString(info.nickname, 11);
-                        page.coin.text = info.coins;
-                    }));
+                    if(info) renderMyRnak(info);
+                    else page.self.visible = false;
                     renderRank(res.Tag.ranklist);
                 }
             })
 
+    }
+
+    /**
+     * 渲染我的排行榜
+     */
+    function renderMyRnak(info) {
+        let url = info.headimg;
+        Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+            page.rank.text = info.rankid + 1;
+            page.head.source = Laya.Loader.getRes(url);
+            page.nickname.text = iUtils.setString(info.nickname, 11);
+            page.coin.text = info.coins;
+            page.self.visible = false;
+        }));
     }
 
     /**

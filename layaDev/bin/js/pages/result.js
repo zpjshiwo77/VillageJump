@@ -82,8 +82,10 @@ var resultPage = function () {
         API.getallrank({ openid: iWX.openId, top: 50 })
             .then(function (res) {
                 if (res.Status == "ok") {
-                    headImg = res.Tag.my.headimg;
-                    nickname = res.Tag.my.nickname;
+                    if(res.Tag.my){
+                        headImg = res.Tag.my.headimg;
+                        nickname = res.Tag.my.nickname;
+                    }
                     if (res.Tag.ranklist.length == 1) {
                         renderRank([page.rank2], res.Tag.ranklist)
                     }
