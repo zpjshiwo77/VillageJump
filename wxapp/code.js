@@ -1600,7 +1600,7 @@ var indexPage = function () {
         AddUpCoinGiveCoupon = JSON.parse(data.AddUpCoinGiveCoupon);
         CurrentCoins = data.CurrentCoins;
         CurrentScores = data.CurrentScores;
-        // IsMember = data.IsMember == "0" ? false : true;
+        IsMember = data.IsMember == "0" ? false : true;
         Mobile = data.Mobile;
         CoinToScores = data.CoinToScores;
         CoinVal = data.NEXTSTEP;
