@@ -55,7 +55,7 @@ var rankPage = function () {
             page.head.source = Laya.Loader.getRes(url);
             page.nickname.text = iUtils.setString(info.nickname, 11);
             page.coin.text = info.coins;
-            page.self.visible = false;
+            page.self.visible = true;
         }));
     }
 
