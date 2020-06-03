@@ -169,7 +169,7 @@ var gamePage = function () {
     function CountJumpDis(time) {
         let nowStore = Sence_Stores[nowStoreIndex];
         let nextStore = Sence_Stores[nowStoreIndex + 1];
-        let CanStandW = STORE_WIDTH / 2;
+        let CanStandW = Move_dir ? nextStore.infoData.TouchPoints.y : nextStore.infoData.TouchPoints.x;
 
         let Max = parseInt(nextStore.x + (Move_dir ? -1 : 1) * (nextStore.sprite.width / 2 - CanStandW));
         let Min = parseInt(nextStore.x + (Move_dir ? 1 : -1) * (nextStore.sprite.width / 2 - CanStandW));
@@ -282,7 +282,7 @@ var gamePage = function () {
      */
     function judgeCoinNumsCoupon(x, y) {
         for (var i = 0; i < AddUpCoinGiveCoupon.length; i++) {
-            if (coinNum >= AddUpCoinGiveCoupon[i].needcoins) {
+            if (coinNum * CoinVal >= AddUpCoinGiveCoupon[i].needcoins) {
                 let item = AddUpCoinGiveCoupon.shift();
                 API.GetCouponsInfo({ ids: item.couponid })
                     .then(function (res) {

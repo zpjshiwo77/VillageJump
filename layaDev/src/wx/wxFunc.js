@@ -220,26 +220,54 @@ var wxFunc = function () {
     /**
      * 生成分享到朋友圈的图片
      */
-    _self.shareGameToTimeline = function () {
+    _self.makeCanvas = function (w,h) {
         if (isWX) {
             const canvas = wx.createCanvas();
-            canvas.width = 750;
-            canvas.height = 1624;
-            const context = canvas.getContext('2d');
+            canvas.width = w;
+            canvas.height = h;
+            // const context = canvas.getContext('2d');
+            return canvas;
+        }
+    }
 
-            context.fillStyle = '#fff4d6';
-            context.fillRect(0, 0, 750, 1624);
-            // context.draw();
+    /**
+     * 添加图片
+     */
+    _self.addImgToCanvas = function (canvas, context, info) {
+        if (isWX) {
+            return new Promise((resolve, reject) => {
+                const img = wx.createImage();
+                img.src = info.url;
+                img.onload = () => {
+                    context.drawImage(img, info.x, info.y, info.width, info.height);
+                    resolve();
+                }
+            })
+        }
+    }
 
+    /**
+     * 添加文字
+     */
+    _self.addWordToCanvas = function (context, info) {
+        context.font = info.size + "px 微软雅黑";
+        context.fillText(info.word, info.x, info.y);
+    }
+
+    /**
+     * 保存海报
+     */
+    _self.savePost = function (canvas) {
+        if (isWX) {
             canvas.toTempFilePath({
                 success: (res) => {
                     wx.saveImageToPhotosAlbum({
                         filePath: res.tempFilePath,
                         success: () => {
-                            console.log("保存图片到相册成功");
+                            _self.alert("保存图片到相册成功，赶紧去分享吧");
                         },
                         fail: (err) => {
-                            console.log("保存图片到相册失败 : " + err);
+                            _self.alert("保存图片到相册失败");
                         }
                     })
                 }

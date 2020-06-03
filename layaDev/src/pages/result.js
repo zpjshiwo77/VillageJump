@@ -3,6 +3,8 @@ var resultPage = function () {
     var page;
     var showFlag = false;
     var step = 0;
+    var headImg;
+    var nickname;
 
     /**
      * 初始化
@@ -35,7 +37,6 @@ var resultPage = function () {
             alpha: 1
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
 
-        requestRank();
         API.addPV({ pagepath: "/pages/result" });
     }
 
@@ -81,6 +82,8 @@ var resultPage = function () {
         API.getallrank({ openid: iWX.openId, top: 50 })
             .then(function (res) {
                 if (res.Status == "ok") {
+                    headImg = res.Tag.my.headimg;
+                    nickname = res.Tag.my.nickname;
                     if (res.Tag.ranklist.length == 1) {
                         renderRank([page.rank2], res.Tag.ranklist)
                     }
@@ -102,9 +105,8 @@ var resultPage = function () {
             let box = boxs[i];
             let info = list[i]
             let url = info.headimg;
-            if(url.indexOf("http") == -1) break;
+            if (url.indexOf("http") == -1) continue;
             Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
-                console.log(box)
                 box.getChildByName("head").source = Laya.Loader.getRes(url);
                 box.getChildByName("nickname").text = iUtils.setString(info.nickname, 6);
                 box.getChildByName("coin").text = info.coins;
@@ -117,7 +119,99 @@ var resultPage = function () {
      * 制作海报
      */
     function makePoster() {
-        // iWX.shareGameToTimeline();
+        let canvas = iWX.makeCanvas(750, 1333);
+        let ctx = canvas.getContext('2d');
+        iWX.showLoading("生成中...");
+        iWX.addImgToCanvas(canvas, ctx, {
+            url: "images/poster/bg.jpg",
+            x: 0,
+            y: 0,
+            width: 750,
+            height: 1334
+        })
+            .then(() => {
+                let arr = [];
+                iWX.addWordToCanvas(ctx, {
+                    size: 57,
+                    word: CoinNum * CoinVal,
+                    x: 137,
+                    y: 533
+                })
+                iWX.addWordToCanvas(ctx, {
+                    size: 37,
+                    word: parseInt(CoinNum * CoinVal * CoinToScores),
+                    x: 137,
+                    y: 588
+                })
+                iWX.addWordToCanvas(ctx, {
+                    size: 57,
+                    word: couponList.length,
+                    x: 137,
+                    y: 675
+                })
+                if (couponList.length > 0) {
+                    let item = iWX.addImgToCanvas(canvas, ctx, {
+                        url: "images/poster/s.png",
+                        x: 56,
+                        y: 695,
+                        width: 638,
+                        height: 149
+                    });
+                    arr.push(item);
+                    item.then(() => {
+                        var len = couponList.length > 2 ? 2 : couponList.length;
+                        for (var i = 0; i < len; i++) {
+                            iWX.addWordToCanvas(ctx, {
+                                size: 25,
+                                word: couponList[i].CouponName,
+                                x: 105,
+                                y: 757 + 47 * i
+                            })
+
+                            iWX.addWordToCanvas(ctx, {
+                                size: 25,
+                                word: "x 1",
+                                x: 619,
+                                y: 757 + 47 * i
+                            })
+                        }
+                    })
+                }
+                else {
+                    let item = iWX.addImgToCanvas(canvas, ctx, {
+                        url: "images/poster/f.png",
+                        x: 56,
+                        y: 695,
+                        width: 638,
+                        height: 149
+                    });
+                    arr.push(item);
+                }
+
+                if (headImg && nickname) {
+                    let item = iWX.addImgToCanvas(canvas, ctx, {
+                        url: headImg,
+                        x: 100,
+                        y: 890,
+                        width: 120,
+                        height: 120
+                    });
+                    arr.push(item);
+
+                    iWX.addWordToCanvas(ctx, {
+                        size: 25,
+                        word: nickname,
+                        x: 100,
+                        y: 1050
+                    })
+                }
+
+                Promise.all(arr)
+                    .then(() => {
+                        iWX.hideLoading();
+                        iWX.savePost(canvas);
+                    })
+            })
     }
 
     /**
@@ -208,6 +302,7 @@ var resultPage = function () {
         }
 
         if (IsMember) sendGameData();
+        else requestRank();
     }
 
     /**
@@ -230,6 +325,7 @@ var resultPage = function () {
             .then(function (res) {
                 if (res.Status == "ok") {
                     if (couponList.length > 0) iTipsPage.show();
+                    requestRank();
                 }
                 // else iWX.alert(res.Msg);
             })

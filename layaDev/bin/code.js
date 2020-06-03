@@ -79,6 +79,7 @@ var indexUI=(function(_super){
 			
 		    this.endAni=null;
 		    this.cont=null;
+		    this.ruleBtn=null;
 		    this.ruleScroll=null;
 		    this.ruleWord=null;
 		    this.startBtn=null;
@@ -96,7 +97,7 @@ var indexUI=(function(_super){
 
 		}
 
-		indexUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":90,"x":137,"width":470,"skin":"images/index/block.png","name":"block","height":474,"alpha":1},"compId":8},{"type":"Image","props":{"y":0,"x":495,"skin":"images/index/title.png","name":"title","alpha":1},"compId":10},{"type":"Box","props":{"y":591,"x":98,"alpha":1},"compId":19,"child":[{"type":"Image","props":{"skin":"images/index/rule.png","name":"rule"}},{"type":"Panel","props":{"y":323,"x":33,"width":491,"var":"ruleScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":210},"child":[{"type":"Text","props":{"y":20,"x":0,"wordWrap":true,"width":470,"var":"ruleWord","overflow":"scroll","leading":7,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]}]},{"type":"Image","props":{"y":452,"x":98,"var":"startBtn","skin":"images/index/start.png","alpha":1},"compId":11}]}],"animations":[{"nodes":[{"target":19,"keyframes":{"y":[{"value":591,"tweenMethod":"linearNone","tween":true,"target":19,"key":"y","index":0},{"value":1098,"tweenMethod":"linearNone","tween":true,"target":19,"key":"y","index":14}],"x":[{"value":98,"tweenMethod":"linearNone","tween":true,"target":19,"key":"x","index":0},{"value":756,"tweenMethod":"linearNone","tween":true,"target":19,"key":"x","index":14}],"alpha":[{"value":1,"tweenMethod":"linearNone","tween":true,"target":19,"key":"alpha","index":0},{"value":1,"tweenMethod":"linearNone","tween":true,"target":19,"key":"alpha","index":14}]}},{"target":11,"keyframes":{"x":[{"value":98,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":0},{"value":-400,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":14}],"alpha":[{"value":1,"tweenMethod":"linearNone","tween":true,"target":11,"key":"alpha","index":0},{"value":1,"tweenMethod":"linearNone","tween":true,"target":11,"key":"alpha","index":14}]}},{"target":10,"keyframes":{"y":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":10,"key":"y","index":0},{"value":-311,"tweenMethod":"linearNone","tween":true,"target":10,"key":"y","index":14}],"x":[{"value":495,"tweenMethod":"linearNone","tween":true,"target":10,"key":"x","index":0},{"value":836,"tweenMethod":"linearNone","tween":true,"target":10,"key":"x","index":14}],"alpha":[{"value":1,"tweenMethod":"linearNone","tween":true,"target":10,"key":"alpha","index":0},{"value":1,"tweenMethod":"linearNone","tween":true,"target":10,"key":"alpha","index":14}]}},{"target":8,"keyframes":{"y":[{"value":90,"tweenMethod":"linearNone","tween":true,"target":8,"key":"y","index":0},{"value":-276,"tweenMethod":"linearNone","tween":true,"target":8,"key":"y","index":14}],"x":[{"value":137,"tweenMethod":"linearNone","tween":true,"target":8,"key":"x","index":0},{"value":-473,"tweenMethod":"linearNone","tween":true,"target":8,"key":"x","index":14}],"alpha":[{"value":1,"tweenMethod":"linearNone","tween":true,"target":8,"key":"alpha","index":0},{"value":1,"tweenMethod":"linearNone","tween":true,"target":8,"key":"alpha","index":14}]}}],"name":"endAni","id":1,"frameRate":24,"action":0}]};
+		indexUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":90,"x":137,"width":470,"skin":"images/index/block.png","name":"block","height":474,"alpha":1},"compId":8},{"type":"Image","props":{"y":0,"x":495,"skin":"images/index/title.png","name":"title","alpha":1},"compId":10},{"type":"Box","props":{"y":591,"x":98,"var":"ruleBtn","alpha":1},"compId":19,"child":[{"type":"Image","props":{"skin":"images/index/rule.png","name":"rule"}},{"type":"Panel","props":{"y":323,"x":33,"width":491,"var":"ruleScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":210},"child":[{"type":"Text","props":{"y":20,"x":0,"wordWrap":true,"width":470,"var":"ruleWord","overflow":"scroll","leading":7,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]}]},{"type":"Image","props":{"y":452,"x":98,"var":"startBtn","skin":"images/index/start.png","alpha":1},"compId":11}]}],"animations":[{"nodes":[{"target":19,"keyframes":{"y":[{"value":591,"tweenMethod":"linearNone","tween":true,"target":19,"key":"y","index":0},{"value":1098,"tweenMethod":"linearNone","tween":true,"target":19,"key":"y","index":14}],"x":[{"value":98,"tweenMethod":"linearNone","tween":true,"target":19,"key":"x","index":0},{"value":756,"tweenMethod":"linearNone","tween":true,"target":19,"key":"x","index":14}],"alpha":[{"value":1,"tweenMethod":"linearNone","tween":true,"target":19,"key":"alpha","index":0},{"value":1,"tweenMethod":"linearNone","tween":true,"target":19,"key":"alpha","index":14}]}},{"target":11,"keyframes":{"x":[{"value":98,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":0},{"value":-400,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":14}],"alpha":[{"value":1,"tweenMethod":"linearNone","tween":true,"target":11,"key":"alpha","index":0},{"value":1,"tweenMethod":"linearNone","tween":true,"target":11,"key":"alpha","index":14}]}},{"target":10,"keyframes":{"y":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":10,"key":"y","index":0},{"value":-311,"tweenMethod":"linearNone","tween":true,"target":10,"key":"y","index":14}],"x":[{"value":495,"tweenMethod":"linearNone","tween":true,"target":10,"key":"x","index":0},{"value":836,"tweenMethod":"linearNone","tween":true,"target":10,"key":"x","index":14}],"alpha":[{"value":1,"tweenMethod":"linearNone","tween":true,"target":10,"key":"alpha","index":0},{"value":1,"tweenMethod":"linearNone","tween":true,"target":10,"key":"alpha","index":14}]}},{"target":8,"keyframes":{"y":[{"value":90,"tweenMethod":"linearNone","tween":true,"target":8,"key":"y","index":0},{"value":-276,"tweenMethod":"linearNone","tween":true,"target":8,"key":"y","index":14}],"x":[{"value":137,"tweenMethod":"linearNone","tween":true,"target":8,"key":"x","index":0},{"value":-473,"tweenMethod":"linearNone","tween":true,"target":8,"key":"x","index":14}],"alpha":[{"value":1,"tweenMethod":"linearNone","tween":true,"target":8,"key":"alpha","index":0},{"value":1,"tweenMethod":"linearNone","tween":true,"target":8,"key":"alpha","index":14}]}}],"name":"endAni","id":1,"frameRate":24,"action":0}]};
 		return indexUI;
 	})(View);
 var loginUI=(function(_super){
@@ -197,7 +198,7 @@ var rankUI=(function(_super){
 
 		}
 
-		rankUI.uiView={"type":"Dialog","props":{"width":647,"height":1120},"child":[{"type":"Image","props":{"y":1047,"x":0,"var":"closeBtn","skin":"images/icon/back.png"}},{"type":"Image","props":{"y":1057,"x":600,"visible":false,"var":"shareBtn","skin":"images/icon/share.png"}},{"type":"Image","props":{"y":0,"x":156,"skin":"images/rank/title.png"}},{"type":"Image","props":{"y":130,"x":0,"skin":"images/rank/kuang1.png"}},{"type":"Image","props":{"y":780,"skin":"images/rank/kuang2.png"}},{"type":"Panel","props":{"y":175,"x":30,"width":590,"var":"rankScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":500}},{"type":"Box","props":{"y":810,"x":30,"width":560,"name":"selfBox","height":110},"child":[{"type":"Sprite","props":{"y":0,"width":560,"var":"self","height":110},"child":[{"type":"Text","props":{"y":0,"x":0,"width":95,"var":"rank","valign":"middle","text":"0","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":true,"align":"center"}},{"type":"Image","props":{"y":0,"x":95,"width":74,"var":"head","skin":"images/game/store.png","height":74}},{"type":"Text","props":{"y":0,"x":185,"width":222,"var":"nickname","valign":"middle","text":"测试","height":74,"fontSize":32,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}},{"type":"Image","props":{"y":15,"x":410,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":450,"width":108,"var":"coin","valign":"middle","text":"00000","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}}]}]}]};
+		rankUI.uiView={"type":"Dialog","props":{"width":647,"height":1120},"child":[{"type":"Image","props":{"y":1047,"x":0,"var":"closeBtn","skin":"images/icon/back.png"}},{"type":"Image","props":{"y":1057,"x":600,"visible":false,"var":"shareBtn","skin":"images/icon/share.png"}},{"type":"Image","props":{"y":0,"x":156,"skin":"images/rank/title.png"}},{"type":"Image","props":{"y":130,"x":0,"skin":"images/rank/kuang1.png"}},{"type":"Image","props":{"y":780,"skin":"images/rank/kuang2.png"}},{"type":"Panel","props":{"y":175,"x":30,"width":590,"var":"rankScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":500}},{"type":"Box","props":{"y":810,"x":30,"width":560,"name":"selfBox","height":110},"child":[{"type":"Sprite","props":{"y":0,"width":560,"var":"self","height":110},"child":[{"type":"Text","props":{"y":0,"x":0,"width":95,"var":"rank","valign":"middle","text":"0","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":true,"align":"center"}},{"type":"Image","props":{"y":0,"x":95,"width":74,"var":"head","skin":"images/common/blank.png","height":74}},{"type":"Text","props":{"y":0,"x":185,"width":222,"var":"nickname","valign":"middle","height":74,"fontSize":32,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}},{"type":"Image","props":{"y":17,"x":410,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":450,"width":108,"var":"coin","valign":"middle","text":"00000","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}}]}]}]};
 		return rankUI;
 	})(Dialog);
 var rankRowUI=(function(_super){
@@ -221,7 +222,7 @@ var rankRowUI=(function(_super){
 
 		}
 
-		rankRowUI.uiView={"type":"View","props":{"width":560,"height":110},"child":[{"type":"Sprite","props":{"y":0,"x":0,"width":560,"height":110},"child":[{"type":"Text","props":{"y":0,"x":0,"width":95,"var":"rank","valign":"middle","text":"0","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":true,"align":"center"}},{"type":"Image","props":{"y":0,"x":95,"width":74,"var":"head","skin":"images/game/store.png","height":74}},{"type":"Text","props":{"y":0,"x":185,"width":222,"var":"nickname","valign":"middle","text":"测试","height":74,"fontSize":32,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}},{"type":"Image","props":{"y":15,"x":410,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":450,"width":108,"var":"coin","valign":"middle","text":"00000","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}}]}]};
+		rankRowUI.uiView={"type":"View","props":{"width":560,"height":110},"child":[{"type":"Sprite","props":{"y":0,"x":0,"width":560,"height":110},"child":[{"type":"Text","props":{"y":0,"x":0,"width":95,"var":"rank","valign":"middle","text":"0","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":true,"align":"center"}},{"type":"Image","props":{"y":0,"x":95,"width":74,"var":"head","skin":"images/common/blank.png","height":74}},{"type":"Text","props":{"y":0,"x":185,"width":222,"var":"nickname","valign":"middle","text":"测试","height":74,"fontSize":32,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}},{"type":"Image","props":{"y":17,"x":410,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":450,"width":108,"var":"coin","valign":"middle","text":"00000","height":74,"fontSize":35,"font":"Microsoft YaHei","color":"#000","bold":false,"align":"left"}}]}]};
 		return rankRowUI;
 	})(View);
 var regUI=(function(_super){
@@ -288,7 +289,7 @@ var resultUI=(function(_super){
 
 		}
 
-		resultUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":2,"x":46,"skin":"images/result/logo.png","name":"logo"},"compId":6},{"type":"Image","props":{"y":46,"x":211,"skin":"images/index/block.png","name":"block"},"compId":7},{"type":"Box","props":{"y":640,"x":375,"width":638,"pivotY":75,"pivotX":319,"name":"couponBox","height":149},"compId":9,"child":[{"type":"Image","props":{"skin":"images/result/kuang.png"}},{"type":"Panel","props":{"y":28,"x":63,"width":555,"var":"couponScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":94}},{"type":"Sprite","props":{"y":22,"x":35,"width":573,"var":"couponNone","height":96},"child":[{"type":"Image","props":{"y":16,"x":46,"skin":"images/icon/block.png"}},{"type":"Text","props":{"y":44,"x":125,"width":388,"text":"本局没有抢到优惠券，还要继续努力~","height":36,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]}]},{"type":"Box","props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},"compId":14,"child":[{"type":"Image","props":{"y":6,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":6,"x":45,"width":155,"var":"coinNum","text":"0","height":50,"fontSize":50,"color":"#000000","bold":true}},{"type":"Text","props":{"y":78,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":80,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":76,"x":45,"width":63,"var":"pointNum","text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"}},{"type":"Image","props":{"y":145,"x":2,"width":35,"skin":"images/icon/coupon.png","height":20}},{"type":"Text","props":{"y":132,"x":45,"width":38,"var":"couponNum","text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"}}]},{"type":"Box","props":{"y":757,"x":375,"width":638,"pivotX":319,"name":"btnBox","height":90},"compId":21,"child":[{"type":"Image","props":{"y":45,"x":319,"width":290,"visible":false,"var":"againBtn","skin":"images/result/btn3.png","pivotY":45,"pivotX":145,"height":90}},{"type":"Image","props":{"var":"giveupBtn","skin":"images/result/btn1.png"}},{"type":"Image","props":{"y":0,"x":349,"var":"awardBtn","skin":"images/result/btn2.png"}}]},{"type":"Box","props":{"y":1130,"x":58,"name":"shareBox"},"compId":30,"child":[{"type":"Image","props":{"y":0,"x":0,"skin":"images/result/shareBtn.png"}},{"type":"Sprite","props":{"y":0,"width":216,"var":"otherBtn","height":51}},{"type":"Sprite","props":{"y":0,"x":389,"width":249,"var":"shareBtn","height":53}}]},{"type":"Box","props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},"compId":32,"child":[{"type":"Image","props":{"x":298,"skin":"images/result/rank.png"}},{"type":"Image","props":{"y":41,"x":570,"var":"rankBtn","skin":"images/result/rankBtn.png"}},{"type":"Box","props":{"y":85,"x":218,"width":74,"visible":false,"var":"rank1","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":338,"width":74,"visible":false,"var":"rank2","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":458,"width":74,"visible":false,"var":"rank3","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/game/store.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":102,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]}]}]}],"animations":[{"nodes":[{"target":6,"keyframes":{"y":[{"value":-124,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":0},{"value":2,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":5}],"x":[{"value":-138,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":5}]}},{"target":7,"keyframes":{"y":[{"value":-134,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":5}],"x":[{"value":811,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":0},{"value":211,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":5}]}},{"target":32,"keyframes":{"y":[{"value":1450,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":0},{"value":900,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":5}]}},{"target":30,"keyframes":{"y":[{"value":1680,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":0},{"value":1130,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":5}]}},{"target":14,"keyframes":{"x":[{"value":-250,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":0},{"value":73,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":5}]}},{"target":9,"keyframes":{"x":[{"value":-375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":5}]}},{"target":21,"keyframes":{"x":[{"value":1100,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":5}]}}],"name":"showAni","id":1,"frameRate":24,"action":0}]};
+		resultUI.uiView={"type":"View","props":{"width":750,"height":1624},"child":[{"type":"Sprite","props":{"y":0,"x":0,"name":"bg"},"child":[{"type":"Rect","props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"}}]},{"type":"Box","props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},"child":[{"type":"Image","props":{"y":2,"x":46,"skin":"images/result/logo.png","name":"logo"},"compId":6},{"type":"Image","props":{"y":46,"x":211,"skin":"images/index/block.png","name":"block"},"compId":7},{"type":"Box","props":{"y":640,"x":375,"width":638,"pivotY":75,"pivotX":319,"name":"couponBox","height":149},"compId":9,"child":[{"type":"Image","props":{"skin":"images/result/kuang.png"}},{"type":"Panel","props":{"y":28,"x":63,"width":555,"var":"couponScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":94}},{"type":"Sprite","props":{"y":22,"x":35,"width":573,"var":"couponNone","height":96},"child":[{"type":"Image","props":{"y":16,"x":46,"skin":"images/icon/block.png"}},{"type":"Text","props":{"y":44,"x":125,"width":388,"text":"本局没有抢到优惠券，还要继续努力~","height":36,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":true}}]}]},{"type":"Box","props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},"compId":14,"child":[{"type":"Image","props":{"y":6,"skin":"images/icon/coin.png"}},{"type":"Text","props":{"y":0,"x":45,"width":155,"var":"coinNum","text":"0","height":50,"fontSize":50,"color":"#000000","bold":true}},{"type":"Text","props":{"y":78,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":80,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false}},{"type":"Text","props":{"y":75,"x":45,"width":63,"var":"pointNum","text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"}},{"type":"Image","props":{"y":145,"x":2,"width":35,"skin":"images/icon/coupon.png","height":20}},{"type":"Text","props":{"y":129,"x":45,"width":38,"var":"couponNum","text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"}}]},{"type":"Box","props":{"y":757,"x":375,"width":638,"pivotX":319,"name":"btnBox","height":90},"compId":21,"child":[{"type":"Image","props":{"y":45,"x":319,"width":290,"visible":false,"var":"againBtn","skin":"images/result/btn3.png","pivotY":45,"pivotX":145,"height":90}},{"type":"Image","props":{"var":"giveupBtn","skin":"images/result/btn1.png"}},{"type":"Image","props":{"y":0,"x":349,"var":"awardBtn","skin":"images/result/btn2.png"}}]},{"type":"Box","props":{"y":1130,"x":58,"name":"shareBox"},"compId":30,"child":[{"type":"Image","props":{"y":0,"x":0,"skin":"images/result/shareBtn.png"}},{"type":"Sprite","props":{"y":0,"width":216,"var":"otherBtn","height":51}},{"type":"Sprite","props":{"y":0,"x":389,"width":249,"var":"shareBtn","height":53}}]},{"type":"Box","props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},"compId":32,"child":[{"type":"Image","props":{"x":298,"skin":"images/result/rank.png"}},{"type":"Image","props":{"y":41,"x":570,"var":"rankBtn","skin":"images/result/rankBtn.png"}},{"type":"Box","props":{"y":85,"x":218,"width":74,"visible":false,"var":"rank1","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/common/blank.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":106,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":338,"width":74,"visible":false,"var":"rank2","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/common/blank.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":106,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]},{"type":"Box","props":{"y":85,"x":458,"width":74,"visible":false,"var":"rank3","height":74},"child":[{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"images/common/blank.png","name":"head","height":74}},{"type":"Text","props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"}},{"type":"Image","props":{"y":106,"x":0,"width":13,"skin":"images/icon/coin.png","height":15}},{"type":"Text","props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"}}]}]}]}],"animations":[{"nodes":[{"target":6,"keyframes":{"y":[{"value":-124,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":0},{"value":2,"tweenMethod":"linearNone","tween":true,"target":6,"key":"y","index":5}],"x":[{"value":-138,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":6,"key":"x","index":5}]}},{"target":7,"keyframes":{"y":[{"value":-134,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":0},{"value":46,"tweenMethod":"linearNone","tween":true,"target":7,"key":"y","index":5}],"x":[{"value":811,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":0},{"value":211,"tweenMethod":"linearNone","tween":true,"target":7,"key":"x","index":5}]}},{"target":32,"keyframes":{"y":[{"value":1450,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":0},{"value":900,"tweenMethod":"linearNone","tween":true,"target":32,"key":"y","index":5}]}},{"target":30,"keyframes":{"y":[{"value":1680,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":0},{"value":1130,"tweenMethod":"linearNone","tween":true,"target":30,"key":"y","index":5}]}},{"target":14,"keyframes":{"x":[{"value":-250,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":0},{"value":73,"tweenMethod":"linearNone","tween":true,"target":14,"key":"x","index":5}]}},{"target":9,"keyframes":{"x":[{"value":-375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":5}]}},{"target":21,"keyframes":{"x":[{"value":1100,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":0},{"value":375,"tweenMethod":"linearNone","tween":true,"target":21,"key":"x","index":5}]}}],"name":"showAni","id":1,"frameRate":24,"action":0}]};
 		return resultUI;
 	})(View);
 var ruleUI=(function(_super){
@@ -881,26 +882,54 @@ var wxFunc = function () {
     /**
      * 生成分享到朋友圈的图片
      */
-    _self.shareGameToTimeline = function () {
+    _self.makeCanvas = function (w,h) {
         if (isWX) {
             const canvas = wx.createCanvas();
-            canvas.width = 750;
-            canvas.height = 1624;
-            const context = canvas.getContext('2d');
+            canvas.width = w;
+            canvas.height = h;
+            // const context = canvas.getContext('2d');
+            return canvas;
+        }
+    }
 
-            context.fillStyle = '#fff4d6';
-            context.fillRect(0, 0, 750, 1624);
-            // context.draw();
+    /**
+     * 添加图片
+     */
+    _self.addImgToCanvas = function (canvas, context, info) {
+        if (isWX) {
+            return new Promise((resolve, reject) => {
+                const img = wx.createImage();
+                img.src = info.url;
+                img.onload = () => {
+                    context.drawImage(img, info.x, info.y, info.width, info.height);
+                    resolve();
+                }
+            })
+        }
+    }
 
+    /**
+     * 添加文字
+     */
+    _self.addWordToCanvas = function (context, info) {
+        context.font = info.size + "px 微软雅黑";
+        context.fillText(info.word, info.x, info.y);
+    }
+
+    /**
+     * 保存海报
+     */
+    _self.savePost = function (canvas) {
+        if (isWX) {
             canvas.toTempFilePath({
                 success: (res) => {
                     wx.saveImageToPhotosAlbum({
                         filePath: res.tempFilePath,
                         success: () => {
-                            console.log("保存图片到相册成功");
+                            _self.alert("保存图片到相册成功，赶紧去分享吧");
                         },
                         fail: (err) => {
-                            console.log("保存图片到相册失败 : " + err);
+                            _self.alert("保存图片到相册失败");
                         }
                     })
                 }
@@ -1463,7 +1492,6 @@ var indexPage = function () {
         showFlag = true;
         uiInit();
         eventInit();
-        requestRule();
         API.addPV({ pagepath: "/pages/index" });
     }
 
@@ -1480,7 +1508,15 @@ var indexPage = function () {
      */
     function eventInit() {
         iWX.wxCreateUserInfo(addUserInfo);
-        page.startBtn.on(Laya.Event.CLICK, this, addUserInfo)
+        page.startBtn.on(Laya.Event.CLICK, this, addUserInfo);
+        page.ruleBtn.on(Laya.Event.CLICK, this, showRule);
+    }
+
+    /**
+     * 显示游戏规则
+     */
+    function showRule(){
+        iRulePage.show("rule");
     }
 
     /**
@@ -1506,6 +1542,10 @@ var indexPage = function () {
                         iWX.hideLoading();
                     });
                 }
+                else {
+                    iWX.hideLoading();
+                    iWX.alert("今天玩得太多了，休息一会吧~")
+                }
                 // console.log(res);
             })
 
@@ -1525,7 +1565,6 @@ var indexPage = function () {
         iRegPage.init();
         iRankPage.init();
         iTipsPage.init();
-        iRulePage.init();
 
         endAnime();
 
@@ -1543,6 +1582,7 @@ var indexPage = function () {
         storeDatas = [...data.ImportantList, ...data.RandomList];
         let Resources = [];
         for (var i = 0; i < storeDatas.length; i++) {
+            storeDatas[i].TouchPoints = JSON.parse(storeDatas[i].TouchPoints);
             let item = { url: storeDatas[i].StoreImgurl, type: Loader.IMAGE };
             Resources.push(item);
         }
@@ -1560,23 +1600,11 @@ var indexPage = function () {
         AddUpCoinGiveCoupon = JSON.parse(data.AddUpCoinGiveCoupon);
         CurrentCoins = data.CurrentCoins;
         CurrentScores = data.CurrentScores;
-        IsMember = data.IsMember == "0" ? false : true;
+        // IsMember = data.IsMember == "0" ? false : true;
         Mobile = data.Mobile;
         CoinToScores = data.CoinToScores;
         CoinVal = data.NEXTSTEP;
         GAME_LEVEL = data.GameLevel;
-    }
-
-    /**
-     * 请求游戏规则
-     */
-    function requestRule() {
-        API.getRule().then(function (res) {
-            if (res.Status == "ok") {
-                page.ruleWord.text = res.Tag.contents;
-                page.ruleScroll.refresh();
-            }
-        })
     }
 
     /**
@@ -1769,7 +1797,7 @@ var gamePage = function () {
     function CountJumpDis(time) {
         let nowStore = Sence_Stores[nowStoreIndex];
         let nextStore = Sence_Stores[nowStoreIndex + 1];
-        let CanStandW = STORE_WIDTH / 2;
+        let CanStandW = Move_dir ? nextStore.infoData.TouchPoints.y : nextStore.infoData.TouchPoints.x;
 
         let Max = parseInt(nextStore.x + (Move_dir ? -1 : 1) * (nextStore.sprite.width / 2 - CanStandW));
         let Min = parseInt(nextStore.x + (Move_dir ? 1 : -1) * (nextStore.sprite.width / 2 - CanStandW));
@@ -1882,7 +1910,7 @@ var gamePage = function () {
      */
     function judgeCoinNumsCoupon(x, y) {
         for (var i = 0; i < AddUpCoinGiveCoupon.length; i++) {
-            if (coinNum >= AddUpCoinGiveCoupon[i].needcoins) {
+            if (coinNum * CoinVal >= AddUpCoinGiveCoupon[i].needcoins) {
                 let item = AddUpCoinGiveCoupon.shift();
                 API.GetCouponsInfo({ ids: item.couponid })
                     .then(function (res) {
@@ -2153,6 +2181,8 @@ var resultPage = function () {
     var page;
     var showFlag = false;
     var step = 0;
+    var headImg;
+    var nickname;
 
     /**
      * 初始化
@@ -2185,7 +2215,6 @@ var resultPage = function () {
             alpha: 1
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
 
-        requestRank();
         API.addPV({ pagepath: "/pages/result" });
     }
 
@@ -2231,6 +2260,8 @@ var resultPage = function () {
         API.getallrank({ openid: iWX.openId, top: 50 })
             .then(function (res) {
                 if (res.Status == "ok") {
+                    headImg = res.Tag.my.headimg;
+                    nickname = res.Tag.my.nickname;
                     if (res.Tag.ranklist.length == 1) {
                         renderRank([page.rank2], res.Tag.ranklist)
                     }
@@ -2252,9 +2283,8 @@ var resultPage = function () {
             let box = boxs[i];
             let info = list[i]
             let url = info.headimg;
-            if(url.indexOf("http") == -1) break;
+            if (url.indexOf("http") == -1) continue;
             Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
-                console.log(box)
                 box.getChildByName("head").source = Laya.Loader.getRes(url);
                 box.getChildByName("nickname").text = iUtils.setString(info.nickname, 6);
                 box.getChildByName("coin").text = info.coins;
@@ -2267,7 +2297,99 @@ var resultPage = function () {
      * 制作海报
      */
     function makePoster() {
-        // iWX.shareGameToTimeline();
+        let canvas = iWX.makeCanvas(750, 1333);
+        let ctx = canvas.getContext('2d');
+        iWX.showLoading("生成中...");
+        iWX.addImgToCanvas(canvas, ctx, {
+            url: "images/poster/bg.jpg",
+            x: 0,
+            y: 0,
+            width: 750,
+            height: 1334
+        })
+            .then(() => {
+                let arr = [];
+                iWX.addWordToCanvas(ctx, {
+                    size: 57,
+                    word: CoinNum * CoinVal,
+                    x: 137,
+                    y: 533
+                })
+                iWX.addWordToCanvas(ctx, {
+                    size: 37,
+                    word: parseInt(CoinNum * CoinVal * CoinToScores),
+                    x: 137,
+                    y: 588
+                })
+                iWX.addWordToCanvas(ctx, {
+                    size: 57,
+                    word: couponList.length,
+                    x: 137,
+                    y: 675
+                })
+                if (couponList.length > 0) {
+                    let item = iWX.addImgToCanvas(canvas, ctx, {
+                        url: "images/poster/s.png",
+                        x: 56,
+                        y: 695,
+                        width: 638,
+                        height: 149
+                    });
+                    arr.push(item);
+                    item.then(() => {
+                        var len = couponList.length > 2 ? 2 : couponList.length;
+                        for (var i = 0; i < len; i++) {
+                            iWX.addWordToCanvas(ctx, {
+                                size: 25,
+                                word: couponList[i].CouponName,
+                                x: 105,
+                                y: 757 + 47 * i
+                            })
+
+                            iWX.addWordToCanvas(ctx, {
+                                size: 25,
+                                word: "x 1",
+                                x: 619,
+                                y: 757 + 47 * i
+                            })
+                        }
+                    })
+                }
+                else {
+                    let item = iWX.addImgToCanvas(canvas, ctx, {
+                        url: "images/poster/f.png",
+                        x: 56,
+                        y: 695,
+                        width: 638,
+                        height: 149
+                    });
+                    arr.push(item);
+                }
+
+                if (headImg && nickname) {
+                    let item = iWX.addImgToCanvas(canvas, ctx, {
+                        url: headImg,
+                        x: 100,
+                        y: 890,
+                        width: 120,
+                        height: 120
+                    });
+                    arr.push(item);
+
+                    iWX.addWordToCanvas(ctx, {
+                        size: 25,
+                        word: nickname,
+                        x: 100,
+                        y: 1050
+                    })
+                }
+
+                Promise.all(arr)
+                    .then(() => {
+                        iWX.hideLoading();
+                        iWX.savePost(canvas);
+                    })
+            })
     }
 
     /**
@@ -2358,6 +2480,7 @@ var resultPage = function () {
         }
 
         if (IsMember) sendGameData();
+        else requestRank();
     }
 
     /**
@@ -2380,6 +2503,7 @@ var resultPage = function () {
             .then(function (res) {
                 if (res.Status == "ok") {
                     if (couponList.length > 0) iTipsPage.show();
+                    requestRank();
                 }
                 // else iWX.alert(res.Msg);
             })
@@ -2571,7 +2695,7 @@ var regPage = function () {
      * 显示规则页面
      */
     function showRulePage() {
-        iRulePage.show();
+        iRulePage.show("privacy");
     }
 
     /**
@@ -2770,7 +2894,7 @@ var loginPage = function(){
      * 显示规则页面
      */
     function showRulePage(){
-        iRulePage.show();
+        iRulePage.show("privacy");
     }
 
     /**
@@ -2880,16 +3004,31 @@ var rankPage = function () {
      * 请求排行榜
      */
     function requestRank() {
-        renderRank();
+        API.getallrank({ openid: iWX.openId, top: 50 })
+            .then(function (res) {
+                if (res.Status == "ok") {
+                    let info = res.Tag.my;
+                    let url = info.headimg;
+                    Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+                        page.rank.text = info.rankid + 1;
+                        page.head.source = Laya.Loader.getRes(url);
+                        page.nickname.text = iUtils.setString(info.nickname, 11);
+                        page.coin.text = info.coins;
+                    }));
+                    renderRank(res.Tag.ranklist);
+                }
+            })
+
     }
 
     /**
      * 渲染页面
      */
-    function renderRank() {
+    function renderRank(list) {
         page.rankScroll.removeChildren();
-        for (var i = 0; i < 20; i++) {
-            var item = CreatRankRow(i);
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].headimg.indexOf("http") == -1) continue;
+            var item = CreatRankRow(i + 1, list[i]);
             item.y = item.height * i;
             page.rankScroll.addChild(item);
         }
@@ -2899,15 +3038,15 @@ var rankPage = function () {
     /**
      * 创建排行榜
      */
-    function CreatRankRow(i) {
+    function CreatRankRow(i, info) {
         let sp = new rankRowUI();
         sp.rank.text = i;
-        let url = "https://www.seventh77.com/view/food/img/head.jpg";
+        let url = info.headimg;
         Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
             sp.head.source = Laya.Loader.getRes(url);
         }));
-        sp.nickname.text = "测试";
-        sp.coin.text = 9999;
+        sp.nickname.text = iUtils.setString(info.nickname, 11);
+        sp.coin.text = info.coins;
         return sp;
     }
 
@@ -2934,10 +3073,18 @@ var rankPage = function () {
 }
 
 var iRankPage = new rankPage();
-var rulePage = function(){
+var rulePage = function () {
     var _self = this;
     var page;
     var showFlag = false;
+    var ruleCont = {
+        title: "游戏规则",
+        cont: ""
+    };
+    var privacyCont = {
+        title: "",
+        cont: ""
+    };
 
     /**
      * 初始化
@@ -2947,6 +3094,7 @@ var rulePage = function(){
         uiInit();
         eventInit();
         requestPrivacy();
+        requestRule();
     }
 
     /**
@@ -2960,27 +3108,42 @@ var rulePage = function(){
     /**
      * 显示
      */
-    _self.show = function(){
+    _self.show = function (type) {
+        let info = type == "rule" ? ruleCont : privacyCont;
+        page.title.text = info.title;
+        page.ruleWord.text = info.cont;
+        page.ruleScroll.refresh();
+        page.ruleScroll.scrollTo();
+
         page.popup();
-        API.addPV({pagepath:"/pages/rule"});
+        API.addPV({ pagepath: "/pages/rule" });
+    }
+
+    /**
+     * 请求游戏规则
+     */
+    function requestRule() {
+        API.getRule().then(function (res) {
+            if (res.Status == "ok") {
+                ruleCont.cont = res.Tag.contents
+            }
+        })
     }
 
     /**
      * 请求隐私条款
      */
-    function requestPrivacy(){
-        API.getPrivacy().then(function(res){
-            if(res.Status == "ok"){
+    function requestPrivacy() {
+        API.getPrivacy().then(function (res) {
+            if (res.Status == "ok") {
                 let cont = "";
-                
+
                 for (var i = 0; i < res.Tag.RegRule.list.length; i++) {
                     var item = res.Tag.RegRule.list[i];
-                    cont += item.itemtitle + "\n" + item.contents + ( i == res.Tag.RegRule.list.length-1 ? "" :"\n");
+                    cont += item.itemtitle + "\n" + item.contents + (i == res.Tag.RegRule.list.length - 1 ? "" : "\n");
                 }
-                page.title.text = res.Tag.RegRule.title;
-                page.ruleWord.text = cont;
-
-                page.ruleScroll.refresh();
+                privacyCont.title = res.Tag.RegRule.title;
+                privacyCont.cont = cont;
             }
         })
     }
@@ -2988,15 +3151,15 @@ var rulePage = function(){
     /**
      * 隐藏
      */
-    function hide(){
+    function hide() {
         page.close();
     }
 
     /**
      * 事件初始化
      */
-    function eventInit(){
-        page.closeBtn.on(Laya.Event.CLICK,this,hide);
+    function eventInit() {
+        page.closeBtn.on(Laya.Event.CLICK, this, hide);
     }
 
     /**
@@ -3287,6 +3450,7 @@ layaInit();
 function preLoadComplate() {
     iIndexPage.init();
     iBgm.init();
+    iRulePage.init();
     // RequestStoreInfoTest();
     // DevelopTest();
 

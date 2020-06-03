@@ -33,16 +33,31 @@ var rankPage = function () {
      * 请求排行榜
      */
     function requestRank() {
-        renderRank();
+        API.getallrank({ openid: iWX.openId, top: 50 })
+            .then(function (res) {
+                if (res.Status == "ok") {
+                    let info = res.Tag.my;
+                    let url = info.headimg;
+                    Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+                        page.rank.text = info.rankid + 1;
+                        page.head.source = Laya.Loader.getRes(url);
+                        page.nickname.text = iUtils.setString(info.nickname, 11);
+                        page.coin.text = info.coins;
+                    }));
+                    renderRank(res.Tag.ranklist);
+                }
+            })
+
     }
 
     /**
      * 渲染页面
      */
-    function renderRank() {
+    function renderRank(list) {
         page.rankScroll.removeChildren();
-        for (var i = 0; i < 20; i++) {
-            var item = CreatRankRow(i);
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].headimg.indexOf("http") == -1) continue;
+            var item = CreatRankRow(i + 1, list[i]);
             item.y = item.height * i;
             page.rankScroll.addChild(item);
         }
@@ -52,15 +67,15 @@ var rankPage = function () {
     /**
      * 创建排行榜
      */
-    function CreatRankRow(i) {
+    function CreatRankRow(i, info) {
         let sp = new rankRowUI();
         sp.rank.text = i;
-        let url = "https://www.seventh77.com/view/food/img/head.jpg";
+        let url = info.headimg;
         Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
             sp.head.source = Laya.Loader.getRes(url);
         }));
-        sp.nickname.text = "测试";
-        sp.coin.text = 9999;
+        sp.nickname.text = iUtils.setString(info.nickname, 11);
+        sp.coin.text = info.coins;
         return sp;
     }
 

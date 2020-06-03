@@ -140,7 +140,7 @@ var regPage = function () {
      * 显示规则页面
      */
     function showRulePage() {
-        iRulePage.show();
+        iRulePage.show("privacy");
     }
 
     /**

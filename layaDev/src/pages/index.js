@@ -10,7 +10,6 @@ var indexPage = function () {
         showFlag = true;
         uiInit();
         eventInit();
-        requestRule();
         API.addPV({ pagepath: "/pages/index" });
     }
 
@@ -27,7 +26,15 @@ var indexPage = function () {
      */
     function eventInit() {
         iWX.wxCreateUserInfo(addUserInfo);
-        page.startBtn.on(Laya.Event.CLICK, this, addUserInfo)
+        page.startBtn.on(Laya.Event.CLICK, this, addUserInfo);
+        page.ruleBtn.on(Laya.Event.CLICK, this, showRule);
+    }
+
+    /**
+     * 显示游戏规则
+     */
+    function showRule(){
+        iRulePage.show("rule");
     }
 
     /**
@@ -53,6 +60,10 @@ var indexPage = function () {
                         iWX.hideLoading();
                     });
                 }
+                else {
+                    iWX.hideLoading();
+                    iWX.alert("今天玩得太多了，休息一会吧~")
+                }
                 // console.log(res);
             })
 
@@ -72,7 +83,6 @@ var indexPage = function () {
         iRegPage.init();
         iRankPage.init();
         iTipsPage.init();
-        iRulePage.init();
 
         endAnime();
 
@@ -90,6 +100,7 @@ var indexPage = function () {
         storeDatas = [...data.ImportantList, ...data.RandomList];
         let Resources = [];
         for (var i = 0; i < storeDatas.length; i++) {
+            storeDatas[i].TouchPoints = JSON.parse(storeDatas[i].TouchPoints);
             let item = { url: storeDatas[i].StoreImgurl, type: Loader.IMAGE };
             Resources.push(item);
         }
@@ -107,23 +118,11 @@ var indexPage = function () {
         AddUpCoinGiveCoupon = JSON.parse(data.AddUpCoinGiveCoupon);
         CurrentCoins = data.CurrentCoins;
         CurrentScores = data.CurrentScores;
-        IsMember = data.IsMember == "0" ? false : true;
+        // IsMember = data.IsMember == "0" ? false : true;
         Mobile = data.Mobile;
         CoinToScores = data.CoinToScores;
         CoinVal = data.NEXTSTEP;
         GAME_LEVEL = data.GameLevel;
-    }
-
-    /**
-     * 请求游戏规则
-     */
-    function requestRule() {
-        API.getRule().then(function (res) {
-            if (res.Status == "ok") {
-                page.ruleWord.text = res.Tag.contents;
-                page.ruleScroll.refresh();
-            }
-        })
     }
 
     /**
