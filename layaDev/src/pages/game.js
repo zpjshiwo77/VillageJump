@@ -263,7 +263,7 @@ var gamePage = function () {
             let lastNav = Sence_Navs[len2 - 1];
 
             iAnime.fallAnime(lastStore.sprite, 0);
-            iAnime.showAnime(lastNav.sprite, 400);
+            if(imath.randomRange(0,1) == 1) iAnime.showAnime(lastNav.sprite, 400);
 
             updateCoinNum(1);
             let nowStore = Sence_Stores[nowStoreIndex];
@@ -284,7 +284,7 @@ var gamePage = function () {
         for (var i = 0; i < AddUpCoinGiveCoupon.length; i++) {
             if (coinNum * CoinVal >= AddUpCoinGiveCoupon[i].needcoins) {
                 let item = AddUpCoinGiveCoupon.shift();
-                API.GetCouponsInfo({ ids: item.couponid })
+                API.GetCouponsInfo({ ids: item.couponid,mobile:Mobile })
                     .then(function (res) {
                         if (res.Status == "ok") {
                             couponList.push(...res.Tag);
@@ -300,7 +300,7 @@ var gamePage = function () {
      * 请求优惠券
      */
     function requestStoreCoupon(info, x, y) {
-        API.GetCouponsInfoByStore({ storekey: info.StoreKey })
+        API.GetCouponsInfoByStore({ storekey: info.StoreKey,mobile:Mobile })
             .then(function (res) {
                 if (res.Status == "ok" && res.Tag.length > 0) {
                     couponList.push(...res.Tag);

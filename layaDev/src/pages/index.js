@@ -33,7 +33,7 @@ var indexPage = function () {
     /**
      * 显示游戏规则
      */
-    function showRule(){
+    function showRule() {
         iRulePage.show("rule");
     }
 
@@ -56,8 +56,10 @@ var indexPage = function () {
                 if (res.Status == "ok") {
                     dealUserInfo(res.Tag);
                     dealStoreInfo(res.Tag.data, function () {
-                        hideIndexPage();
-                        iWX.hideLoading();
+                        setTimeout(function () {
+                            hideIndexPage();
+                            iWX.hideLoading();
+                        }, 500);
                     });
                 }
                 else {
@@ -104,7 +106,7 @@ var indexPage = function () {
             let item = { url: storeDatas[i].StoreImgurl, type: Loader.IMAGE };
             Resources.push(item);
         }
-        
+
         Laya.loader.load(Resources, laya.utils.Handler.create(this, function () {
             if (callback) callback();
         }));

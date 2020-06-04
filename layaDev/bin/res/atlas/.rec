@@ -5,6 +5,8 @@ R D51D8BB6 blank.png
 P 7E42FCC6 off.png
 P FC9E70E0 play.png
 R A400651B share.jpg
+R 091B9163 shei.fnt
+R D9985AF3 shei.png
 P 52107B89 vscroll$bar.png
 P E26B933E vscroll$down.png
 P B9680947 vscroll$up.png
@@ -13,11 +15,9 @@ D images/game
 P 70603166 block.png
 P 0F9C3B78 store.png
 D images/icon
-P 67889901 back.png
-P 729BEE9E block.png
-P 4097F623 coin.png
-P 3F5A1233 coupon.png
-P 11BF8423 share.png
+P 126D270B back.png
+P 950B69FC coin.png
+P 47FB1DD1 coupon.png
 D images/index
 P 1AB459DF block.png
 R 3F5A0E3C rule.png
@@ -45,33 +45,11 @@ R 00E01B55 6.png
 R A03160C4 7.png
 R B38548A9 8.png
 D images/player
-P E6839794 01.png
-P CE7C0A4A 02.png
-P 7FFF95F7 03.png
-P 28E379A8 04.png
-P 3D64FB0B 05.png
-P 575305E3 06.png
-P 9EE17724 07.png
-P 0E6B3B03 08.png
-P 68228B93 09.png
-P 28E96206 10.png
-P CAA3F380 11.png
-P 44E85580 12.png
-P FF3C68D5 13.png
-P CC15829B 14.png
-P AB333697 15.png
-P CD944541 16.png
-P CD82E165 17.png
-P 63DDA86C 18.png
-P 0071F3A4 19.png
-P 7DF3C5FA 20.png
-P 55785DDC 21.png
-P CA8B4339 22.png
 D images/poster
 D images/rank
 R F58C8AFC kuang1.png
 R 7E8F0024 kuang2.png
-P 08317577 title.png
+P 85313EBF title.png
 D images/reg
 P A2E7FFFF login.png
 P 56A9366A ok.png
@@ -83,7 +61,7 @@ P BBC5E32A btn2.png
 P CD374EDB btn3.png
 R 74E09D16 kuang.png
 P 4F7AE5D9 logo.png
-P 419BE4F6 rank.png
+P 19A2DA93 rank.png
 P 2697395E rankBtn.png
 R 8DC20340 shareBtn.png
 D images/rule
@@ -120,7 +98,7 @@ P E7B23D70 7.png
 P 120BD39E 8.png
 P F3411E47 9.png
 D images/tips
-R DB2A264E award.png
+R B20CA7F3 award.png
 D images/icon/coupon
 P 4F12733D 001.png
 P 4CDA1C00 002.png
@@ -141,3 +119,49 @@ P 015FB692 017.png
 P 758D1362 018.png
 P B4F902A3 019.png
 P 9634735F 020.png
+D images/player/left
+P AE1A27B6 01.png
+P 0721127F 02.png
+P 12D28B9C 03.png
+P B1EE53E5 04.png
+P 60825A6D 05.png
+P C280BB9A 06.png
+P DFB11113 07.png
+P F491E884 08.png
+P FDF36631 09.png
+P 94047D83 10.png
+P 21BFAD5B 11.png
+P 3153D573 12.png
+P 30E933EF 13.png
+P 23BF6463 14.png
+P 4657290D 15.png
+P DF96EA80 16.png
+P 66A033C4 17.png
+P 40EF57B2 18.png
+P E295320B 19.png
+P CA6D5325 20.png
+P 6ED6F385 21.png
+P B09C4ACC 22.png
+D images/player/right
+P 7643F8EE 01.png
+P F21E7E5E 02.png
+P 8C4DE698 03.png
+P 0CC25689 04.png
+P 098C732E 05.png
+P B797CD9A 06.png
+P 2C136B86 07.png
+P EAF5AAA9 08.png
+P 58A10971 09.png
+P C34F0C35 10.png
+P 867F416D 11.png
+P 2E080301 12.png
+P B01DC064 13.png
+P E9EB5CF3 14.png
+P 6A2DB957 15.png
+P BB879A3C 16.png
+P 4C94C768 17.png
+P 2871A4E1 18.png
+P B76779B5 19.png
+P 3B9F4251 20.png
+P DB19B2EF 21.png
+P 73210674 22.png

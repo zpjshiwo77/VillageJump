@@ -2,4 +2,5 @@
    <item name="images/common/blank.png" type="Image" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
    <item name="images/common/share.jpg" type="Image" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
    <item name="images/poster" type="" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="images/common/shei.png" type="Image" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
 </res>

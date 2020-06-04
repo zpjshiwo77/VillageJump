@@ -38,7 +38,7 @@ var rankPage = function () {
                 if (res.Status == "ok") {
                     let info = res.Tag.my;
                     if(info) renderMyRnak(info);
-                    else page.self.visible = false;
+                    else page.selfBox.visible = false;
                     renderRank(res.Tag.ranklist);
                 }
             })
@@ -55,7 +55,7 @@ var rankPage = function () {
             page.head.source = Laya.Loader.getRes(url);
             page.nickname.text = iUtils.setString(info.nickname, 11);
             page.coin.text = info.coins;
-            page.self.visible = true;
+            page.selfBox.visible = true;
         }));
     }
 

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":10,
+    "selectedBox":14,
+    "selecteID":14,
     "props":{"y":60,"x":50,"width":100,"sceneColor":"#000000","pivotY":60,"pivotX":50,"height":135},
     "nodeParent":-1,
     "label":"View",
@@ -14,30 +14,81 @@
     "child":[
         {
             "x":15,
-            "type":"Animation",
-            "props":{"var":"warmUpAni","source":"images/player/01.png,images/player/02.png,images/player/03.png,images/player/04.png,images/player/05.png,images/player/06.png,images/player/07.png,images/player/08.png,images/player/09.png,images/player/10.png","scaleY":0.5,"scaleX":0.5,"interval":100},
+            "type":"Sprite",
+            "props":{"width":100,"var":"rightSide","height":135},
             "nodeParent":1,
-            "label":"Animation(warmUpAni)",
-            "isDirectory":false,
+            "label":"Sprite(rightSide)",
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":9,
+            "hasChild":true,
+            "compId":11,
             "child":[
-                ]
+                {
+                    "type":"Animation",
+                    "props":{"y":0,"x":0,"var":"warmUpAniright","source":"images/player/right/01.png,images/player/right/02.png,images/player/right/03.png,images/player/right/04.png,images/player/right/05.png,images/player/right/06.png,images/player/right/07.png,images/player/right/08.png,images/player/right/09.png,images/player/right/10.png","scaleY":0.5,"scaleX":0.5,"interval":100},
+                    "nodeParent":11,
+                    "label":"Animation(warmUpAniright)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Animation",
+                    "props":{"y":0,"x":0,"visible":false,"var":"jumpAniright","source":"images/player/right/11.png,images/player/right/12.png,images/player/right/13.png,images/player/right/14.png,images/player/right/15.png,images/player/right/16.png,images/player/right/17.png,images/player/right/18.png,images/player/right/19.png,images/player/right/20.png,images/player/right/21.png,images/player/right/22.png","scaleY":0.5,"scaleX":0.5,"interval":33},
+                    "nodeParent":11,
+                    "label":"Animation(jumpAniright)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }]
         },
         {
             "x":15,
-            "type":"Animation",
-            "props":{"visible":false,"var":"jumpAni","source":"images/player/11.png,images/player/12.png,images/player/13.png,images/player/14.png,images/player/15.png,images/player/16.png,images/player/17.png,images/player/18.png,images/player/19.png,images/player/20.png,images/player/21.png,images/player/22.png","scaleY":0.5,"scaleX":0.5,"interval":33},
+            "type":"Sprite",
+            "props":{"y":0,"x":0,"width":100,"visible":false,"var":"leftSide","height":135},
             "nodeParent":1,
-            "label":"Animation(jumpAni)",
-            "isDirectory":false,
+            "label":"Sprite(leftSide)",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
+            "hasChild":true,
+            "compId":12,
             "child":[
-                ],
-            "$HIDDEN":false
+                {
+                    "x":30,
+                    "type":"Animation",
+                    "props":{"y":0,"x":0,"var":"warmUpAnileft","source":"images/player/left/01.png,images/player/left/02.png,images/player/left/03.png,images/player/left/04.png,images/player/left/05.png,images/player/left/06.png,images/player/left/07.png,images/player/left/08.png,images/player/left/09.png,images/player/left/10.png","scaleY":0.5,"scaleX":0.5,"interval":100},
+                    "nodeParent":12,
+                    "label":"Animation(warmUpAnileft)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":13,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Animation",
+                    "props":{"y":0,"x":0,"visible":false,"var":"jumpAnileft","source":"images/player/left/11.png,images/player/left/12.png,images/player/left/13.png,images/player/left/14.png,images/player/left/15.png,images/player/left/16.png,images/player/left/17.png,images/player/left/18.png,images/player/left/19.png,images/player/left/20.png,images/player/left/21.png,images/player/left/22.png","scaleY":0.5,"scaleX":0.5,"interval":33},
+                    "nodeParent":12,
+                    "label":"Animation(jumpAnileft)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":14,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }]
         }],
     "animations":[
         {

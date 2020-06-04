@@ -24,7 +24,6 @@
     Laya.loader.load(PreResources, laya.utils.Handler.create(this, preLoadComplate), null);
 
     CountPageSize();
-
     
     iWX = new wxFunc();
     iWX.checkUpdateGame();
@@ -38,7 +37,7 @@ layaInit();
  */
 function preLoadComplate() {
     iIndexPage.init();
-    iBgm.init();
+    // iBgm.init();
     iRulePage.init();
     // RequestStoreInfoTest();
     // DevelopTest();

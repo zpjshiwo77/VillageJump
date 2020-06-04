@@ -20,7 +20,18 @@ var player = function (box) {
      * @param {*} dir 翻转方向 1右 -1左 
      */
     _self.FlipImg = function (dir) {
-        this.sprite.scaleX = dir;
+        if(dir == 1){
+            _self.sprite.rightSide.visible = true;
+            _self.sprite.leftSide.visible = false;
+            warmUpAni = _self.sprite.warmUpAniright;
+            jumpAni = _self.sprite.jumpAniright;
+        }
+        else{
+            _self.sprite.rightSide.visible = false;
+            _self.sprite.leftSide.visible = true;
+            warmUpAni = _self.sprite.warmUpAnileft;
+            jumpAni = _self.sprite.jumpAnileft;
+        }
     }
 
     /**
@@ -81,8 +92,8 @@ var player = function (box) {
         _self.sprite.alpha = 0;
         _self.sprite.zOrder = 99;
         box.addChild(_self.sprite);
-        warmUpAni = _self.sprite.warmUpAni;
-        jumpAni = _self.sprite.jumpAni;
+        warmUpAni = _self.sprite.warmUpAniright;
+        jumpAni = _self.sprite.jumpAniright;
     }
     init();
 }
