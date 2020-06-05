@@ -370,7 +370,7 @@ var gamePage = function () {
      */
     function updateCoinNum(num) {
         coinNum += num;
-        coinNumText.text = coinNum * CoinVal;
+        iUtils.makeNum(coinNumText,coinNum * CoinVal)
         CoinNum = coinNum;
     }
 
@@ -380,7 +380,7 @@ var gamePage = function () {
      */
     function updateCouponNum(num) {
         couponNum += num;
-        couponNumText.text = couponNum;
+        iUtils.makeNum(couponNumText,couponNum)
     }
 
     /**
@@ -432,6 +432,9 @@ var gamePage = function () {
         couponBox = page.coupon;
         couponBox.zOrder = 100;
         couponAni = page.couponAni;
+
+        updateCoinNum(0);
+        updateCouponNum(0);
 
         creatNav();
         creatStore();

@@ -54,7 +54,7 @@ var rankPage = function () {
             page.rank.text = info.rankid + 1;
             page.head.source = Laya.Loader.getRes(url);
             page.nickname.text = iUtils.setString(info.nickname, 11);
-            page.coin.text = info.coins;
+            iUtils.makeNum(page.coin,info.coins);
             page.selfBox.visible = true;
         }));
     }
@@ -84,7 +84,7 @@ var rankPage = function () {
             sp.head.source = Laya.Loader.getRes(url);
         }));
         sp.nickname.text = iUtils.setString(info.nickname, 11);
-        sp.coin.text = info.coins;
+        iUtils.makeNum(sp.coin,info.coins);
         return sp;
     }
 

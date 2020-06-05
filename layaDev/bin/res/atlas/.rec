@@ -5,8 +5,6 @@ R D51D8BB6 blank.png
 P 7E42FCC6 off.png
 P FC9E70E0 play.png
 R A400651B share.jpg
-R 091B9163 shei.fnt
-R D9985AF3 shei.png
 P 52107B89 vscroll$bar.png
 P E26B933E vscroll$down.png
 P B9680947 vscroll$up.png
@@ -44,6 +42,7 @@ R CF663743 5.png
 R 00E01B55 6.png
 R A03160C4 7.png
 R B38548A9 8.png
+D images/nums
 D images/player
 D images/poster
 D images/rank
@@ -61,9 +60,11 @@ P BBC5E32A btn2.png
 P CD374EDB btn3.png
 R 74E09D16 kuang.png
 P 4F7AE5D9 logo.png
+P F0F87DB6 p.png
 P 19A2DA93 rank.png
 P 2697395E rankBtn.png
-R 8DC20340 shareBtn.png
+P 8EE5309B s1.png
+P 9492B277 s2.png
 D images/rule
 P FE773794 close.png
 R 0AF94600 cont.png

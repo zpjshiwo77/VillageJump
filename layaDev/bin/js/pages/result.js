@@ -82,7 +82,7 @@ var resultPage = function () {
         API.getallrank({ openid: iWX.openId, top: 50 })
             .then(function (res) {
                 if (res.Status == "ok") {
-                    if(res.Tag.my){
+                    if (res.Tag.my) {
                         headImg = res.Tag.my.headimg;
                         nickname = res.Tag.my.nickname;
                     }
@@ -108,13 +108,40 @@ var resultPage = function () {
             let info = list[i]
             let url = info.headimg;
             if (url.indexOf("http") == -1) continue;
-            Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
-                box.getChildByName("head").source = Laya.Loader.getRes(url);
-                box.getChildByName("nickname").text = iUtils.setString(info.nickname, 6);
-                box.getChildByName("coin").text = info.coins;
-                box.visible = true;
-            }));
+            renderRankItem(box, info, url);
         }
+    }
+
+    /**
+     * 渲染排行榜列表
+     */
+    function renderRankItem(box, info, url) {
+        Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
+            box.getChildByName("head").source = Laya.Loader.getRes(url);
+            box.getChildByName("nickname").text = iUtils.setString(info.nickname, 6);
+            iUtils.makeNum(box.getChildByName("coin"), info.coins)
+            box.visible = true;
+        }));
+    }
+
+    /**
+     * 生成海报的数字
+     */
+    function makePosterNum(canvas, ctx, size, x, y, num) {
+        let arr = [];
+        let nums = (num + "").split("");
+        let h = size, w = parseInt(h * 53 / 80);
+        for (let i = 0; i < nums.length; i++) {
+            let item = iWX.addImgToCanvas(canvas, ctx, {
+                url: "images/nums/" + nums[i] + ".png",
+                x: x + (w + 1) * i,
+                y: y,
+                width: w,
+                height: h
+            });
+            arr.push(item);
+        }
+        return arr;
     }
 
     /**
@@ -133,24 +160,13 @@ var resultPage = function () {
         })
             .then(() => {
                 let arr = [];
-                iWX.addWordToCanvas(ctx, {
-                    size: 57,
-                    word: CoinNum * CoinVal,
-                    x: 137,
-                    y: 533
-                })
-                iWX.addWordToCanvas(ctx, {
-                    size: 37,
-                    word: parseInt(CoinNum * CoinVal * CoinToScores),
-                    x: 137,
-                    y: 588
-                })
-                iWX.addWordToCanvas(ctx, {
-                    size: 57,
-                    word: couponList.length,
-                    x: 137,
-                    y: 675
-                })
+
+                let w1 = makePosterNum(canvas, ctx, 34, 137, 495, CoinNum * CoinVal);
+                let w2 = makePosterNum(canvas, ctx, 23, 137, 565, parseInt(CoinNum * CoinVal * CoinToScores));
+                let w3 = makePosterNum(canvas, ctx, 34, 137, 637, couponList.length);
+
+                arr.push(...w1, ...w2, ...w3);
+
                 if (couponList.length > 0) {
                     let item = iWX.addImgToCanvas(canvas, ctx, {
                         url: "images/poster/s.png",
@@ -270,9 +286,9 @@ var resultPage = function () {
      * 渲染页面
      */
     function renderPage(coinNum) {
-        page.coinNum.text = coinNum * CoinVal;
-        page.pointNum.text = parseInt(coinNum * CoinVal * CoinToScores);
-        page.couponNum.text = couponList.length;
+        iUtils.makeNum(page.coinNum, coinNum * CoinVal);
+        iUtils.makeNum(page.pointNum, parseInt(coinNum * CoinVal * CoinToScores));
+        iUtils.makeNum(page.couponNum, couponList.length);
 
         var len = couponList.length;
         if (len > 0) {

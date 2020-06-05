@@ -1,26 +1,26 @@
-var utils = function(){
-    var _self = this;
+var utils = function () {
+	var _self = this;
 
 	/**
 	 * 字符串截取
 	 * @param {*} str			需要截取的字符串
 	 * @param {*} len			截取长度
 	 */
-	_self.setString = function(str, len) {
-	    var strlen = 0;
-	    var s = "";
-	    for (var i = 0; i < str.length; i++) {
-	        if (str.charCodeAt(i) > 128) {
-	            strlen += 2;
-	        } else {
-	            strlen++;
-	        }
-	        s += str.charAt(i);
-	        if (strlen >= len) {
-	            return s + "...";
-	        }
-	    }
-	    return s;
+	_self.setString = function (str, len) {
+		var strlen = 0;
+		var s = "";
+		for (var i = 0; i < str.length; i++) {
+			if (str.charCodeAt(i) > 128) {
+				strlen += 2;
+			} else {
+				strlen++;
+			}
+			s += str.charAt(i);
+			if (strlen >= len) {
+				return s + "...";
+			}
+		}
+		return s;
 	} //end func
 
 	/**
@@ -34,11 +34,11 @@ var utils = function(){
     /**
      * 深度复制
      */
-	_self.deepClone = function(source) {
+	_self.deepClone = function (source) {
 		function getClone(_source) {
 			var clone = _self.dataType(_source) == "array" ? [] : {};
-			for(var i in _source) {
-				if(_self.dataType(_source[i]) != 'object' && _self.dataType(_source[i]) != 'array') clone[i] = _source[i];
+			for (var i in _source) {
+				if (_self.dataType(_source[i]) != 'object' && _self.dataType(_source[i]) != 'array') clone[i] = _source[i];
 				else clone[i] = getClone(_source[i]);
 			} //end for
 			return clone;
@@ -49,10 +49,28 @@ var utils = function(){
     /**
      * 判断是数组还是对象
      */
-	_self.dataType = function(o) {
-		if(typeof(o) === 'object') return Array == o.constructor ? 'array' : 'object';
+	_self.dataType = function (o) {
+		if (typeof (o) === 'object') return Array == o.constructor ? 'array' : 'object';
 		else return null;
 	} //end func
+
+	/**
+	 * 生成数字
+	 */
+	_self.makeNum = function (box, num) {
+		let nums = (num + "").split("");
+		let h = box.height, w = parseInt(h * 53 / 80);
+		box.removeChildren();
+		for (let i = 0; i < nums.length; i++) {
+			let item = new Laya.Image();
+			item.source = Laya.Loader.getRes("images/nums/" + nums[i] + ".png");
+			item.height = h;
+			item.width = w;
+			item.x = (w + 1) * i;
+			item.y = 0;
+			box.addChild(item);
+		}
+	}
 
 	/**
 	 * 常用正则

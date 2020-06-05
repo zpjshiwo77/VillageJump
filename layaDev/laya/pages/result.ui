@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":9,
-    "selecteID":49,
+    "selectedBox":30,
+    "selecteID":27,
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
     "label":"View",
@@ -137,16 +137,27 @@
                     "props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},
                     "nodeParent":3,
                     "label":"Box(pointBox)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":14,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":6,"x":0,"width":37,"skin":"images/icon/coin.png","height":37},
+                            "props":{"y":87,"x":11,"skin":"images/result/p.png"},
+                            "nodeParent":14,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":52,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":6,"x":-3,"width":42,"skin":"images/icon/coin.png","height":42},
                             "nodeParent":14,
                             "label":"Image",
                             "isOpen":true,
@@ -158,61 +169,8 @@
                                 ]
                         },
                         {
-                            "x":45,
-                            "type":"Text",
-                            "props":{"y":0,"x":45,"width":155,"var":"coinNum","text":"0","height":50,"fontSize":50,"color":"#000000","bold":true},
-                            "nodeParent":14,
-                            "label":"Text(coinNum)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":15,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Text",
-                            "props":{"y":78,"x":8,"width":155,"text":"=","height":50,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":false},
-                            "nodeParent":14,
-                            "label":"Text",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":13,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Text",
-                            "props":{"y":80,"x":110,"width":155,"text":"积分","height":50,"fontSize":23,"font":"Microsoft YaHei","color":"#000000","bold":false},
-                            "nodeParent":14,
-                            "label":"Text",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":16,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Text",
-                            "props":{"y":75,"x":45,"width":63,"var":"pointNum","text":"0","height":50,"fontSize":37,"color":"#000000","bold":true,"align":"left"},
-                            "nodeParent":14,
-                            "label":"Text(pointNum)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":17,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":145,"x":0,"width":40,"skin":"images/icon/coupon.png","height":20},
+                            "props":{"y":144,"x":-10,"width":50,"skin":"images/icon/coupon.png","height":25},
                             "nodeParent":14,
                             "label":"Image",
                             "isDirectory":false,
@@ -223,15 +181,38 @@
                                 ]
                         },
                         {
-                            "x":45,
-                            "type":"Text",
-                            "props":{"y":129,"x":45,"width":38,"var":"couponNum","text":"0","height":50,"fontSize":45,"color":"#000000","bold":true,"align":"left"},
+                            "type":"Sprite",
+                            "props":{"y":8,"x":45,"width":125,"var":"coinNum","height":36},
                             "nodeParent":14,
-                            "label":"Text(couponNum)",
+                            "label":"Sprite(coinNum)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":19,
+                            "compId":50,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Sprite",
+                            "props":{"y":84,"x":45,"width":70,"var":"pointNum","height":29},
+                            "nodeParent":14,
+                            "label":"Sprite(pointNum)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":51,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Sprite",
+                            "props":{"y":138,"x":45,"width":125,"var":"couponNum","height":36},
+                            "nodeParent":14,
+                            "label":"Sprite(couponNum)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":53,
                             "child":[
                                 ]
                         }]
@@ -291,50 +272,37 @@
                     "props":{"y":1130,"x":58,"name":"shareBox"},
                     "nodeParent":3,
                     "label":"Box(shareBox)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":30,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":0,"x":0,"skin":"images/result/shareBtn.png"},
+                            "props":{"y":0,"x":0,"width":187,"var":"otherBtn","skin":"images/result/s1.png","height":45},
                             "nodeParent":30,
-                            "label":"Image",
-                            "isOpen":true,
+                            "label":"Image(otherBtn)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":27,
+                            "compId":57,
                             "child":[
                                 ]
                         },
                         {
-                            "type":"Sprite",
-                            "props":{"y":0,"width":216,"var":"otherBtn","height":51},
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":447,"width":187,"var":"shareBtn","skin":"images/result/s2.png","height":45},
                             "nodeParent":30,
-                            "label":"Sprite(otherBtn)",
+                            "label":"Image(shareBtn)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":28,
+                            "compId":58,
                             "child":[
-                                ],
-                            "$HIDDEN":true
-                        },
-                        {
-                            "type":"Sprite",
-                            "props":{"y":0,"x":389,"width":249,"var":"shareBtn","height":53},
-                            "nodeParent":30,
-                            "label":"Sprite(shareBtn)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":29,
-                            "child":[
-                                ],
-                            "$HIDDEN":true
+                                ]
                         }]
                 },
                 {
@@ -343,14 +311,13 @@
                     "props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},
                     "nodeParent":3,
                     "label":"Box(rankBox)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":32,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":315,"skin":"images/result/rank.png"},
                             "nodeParent":32,
@@ -363,7 +330,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":41,"x":570,"var":"rankBtn","skin":"images/result/rankBtn.png"},
                             "nodeParent":32,
@@ -376,7 +342,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":85,"x":218,"width":74,"visible":false,"var":"rank1","height":74},
                             "nodeParent":32,
@@ -388,7 +353,6 @@
                             "compId":35,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":0,"width":74,"skin":"images/common/blank.png","name":"head","height":74},
                                     "nodeParent":35,
@@ -401,9 +365,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Text",
-                                    "props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
+                                    "props":{"y":80,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
                                     "nodeParent":35,
                                     "label":"Text(nickname)",
                                     "isDirectory":false,
@@ -414,9 +377,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":106,"x":0,"width":15,"skin":"images/icon/coin.png","height":15},
+                                    "props":{"y":107,"x":0,"width":15,"skin":"images/icon/coin.png","height":15},
                                     "nodeParent":35,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -427,21 +389,19 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
-                                    "type":"Text",
-                                    "props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"},
+                                    "type":"Sprite",
+                                    "props":{"y":107,"x":16,"width":52,"name":"coin","height":15},
                                     "nodeParent":35,
-                                    "label":"Text(coin)",
+                                    "label":"Sprite(coin)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":38,
+                                    "compId":54,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":85,"x":338,"width":74,"visible":false,"var":"rank2","height":74},
                             "nodeParent":32,
@@ -453,7 +413,6 @@
                             "compId":39,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":0,"width":74,"skin":"images/common/blank.png","name":"head","height":74},
                                     "nodeParent":39,
@@ -466,9 +425,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Text",
-                                    "props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
+                                    "props":{"y":80,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
                                     "nodeParent":39,
                                     "label":"Text(nickname)",
                                     "isDirectory":false,
@@ -479,9 +437,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":106,"x":0,"width":15,"skin":"images/icon/coin.png","height":15},
+                                    "props":{"y":107,"x":0,"width":15,"skin":"images/icon/coin.png","height":15},
                                     "nodeParent":39,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -492,21 +449,19 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
-                                    "type":"Text",
-                                    "props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"},
+                                    "type":"Sprite",
+                                    "props":{"y":107,"x":16,"width":52,"name":"coin","height":15},
                                     "nodeParent":39,
-                                    "label":"Text(coin)",
+                                    "label":"Sprite(coin)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":43,
+                                    "compId":55,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":85,"x":458,"width":74,"visible":false,"var":"rank3","height":74},
                             "nodeParent":32,
@@ -518,7 +473,6 @@
                             "compId":44,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":0,"width":74,"skin":"images/common/blank.png","name":"head","height":74},
                                     "nodeParent":44,
@@ -531,9 +485,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Text",
-                                    "props":{"y":76,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
+                                    "props":{"y":80,"x":0,"width":74,"text":"KennyS","name":"nickname","fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"center"},
                                     "nodeParent":44,
                                     "label":"Text(nickname)",
                                     "isDirectory":false,
@@ -544,9 +497,8 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":106,"x":0,"width":15,"skin":"images/icon/coin.png","height":15},
+                                    "props":{"y":107,"x":0,"width":15,"skin":"images/icon/coin.png","height":15},
                                     "nodeParent":44,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -557,15 +509,14 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
-                                    "type":"Text",
-                                    "props":{"y":103,"x":17,"width":56,"text":"0","name":"coin","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#000","align":"left"},
+                                    "type":"Sprite",
+                                    "props":{"y":107,"x":16,"width":52,"name":"coin","height":15},
                                     "nodeParent":44,
-                                    "label":"Text(coin)",
+                                    "label":"Sprite(coin)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":48,
+                                    "compId":56,
                                     "child":[
                                         ]
                                 }]

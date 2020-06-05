@@ -42,6 +42,7 @@ var indexPage = function () {
      */
     function addUserInfo() {
         if (showFlag) {
+            iWX.showLoading("游戏加载中...");
             showFlag = false;
             let data = {
                 "openid": iWX.openId,
@@ -52,7 +53,6 @@ var indexPage = function () {
             // if(false) data.friendOpenid = "";
             let res = API.addUser(data);
             res.then(function (res) {
-                iWX.showLoading("游戏加载中...");
                 if (res.Status == "ok") {
                     dealUserInfo(res.Tag);
                     dealStoreInfo(res.Tag.data, function () {
