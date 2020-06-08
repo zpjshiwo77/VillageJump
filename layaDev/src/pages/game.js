@@ -273,7 +273,7 @@ var gamePage = function () {
 
             setTimeout(function () {
                 pressFlag = true;
-            }, 1500);
+            }, 1000);
         }));
     }
 

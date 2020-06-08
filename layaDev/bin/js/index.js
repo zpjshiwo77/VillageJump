@@ -24,11 +24,13 @@
     Laya.loader.load(PreResources, laya.utils.Handler.create(this, preLoadComplate), null);
 
     CountPageSize();
-    
+
     iWX = new wxFunc();
     iWX.checkUpdateGame();
     iWX.shareInit("快来一起玩吧~");
     iWX.login();
+    let info = iWX.getLaunchOptionsSync();
+    channelfrom = info.query.channelfrom;
 }
 layaInit();
 
@@ -45,6 +47,36 @@ function preLoadComplate() {
     // Laya.URL.basePath = "https://beatsAdgame.beats-digital.com/";
 
     // Laya.loader.load(Resources, laya.utils.Handler.create(this, loadUIComplate));
+
+    API.GetStoreListInfo()
+        .then(function (res) {
+            if (res.Status == "ok") {
+                dealStoreInfo(res.Tag.data, function () {
+                    setTimeout(function () {
+                         loadStoreFlag = true;
+                    }, 1000);
+                });
+            }
+        })
+}
+
+/**
+ * 处理店铺信息
+ * @param {*} data 
+ * @param {*} callback 
+ */
+function dealStoreInfo(data, callback) {
+    storeDatas = [...data.ImportantList, ...data.RandomList];
+    let Resources = [];
+    for (var i = 0; i < storeDatas.length; i++) {
+        storeDatas[i].TouchPoints = JSON.parse(storeDatas[i].TouchPoints);
+        let item = { url: storeDatas[i].StoreImgurl, type: Loader.IMAGE };
+        Resources.push(item);
+    }
+
+    Laya.loader.load(Resources, laya.utils.Handler.create(this, function () {
+        if (callback) callback();
+    }));
 }
 
 /**

@@ -55,12 +55,7 @@ var indexPage = function () {
             res.then(function (res) {
                 if (res.Status == "ok") {
                     dealUserInfo(res.Tag);
-                    dealStoreInfo(res.Tag.data, function () {
-                        setTimeout(function () {
-                            hideIndexPage();
-                            iWX.hideLoading();
-                        }, 500);
-                    });
+                    enterGamePage();
                 }
                 else {
                     iWX.hideLoading();
@@ -70,6 +65,21 @@ var indexPage = function () {
             })
 
             API.addUV({});
+        }
+    }
+
+    /**
+     * 进入游戏页面
+     */
+    function enterGamePage(){
+        if(loadStoreFlag){
+            hideIndexPage();
+                    iWX.hideLoading();
+        }
+        else{
+            setTimeout(function(){
+                enterGamePage();
+            },100);
         }
     }
 
@@ -96,20 +106,6 @@ var indexPage = function () {
             _self.distroy();
         }, 500);
 
-    }
-
-    function dealStoreInfo(data, callback) {
-        storeDatas = [...data.ImportantList, ...data.RandomList];
-        let Resources = [];
-        for (var i = 0; i < storeDatas.length; i++) {
-            storeDatas[i].TouchPoints = JSON.parse(storeDatas[i].TouchPoints);
-            let item = { url: storeDatas[i].StoreImgurl, type: Loader.IMAGE };
-            Resources.push(item);
-        }
-
-        Laya.loader.load(Resources, laya.utils.Handler.create(this, function () {
-            if (callback) callback();
-        }));
     }
 
     /**

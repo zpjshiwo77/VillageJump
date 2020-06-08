@@ -21,6 +21,9 @@ let iWX;
 let BgPageY = 0, WindowH = 0;
 let GameContH = 0;
 
+let loadStoreFlag = false;
+let channelfrom = "";
+
 let CoinNum = 0,couponList = [], CoinVal = 0, CoinToScores = 0;
 let GAME_LEVEL = 2;                             //游戏等级
 

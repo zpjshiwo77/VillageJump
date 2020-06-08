@@ -42,6 +42,13 @@ var wxFunc = function () {
     }
 
     /**
+     * 获取参数
+     */
+    _self.getLaunchOptionsSync = function(){
+        if(isWX) return wx.getLaunchOptionsSync();
+    }
+
+    /**
      * alert
      */
     _self.alert = function (word, callback) {

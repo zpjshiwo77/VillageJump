@@ -140,6 +140,17 @@ function importAPI() {
     }//end func
 
     /**
+     * 获取店铺信息
+     */
+    _self.GetStoreListInfo = function () {
+        return _Ajax({
+            API: "game/GetStoreListInfo",
+            data: {},
+            method: "GET"
+        });
+    }//end func
+
+    /**
      * 获取金币优惠券
      */
     _self.GetCouponsInfo = function (data) {
@@ -156,6 +167,7 @@ function importAPI() {
      */
     _self.addPV = function (data) {
         data.openid = iWX.openId;
+        data.channelfrom = channelfrom;
         return _Ajax({
             API: "view/AddPV",
             data: data,

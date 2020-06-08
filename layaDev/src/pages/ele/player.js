@@ -13,6 +13,7 @@ var player = function (box) {
         warmUpAni.visible = true;
         jumpAni.visible = false;
         warmUpAni.play(0,false);
+        Laya.SoundManager.playSound("audio/ready.mp3");
     }
 
     /**
@@ -82,6 +83,8 @@ var player = function (box) {
         }, JUMP_TIME, Laya.Ease.linearIn, Laya.Handler.create(this, function () {
             if (callback) callback();
         }));
+        Laya.SoundManager.playSound("audio/jump.mp3");
+        Laya.SoundManager.stopSound("audio/ready.mp3");
     }
 
     /**
