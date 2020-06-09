@@ -36,8 +36,22 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
-			"currentL": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"query": "channelfrom=1111",
+					"scene": null
+				}
+			]
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {

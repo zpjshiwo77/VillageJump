@@ -383,6 +383,9 @@ let iWX;
 let BgPageY = 0, WindowH = 0;
 let GameContH = 0;
 
+let loadStoreFlag = false;
+let channelfrom = "";
+
 let CoinNum = 0,couponList = [], CoinVal = 0, CoinToScores = 0;
 let GAME_LEVEL = 2;                             //游戏等级
 
@@ -724,6 +727,13 @@ var wxFunc = function () {
                 }
             })
         }
+    }
+
+    /**
+     * 获取参数
+     */
+    _self.getLaunchOptionsSync = function(){
+        if(isWX) return wx.getLaunchOptionsSync();
     }
 
     /**
@@ -1394,6 +1404,17 @@ function importAPI() {
     }//end func
 
     /**
+     * 获取店铺信息
+     */
+    _self.GetStoreListInfo = function () {
+        return _Ajax({
+            API: "game/GetStoreListInfo",
+            data: {},
+            method: "GET"
+        });
+    }//end func
+
+    /**
      * 获取金币优惠券
      */
     _self.GetCouponsInfo = function (data) {
@@ -1410,6 +1431,7 @@ function importAPI() {
      */
     _self.addPV = function (data) {
         data.openid = iWX.openId;
+        data.channelfrom = channelfrom;
         return _Ajax({
             API: "view/AddPV",
             data: data,
@@ -1560,12 +1582,7 @@ var indexPage = function () {
             res.then(function (res) {
                 if (res.Status == "ok") {
                     dealUserInfo(res.Tag);
-                    dealStoreInfo(res.Tag.data, function () {
-                        setTimeout(function () {
-                            hideIndexPage();
-                            iWX.hideLoading();
-                        }, 500);
-                    });
+                    enterGamePage();
                 }
                 else {
                     iWX.hideLoading();
@@ -1575,6 +1592,21 @@ var indexPage = function () {
             })
 
             API.addUV({});
+        }
+    }
+
+    /**
+     * 进入游戏页面
+     */
+    function enterGamePage(){
+        if(loadStoreFlag){
+            hideIndexPage();
+                    iWX.hideLoading();
+        }
+        else{
+            setTimeout(function(){
+                enterGamePage();
+            },100);
         }
     }
 
@@ -1601,20 +1633,6 @@ var indexPage = function () {
             _self.distroy();
         }, 500);
 
-    }
-
-    function dealStoreInfo(data, callback) {
-        storeDatas = [...data.ImportantList, ...data.RandomList];
-        let Resources = [];
-        for (var i = 0; i < storeDatas.length; i++) {
-            storeDatas[i].TouchPoints = JSON.parse(storeDatas[i].TouchPoints);
-            let item = { url: storeDatas[i].StoreImgurl, type: Loader.IMAGE };
-            Resources.push(item);
-        }
-
-        Laya.loader.load(Resources, laya.utils.Handler.create(this, function () {
-            if (callback) callback();
-        }));
     }
 
     /**
@@ -1926,7 +1944,7 @@ var gamePage = function () {
 
             setTimeout(function () {
                 pressFlag = true;
-            }, 1500);
+            }, 1000);
         }));
     }
 
@@ -3307,6 +3325,7 @@ var player = function (box) {
         warmUpAni.visible = true;
         jumpAni.visible = false;
         warmUpAni.play(0,false);
+        Laya.SoundManager.playSound("audio/ready.mp3");
     }
 
     /**
@@ -3376,6 +3395,8 @@ var player = function (box) {
         }, JUMP_TIME, Laya.Ease.linearIn, Laya.Handler.create(this, function () {
             if (callback) callback();
         }));
+        Laya.SoundManager.playSound("audio/jump.mp3");
+        Laya.SoundManager.stopSound("audio/ready.mp3");
     }
 
     /**
@@ -3508,11 +3529,13 @@ function layaInit() {
     Laya.loader.load(PreResources, laya.utils.Handler.create(this, preLoadComplate), null);
 
     CountPageSize();
-    
+
     iWX = new wxFunc();
     iWX.checkUpdateGame();
     iWX.shareInit("快来一起玩吧~");
     iWX.login();
+    let info = iWX.getLaunchOptionsSync();
+    channelfrom = info.query.channelfrom;
 }
 layaInit();
 
@@ -3529,6 +3552,36 @@ function preLoadComplate() {
     // Laya.URL.basePath = "https://beatsAdgame.beats-digital.com/";
 
     // Laya.loader.load(Resources, laya.utils.Handler.create(this, loadUIComplate));
+
+    API.GetStoreListInfo()
+        .then(function (res) {
+            if (res.Status == "ok") {
+                dealStoreInfo(res.Tag.data, function () {
+                    setTimeout(function () {
+                         loadStoreFlag = true;
+                    }, 1000);
+                });
+            }
+        })
+}
+
+/**
+ * 处理店铺信息
+ * @param {*} data 
+ * @param {*} callback 
+ */
+function dealStoreInfo(data, callback) {
+    storeDatas = [...data.ImportantList, ...data.RandomList];
+    let Resources = [];
+    for (var i = 0; i < storeDatas.length; i++) {
+        storeDatas[i].TouchPoints = JSON.parse(storeDatas[i].TouchPoints);
+        let item = { url: storeDatas[i].StoreImgurl, type: Loader.IMAGE };
+        Resources.push(item);
+    }
+
+    Laya.loader.load(Resources, laya.utils.Handler.create(this, function () {
+        if (callback) callback();
+    }));
 }
 
 /**
