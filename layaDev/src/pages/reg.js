@@ -82,7 +82,7 @@ var regPage = function () {
                     if (res.Status == "ok") {
                         iLoginPage.hide();
                         hide();
-                        if (couponList.length > 0) iTipsPage.show();
+                        if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
                         iResultPage.updateIsMember();
                         Mobile = phone;
                     }
@@ -100,7 +100,7 @@ var regPage = function () {
         if (!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
         else {
             page.codeWord.text = "60s";
-            API.SendPhoneCode({ mobile: phone })
+            API.SendPhoneCode({ mobile: phone, sendtype: "reg"})
                 .then(function (res) {
                     if (res.Status == "ok") {
                         codeCount();

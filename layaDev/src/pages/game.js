@@ -201,6 +201,7 @@ var gamePage = function () {
             if (imath.judgeInTwoNums(x, [Min, Max])) {
                 countNextData();
                 Player.FlipImg(Move_dir ? -1 : 1);
+                Laya.SoundManager.playSound("audio/down.mp3");
             }
             else {
                 Player.overAni();
@@ -362,6 +363,10 @@ var gamePage = function () {
         setTimeout(function () {
             pressFlag = true;
         }, 1800);
+
+        setTimeout(function() {
+            Laya.SoundManager.playSound("audio/start.mp3");
+        }, 1200);
     }
 
     /**
@@ -510,13 +515,13 @@ var gamePage = function () {
         let item = Stores.pop();
 
         setItemXY(item, x, y);
-        if (storeDataCount < storeDatas.length) {
-            item.infoData = storeDatas[storeDataCount];
-            storeDataCount++;
+        if (storeDataCount >= storeDatas.length) {
+            storeDataCount = 0;
+            storeDatas.sort(function(){return(0.5-Math.random())});
         }
-        else {
-            item.infoData = storeDatas[imath.randomRange(0, storeDatas.length - 1)];
-        }
+        item.infoData = storeDatas[storeDataCount];
+        storeDataCount++;
+        
         item.changeSkin();
 
         Sence_Stores.push(item);

@@ -59,6 +59,7 @@ var player = function (box) {
         Laya.Tween.to(_self.sprite, {
             y: _self.sprite.y - PLAYER_STORE_DIS
         }, 200, Laya.Ease.linearIn);
+        Laya.SoundManager.playSound("audio/fail.mp3");
     }
 
     /**

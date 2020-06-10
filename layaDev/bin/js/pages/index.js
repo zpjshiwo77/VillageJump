@@ -26,7 +26,7 @@ var indexPage = function () {
      */
     function eventInit() {
         iWX.wxCreateUserInfo(addUserInfo);
-        page.startBtn.on(Laya.Event.CLICK, this, addUserInfo);
+        // page.startBtn.on(Laya.Event.CLICK, this, addUserInfo);
         page.ruleBtn.on(Laya.Event.CLICK, this, showRule);
     }
 
@@ -71,15 +71,15 @@ var indexPage = function () {
     /**
      * 进入游戏页面
      */
-    function enterGamePage(){
-        if(loadStoreFlag){
+    function enterGamePage() {
+        if (loadStoreFlag) {
             hideIndexPage();
-                    iWX.hideLoading();
+            iWX.hideLoading();
         }
-        else{
-            setTimeout(function(){
+        else {
+            setTimeout(function () {
                 enterGamePage();
-            },100);
+            }, 100);
         }
     }
 

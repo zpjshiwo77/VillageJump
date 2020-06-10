@@ -118,7 +118,7 @@ var resultPage = function () {
     function renderRankItem(box, info, url) {
         Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
             box.getChildByName("head").source = Laya.Loader.getRes(url);
-            box.getChildByName("nickname").text = iUtils.setString(info.nickname, 6);
+            box.getChildByName("nickname").text = iUtils.nameSecrecy(info.nickname);
             iUtils.makeNum(box.getChildByName("coin"), info.coins)
             box.visible = true;
         }));
@@ -236,7 +236,7 @@ var resultPage = function () {
      * 去另一个小程序
      */
     function gotoOtherApp() {
-
+        iWX.gotoOtherApp("wx21cadcc1572bb2c9");
     }
 
     /**
@@ -342,7 +342,7 @@ var resultPage = function () {
         API.EndGame(data)
             .then(function (res) {
                 if (res.Status == "ok") {
-                    if (couponList.length > 0) iTipsPage.show();
+                    if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
                     requestRank();
                 }
                 // else iWX.alert(res.Msg);

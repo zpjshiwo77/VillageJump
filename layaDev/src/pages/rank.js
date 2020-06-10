@@ -53,7 +53,7 @@ var rankPage = function () {
         Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
             page.rank.text = info.rankid + 1;
             page.head.source = Laya.Loader.getRes(url);
-            page.nickname.text = iUtils.setString(info.nickname, 11);
+            page.nickname.text = iUtils.nameSecrecy(info.nickname);
             iUtils.makeNum(page.coin,info.coins);
             page.selfBox.visible = true;
         }));
@@ -83,7 +83,7 @@ var rankPage = function () {
         Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
             sp.head.source = Laya.Loader.getRes(url);
         }));
-        sp.nickname.text = iUtils.setString(info.nickname, 11);
+        sp.nickname.text = iUtils.nameSecrecy(info.nickname);
         iUtils.makeNum(sp.coin,info.coins);
         return sp;
     }

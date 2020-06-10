@@ -174,7 +174,7 @@ var playerUI=(function(_super){
 
 		}
 
-		playerUI.uiView={"type":"View","props":{"y":60,"x":50,"width":100,"pivotY":60,"pivotX":50,"height":135},"child":[{"type":"Sprite","props":{"width":100,"var":"rightSide","height":135},"child":[{"type":"Animation","props":{"y":0,"x":0,"var":"warmUpAniright","source":"images/player/right/01.png,images/player/right/02.png,images/player/right/03.png,images/player/right/04.png,images/player/right/05.png,images/player/right/06.png,images/player/right/07.png,images/player/right/08.png,images/player/right/09.png,images/player/right/10.png","scaleY":0.5,"scaleX":0.5,"interval":100}},{"type":"Animation","props":{"y":0,"x":0,"visible":false,"var":"jumpAniright","source":"images/player/right/11.png,images/player/right/12.png,images/player/right/13.png,images/player/right/14.png,images/player/right/15.png,images/player/right/16.png,images/player/right/17.png,images/player/right/18.png,images/player/right/19.png,images/player/right/20.png,images/player/right/21.png,images/player/right/22.png","scaleY":0.5,"scaleX":0.5,"interval":33}}]},{"type":"Sprite","props":{"y":0,"x":0,"width":100,"visible":false,"var":"leftSide","height":135},"child":[{"type":"Animation","props":{"y":0,"x":0,"var":"warmUpAnileft","source":"images/player/left/01.png,images/player/left/02.png,images/player/left/03.png,images/player/left/04.png,images/player/left/05.png,images/player/left/06.png,images/player/left/07.png,images/player/left/08.png,images/player/left/09.png,images/player/left/10.png","scaleY":0.5,"scaleX":0.5,"interval":100}},{"type":"Animation","props":{"y":0,"x":0,"visible":false,"var":"jumpAnileft","source":"images/player/left/11.png,images/player/left/12.png,images/player/left/13.png,images/player/left/14.png,images/player/left/15.png,images/player/left/16.png,images/player/left/17.png,images/player/left/18.png,images/player/left/19.png,images/player/left/20.png,images/player/left/21.png,images/player/left/22.png","scaleY":0.5,"scaleX":0.5,"interval":33}}]}]};
+		playerUI.uiView={"type":"View","props":{"y":60,"x":50,"width":100,"pivotY":60,"pivotX":50,"height":135},"child":[{"type":"Sprite","props":{"width":100,"var":"rightSide","height":135},"child":[{"type":"Animation","props":{"y":0,"x":0,"var":"warmUpAniright","source":"images/player/right/01.png,images/player/right/02.png,images/player/right/03.png,images/player/right/04.png,images/player/right/05.png,images/player/right/06.png,images/player/right/07.png,images/player/right/08.png,images/player/right/09.png,images/player/right/10.png","scaleY":0.5,"scaleX":0.5,"interval":33}},{"type":"Animation","props":{"y":0,"x":0,"visible":false,"var":"jumpAniright","source":"images/player/right/11.png,images/player/right/12.png,images/player/right/13.png,images/player/right/14.png,images/player/right/15.png,images/player/right/16.png,images/player/right/17.png,images/player/right/18.png,images/player/right/19.png,images/player/right/20.png,images/player/right/21.png,images/player/right/22.png","scaleY":0.5,"scaleX":0.5,"interval":33}}]},{"type":"Sprite","props":{"y":0,"x":0,"width":100,"visible":false,"var":"leftSide","height":135},"child":[{"type":"Animation","props":{"y":0,"x":0,"var":"warmUpAnileft","source":"images/player/left/01.png,images/player/left/02.png,images/player/left/03.png,images/player/left/04.png,images/player/left/05.png,images/player/left/06.png,images/player/left/07.png,images/player/left/08.png,images/player/left/09.png,images/player/left/10.png","scaleY":0.5,"scaleX":0.5,"interval":33}},{"type":"Animation","props":{"y":0,"x":0,"visible":false,"var":"jumpAnileft","source":"images/player/left/11.png,images/player/left/12.png,images/player/left/13.png,images/player/left/14.png,images/player/left/15.png,images/player/left/16.png,images/player/left/17.png,images/player/left/18.png,images/player/left/19.png,images/player/left/20.png,images/player/left/21.png,images/player/left/22.png","scaleY":0.5,"scaleX":0.5,"interval":33}}]}]};
 		return playerUI;
 	})(View);
 var rankUI=(function(_super){
@@ -368,7 +368,7 @@ const Stat = Laya.Stat;
 
 const STORE_NUM = 7;                            //显示的商店总数量
 const STORE_DIS = 320;                          //跳到商店中心点的位置
-const STORE_DIS_MIN = 280, STORE_DIS_MAX = 410; //商店间最大，最小的距离
+const STORE_DIS_MIN = 270, STORE_DIS_MAX = 430; //商店间最大，最小的距离
 const PRESS_TIME = 1000;                        //按压的时间
 const JUMP_TIME = 500;                          //跳的时间
 const PLAYER_STORE_DIS = -150;                  //玩家与商店的垂直距离
@@ -536,6 +536,13 @@ var utils = function () {
 	} //end func
 
 	/**
+	 * 名字保密
+	 */
+	_self.nameSecrecy = function(str){
+		return str.substr(0,1) + "**" + str.substr(-1,1);
+	}
+
+	/**
      * 时间格式化
      */
 	_self.dateFormat = function (date) {
@@ -691,11 +698,11 @@ var wxFunc = function () {
     var isWX = Browser.onMiniGame ? true : false;
     var wx = Browser.window.wx;
     // var openId = "";
-    var openId = "omFZq5N4I2_M1GTxAUYer4rQjRpU";
+    var openId = "";
     var systemInfo, userInfo, auth;
     userInfo = {
-        nickName: "测试",
-        avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIvaoPfI1GfVuibg0Ifr2J1XQ0IqlrZ0FZdNJyia790RRe0VGplg1SjNB4oJlFdwSUUILSXBMQDVOwg/132",
+        nickName: "",
+        avatarUrl: "",
         gender: 1
     };
 
@@ -732,18 +739,20 @@ var wxFunc = function () {
     /**
      * 获取参数
      */
-    _self.getLaunchOptionsSync = function(){
-        if(isWX) return wx.getLaunchOptionsSync();
+    _self.getLaunchOptionsSync = function () {
+        if (isWX) return wx.getLaunchOptionsSync();
     }
 
     /**
      * alert
      */
-    _self.alert = function (word, callback) {
+    _self.alert = function (word, text, callback) {
+        let confirmText = text || "确定";
         if (isWX) {
             wx.showModal({
                 title: word,
                 mask: true,
+                confirmText: confirmText,
                 success(res) {
                     if (res.confirm) {
                         if (callback) callback(true);
@@ -840,8 +849,17 @@ var wxFunc = function () {
                         auth = true;
                         _self.userInfo = userInfo;
                         _self.auth = auth;
-                        button.destroy();
-                        callback();
+                        if(openId){
+                            button.destroy();
+                            callback();
+                        }
+                        else {
+                            wx.showToast({
+                                title:"请重试",
+                                icon:"none",
+                                duration:1000
+                            })
+                        }
                     }
                 })
             }
@@ -915,7 +933,7 @@ var wxFunc = function () {
     /**
      * 生成分享到朋友圈的图片
      */
-    _self.makeCanvas = function (w,h) {
+    _self.makeCanvas = function (w, h) {
         if (isWX) {
             const canvas = wx.createCanvas();
             canvas.width = w;
@@ -983,6 +1001,14 @@ var wxFunc = function () {
                 confirmHold: true,
                 confirmType: "完成"
             })
+        }
+    }
+
+    _self.gotoOtherApp = function(appid){
+        if(isWX){
+            wx.navigateToMiniProgram({
+                appId:appid
+            });
         }
     }
 
@@ -1553,7 +1579,7 @@ var indexPage = function () {
      */
     function eventInit() {
         iWX.wxCreateUserInfo(addUserInfo);
-        page.startBtn.on(Laya.Event.CLICK, this, addUserInfo);
+        // page.startBtn.on(Laya.Event.CLICK, this, addUserInfo);
         page.ruleBtn.on(Laya.Event.CLICK, this, showRule);
     }
 
@@ -1598,15 +1624,15 @@ var indexPage = function () {
     /**
      * 进入游戏页面
      */
-    function enterGamePage(){
-        if(loadStoreFlag){
+    function enterGamePage() {
+        if (loadStoreFlag) {
             hideIndexPage();
-                    iWX.hideLoading();
+            iWX.hideLoading();
         }
-        else{
-            setTimeout(function(){
+        else {
+            setTimeout(function () {
                 enterGamePage();
-            },100);
+            }, 100);
         }
     }
 
@@ -1872,6 +1898,7 @@ var gamePage = function () {
             if (imath.judgeInTwoNums(x, [Min, Max])) {
                 countNextData();
                 Player.FlipImg(Move_dir ? -1 : 1);
+                Laya.SoundManager.playSound("audio/down.mp3");
             }
             else {
                 Player.overAni();
@@ -2033,6 +2060,10 @@ var gamePage = function () {
         setTimeout(function () {
             pressFlag = true;
         }, 1800);
+
+        setTimeout(function() {
+            Laya.SoundManager.playSound("audio/start.mp3");
+        }, 1200);
     }
 
     /**
@@ -2181,13 +2212,13 @@ var gamePage = function () {
         let item = Stores.pop();
 
         setItemXY(item, x, y);
-        if (storeDataCount < storeDatas.length) {
-            item.infoData = storeDatas[storeDataCount];
-            storeDataCount++;
+        if (storeDataCount >= storeDatas.length) {
+            storeDataCount = 0;
+            storeDatas.sort(function(){return(0.5-Math.random())});
         }
-        else {
-            item.infoData = storeDatas[imath.randomRange(0, storeDatas.length - 1)];
-        }
+        item.infoData = storeDatas[storeDataCount];
+        storeDataCount++;
+        
         item.changeSkin();
 
         Sence_Stores.push(item);
@@ -2347,7 +2378,7 @@ var resultPage = function () {
     function renderRankItem(box, info, url) {
         Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
             box.getChildByName("head").source = Laya.Loader.getRes(url);
-            box.getChildByName("nickname").text = iUtils.setString(info.nickname, 6);
+            box.getChildByName("nickname").text = iUtils.nameSecrecy(info.nickname);
             iUtils.makeNum(box.getChildByName("coin"), info.coins)
             box.visible = true;
         }));
@@ -2465,7 +2496,7 @@ var resultPage = function () {
      * 去另一个小程序
      */
     function gotoOtherApp() {
-
+        iWX.gotoOtherApp("wx21cadcc1572bb2c9");
     }
 
     /**
@@ -2571,7 +2602,7 @@ var resultPage = function () {
         API.EndGame(data)
             .then(function (res) {
                 if (res.Status == "ok") {
-                    if (couponList.length > 0) iTipsPage.show();
+                    if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
                     requestRank();
                 }
                 // else iWX.alert(res.Msg);
@@ -2706,7 +2737,7 @@ var regPage = function () {
                     if (res.Status == "ok") {
                         iLoginPage.hide();
                         hide();
-                        if (couponList.length > 0) iTipsPage.show();
+                        if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
                         iResultPage.updateIsMember();
                         Mobile = phone;
                     }
@@ -2724,7 +2755,7 @@ var regPage = function () {
         if (!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
         else {
             page.codeWord.text = "60s";
-            API.SendPhoneCode({ mobile: phone })
+            API.SendPhoneCode({ mobile: phone, sendtype: "reg"})
                 .then(function (res) {
                     if (res.Status == "ok") {
                         codeCount();
@@ -2792,7 +2823,7 @@ var regPage = function () {
 }
 
 var iRegPage = new regPage();
-var loginPage = function(){
+var loginPage = function () {
     var _self = this;
     var page;
     var showFlag = false;
@@ -2818,39 +2849,39 @@ var loginPage = function(){
     /**
      * 显示
      */
-    _self.show = function(){
+    _self.show = function () {
         page.visible = true;
         page.alpha = 0;
         Laya.Tween.to(page, {
             alpha: 1
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
-        API.addPV({pagepath:"/pages/login"});
+        API.addPV({ pagepath: "/pages/login" });
     }
 
     /**
      * 隐藏
      */
-    _self.hide = function(){
+    _self.hide = function () {
         Laya.Tween.to(page, {
             alpha: 0
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
 
-        setTimeout(function(){
+        setTimeout(function () {
             page.visible = false;
-        },PAGE_TRF_TIME+20);
+        }, PAGE_TRF_TIME + 20);
     }
 
     /**
      * 事件初始化
      */
-    function eventInit(){
-        page.backBtn.on(Laya.Event.CLICK,this,hidePage);
-        page.gotoReg.on(Laya.Event.CLICK,this,showRegPage);
-        page.ruleBtn.on(Laya.Event.CLICK,this,showRulePage);
+    function eventInit() {
+        page.backBtn.on(Laya.Event.CLICK, this, hidePage);
+        page.gotoReg.on(Laya.Event.CLICK, this, showRegPage);
+        page.ruleBtn.on(Laya.Event.CLICK, this, showRulePage);
 
-        page.readedBtn.on(Laya.Event.CLICK,this,readPrivacy);
-        page.getCodeBtn.on(Laya.Event.CLICK,this,getCode);
-        page.loginBtn.on(Laya.Event.CLICK,this,login);
+        page.readedBtn.on(Laya.Event.CLICK, this, readPrivacy);
+        page.getCodeBtn.on(Laya.Event.CLICK, this, getCode);
+        page.loginBtn.on(Laya.Event.CLICK, this, login);
 
         // page.phone.on(Laya.Event.INPUT,this,updatePhone);
     }
@@ -2858,22 +2889,22 @@ var loginPage = function(){
     /**
      * 更新电话
      */
-    function updatePhone(){
-        
+    function updatePhone() {
+
     }
 
 
     /**
      * 登录
      */
-    function login(){
+    function login() {
         let phone = page.phone.text;
         let code = page.code.text;
 
-        if(!readFlag) iWX.alert("请先阅读三里屯太古里用户隐私政策");
-        else if(!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
-        else if(code == "") iWX.alert("请输入验证码");
-        else{
+        if (!readFlag) iWX.alert("请先阅读三里屯太古里用户隐私政策");
+        else if (!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
+        else if (code == "") iWX.alert("请输入验证码");
+        else {
             let couponid = "";
             for (var i = 0; i < couponList.length; i++) {
                 couponid += (i == 0 ? "" : ",") + couponList[i].id
@@ -2886,75 +2917,79 @@ var loginPage = function(){
                 playkey: PlayKey
             };
             let gift =
-            {
-                openid: iWX.openId,
-                playkey: PlayKey,
-                mobile: phone,
-                totalcoins: CoinNum * CoinVal,
-                steps: CoinNum,
-                couponid: couponid
-            };
-            API.login({logininfo: JSON.stringify(param), giftinfo: JSON.stringify(gift)})
-            .then(function(res){
-                if(res.Status == "ok"){
-                    hidePage();
-                    if(couponList.length > 0) iTipsPage.show();
-                    iResultPage.updateIsMember();
-                    Mobile = phone;
-                }
-                else iWX.alert(res.Msg);
-            })
+                {
+                    openid: iWX.openId,
+                    playkey: PlayKey,
+                    mobile: phone,
+                    totalcoins: CoinNum * CoinVal,
+                    steps: CoinNum,
+                    couponid: couponid
+                };
+            API.login({ logininfo: JSON.stringify(param), giftinfo: JSON.stringify(gift) })
+                .then(function (res) {
+                    if (res.Status == "ok") {
+                        hidePage();
+                        if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
+                        iResultPage.updateIsMember();
+                        Mobile = phone;
+                    }
+                    else {
+                        iWX.alert(res.Msg, "去注册",function (bool) {
+                            if(bool) showRegPage();
+                        });
+                    }
+                })
         }
     }
 
     /**
      * 获取验证码
      */
-    function getCode(){
+    function getCode() {
         let phone = page.phone.text;
-        if(page.codeWord.text != "获取验证码") return;
-        if(!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
-        else{
+        if (page.codeWord.text != "获取验证码") return;
+        if (!iUtils.checkStr(phone)) iWX.alert("请输入正确的手机号");
+        else {
             page.codeWord.text = "60s";
-            API.SendPhoneCode({mobile:phone})
-            .then(function(res){
-                if(res.Status == "ok"){
-                    codeCount();
-                }
-                else {
-                    iWX.alert(res.Msg);
-                    page.codeWord.text = "获取验证码";
-                }
-            })
+            API.SendPhoneCode({ mobile: phone, sendtype: "login" })
+                .then(function (res) {
+                    if (res.Status == "ok") {
+                        codeCount();
+                    }
+                    else {
+                        iWX.alert(res.Msg);
+                        page.codeWord.text = "获取验证码";
+                    }
+                })
         }
     }
 
     /**
      * 获取验证码倒计时
      */
-    function codeCount(){
+    function codeCount() {
         var time = 60;
-        var timer = setInterval(function(){
+        var timer = setInterval(function () {
             time--;
-            if(time > 0) page.codeWord.text = time+"s";
-            else{
+            if (time > 0) page.codeWord.text = time + "s";
+            else {
                 page.codeWord.text = "获取验证码";
                 clearInterval(timer);
             }
-        },1000);
+        }, 1000);
     }
 
     /**
      * 隐藏
      */
-    function hidePage(){
+    function hidePage() {
         _self.hide();
     }
 
     /**
      * 阅读隐私政策
      */
-    function readPrivacy(){
+    function readPrivacy() {
         readFlag = !readFlag;
         page.readed.visible = readFlag;
     }
@@ -2962,14 +2997,14 @@ var loginPage = function(){
     /**
      * 显示规则页面
      */
-    function showRulePage(){
+    function showRulePage() {
         iRulePage.show("privacy");
     }
 
     /**
      * 显示注册页面
      */
-    function showRegPage(){
+    function showRegPage() {
         iRegPage.show();
     }
 
@@ -3093,7 +3128,7 @@ var rankPage = function () {
         Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
             page.rank.text = info.rankid + 1;
             page.head.source = Laya.Loader.getRes(url);
-            page.nickname.text = iUtils.setString(info.nickname, 11);
+            page.nickname.text = iUtils.nameSecrecy(info.nickname);
             iUtils.makeNum(page.coin,info.coins);
             page.selfBox.visible = true;
         }));
@@ -3123,7 +3158,7 @@ var rankPage = function () {
         Laya.loader.load([{ url: url, type: Loader.IMAGE }], laya.utils.Handler.create(this, function () {
             sp.head.source = Laya.Loader.getRes(url);
         }));
-        sp.nickname.text = iUtils.setString(info.nickname, 11);
+        sp.nickname.text = iUtils.nameSecrecy(info.nickname);
         iUtils.makeNum(sp.coin,info.coins);
         return sp;
     }
@@ -3371,6 +3406,7 @@ var player = function (box) {
         Laya.Tween.to(_self.sprite, {
             y: _self.sprite.y - PLAYER_STORE_DIS
         }, 200, Laya.Ease.linearIn);
+        Laya.SoundManager.playSound("audio/fail.mp3");
     }
 
     /**

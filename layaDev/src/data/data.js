@@ -6,7 +6,7 @@ const Stat = Laya.Stat;
 
 const STORE_NUM = 7;                            //显示的商店总数量
 const STORE_DIS = 320;                          //跳到商店中心点的位置
-const STORE_DIS_MIN = 280, STORE_DIS_MAX = 410; //商店间最大，最小的距离
+const STORE_DIS_MIN = 270, STORE_DIS_MAX = 430; //商店间最大，最小的距离
 const PRESS_TIME = 1000;                        //按压的时间
 const JUMP_TIME = 500;                          //跳的时间
 const PLAYER_STORE_DIS = -150;                  //玩家与商店的垂直距离

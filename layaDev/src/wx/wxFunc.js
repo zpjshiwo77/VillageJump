@@ -3,11 +3,11 @@ var wxFunc = function () {
     var isWX = Browser.onMiniGame ? true : false;
     var wx = Browser.window.wx;
     // var openId = "";
-    var openId = "omFZq5N4I2_M1GTxAUYer4rQjRpU";
+    var openId = "";
     var systemInfo, userInfo, auth;
     userInfo = {
-        nickName: "测试",
-        avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIvaoPfI1GfVuibg0Ifr2J1XQ0IqlrZ0FZdNJyia790RRe0VGplg1SjNB4oJlFdwSUUILSXBMQDVOwg/132",
+        nickName: "",
+        avatarUrl: "",
         gender: 1
     };
 
@@ -44,18 +44,20 @@ var wxFunc = function () {
     /**
      * 获取参数
      */
-    _self.getLaunchOptionsSync = function(){
-        if(isWX) return wx.getLaunchOptionsSync();
+    _self.getLaunchOptionsSync = function () {
+        if (isWX) return wx.getLaunchOptionsSync();
     }
 
     /**
      * alert
      */
-    _self.alert = function (word, callback) {
+    _self.alert = function (word, text, callback) {
+        let confirmText = text || "确定";
         if (isWX) {
             wx.showModal({
                 title: word,
                 mask: true,
+                confirmText: confirmText,
                 success(res) {
                     if (res.confirm) {
                         if (callback) callback(true);
@@ -152,8 +154,17 @@ var wxFunc = function () {
                         auth = true;
                         _self.userInfo = userInfo;
                         _self.auth = auth;
-                        button.destroy();
-                        callback();
+                        if(openId){
+                            button.destroy();
+                            callback();
+                        }
+                        else {
+                            wx.showToast({
+                                title:"请重试",
+                                icon:"none",
+                                duration:1000
+                            })
+                        }
                     }
                 })
             }
@@ -227,7 +238,7 @@ var wxFunc = function () {
     /**
      * 生成分享到朋友圈的图片
      */
-    _self.makeCanvas = function (w,h) {
+    _self.makeCanvas = function (w, h) {
         if (isWX) {
             const canvas = wx.createCanvas();
             canvas.width = w;
@@ -295,6 +306,14 @@ var wxFunc = function () {
                 confirmHold: true,
                 confirmType: "完成"
             })
+        }
+    }
+
+    _self.gotoOtherApp = function(appid){
+        if(isWX){
+            wx.navigateToMiniProgram({
+                appId:appid
+            });
         }
     }
 

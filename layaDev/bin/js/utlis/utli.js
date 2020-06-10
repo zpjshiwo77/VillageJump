@@ -24,6 +24,13 @@ var utils = function () {
 	} //end func
 
 	/**
+	 * 名字保密
+	 */
+	_self.nameSecrecy = function(str){
+		return str.substr(0,1) + "**" + str.substr(-1,1);
+	}
+
+	/**
      * 时间格式化
      */
 	_self.dateFormat = function (date) {
