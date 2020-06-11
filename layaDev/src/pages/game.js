@@ -303,11 +303,26 @@ var gamePage = function () {
     function requestStoreCoupon(info, x, y) {
         API.GetCouponsInfoByStore({ storekey: info.StoreKey,mobile:Mobile })
             .then(function (res) {
-                if (res.Status == "ok" && res.Tag.length > 0) {
+                var bool = judgeInCouponList(res.Tag);
+                if (res.Status == "ok" && res.Tag.length > 0 && bool) {
                     couponList.push(...res.Tag);
                     couponAnime(x, y, res.Tag.length);
                 }
             })
+    }
+
+    /**
+     * 判断是否在优惠券列表里面
+     */
+    function judgeInCouponList(list){
+        for (var i = 0; i < list.length; i++) {
+            var c = list[i];
+            for (var j = 0; j < couponList.length; j++) {
+                if(c.id == couponList[j].id) return false;
+            }
+        }
+
+        return true;
     }
 
     /**
