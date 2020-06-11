@@ -377,7 +377,8 @@ var resultPage = function () {
      */
     function hidePage() {
         iGamePage.resetGame(false);
-        iGamePage.gameStart();
+        // iGamePage.gameStart();
+        iIndexPage.show();
         _self.hide();
     }
 

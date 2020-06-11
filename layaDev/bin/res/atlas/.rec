@@ -17,10 +17,11 @@ P 126D270B back.png
 P 950B69FC coin.png
 P 47FB1DD1 coupon.png
 D images/index
-P 1AB459DF block.png
+P 1A3471CF block.png
 R 3F5A0E3C rule.png
 P 43838E50 start.png
-P 9410CA38 title.png
+P 4F7AE5D9 title.png
+P F5D82544 title2.png
 P 8DF0C6BC vscroll$bar.png
 P EAEEE540 vscroll$down.png
 P EAEEE540 vscroll$up.png
@@ -55,9 +56,9 @@ P 56A9366A ok.png
 R 0EF786CC read.png
 P 9F30B346 title.png
 D images/result
-P B3605CD8 btn1.png
+P 8BCC996E btn1.png
 P BBC5E32A btn2.png
-P CD374EDB btn3.png
+P B16A318D btn3.png
 R 74E09D16 kuang.png
 P 4F7AE5D9 logo.png
 P F0F87DB6 p.png
@@ -99,7 +100,7 @@ P E7B23D70 7.png
 P 120BD39E 8.png
 P F3411E47 9.png
 D images/tips
-R B20CA7F3 award.png
+R CDDE8F37 award.png
 D images/icon/coupon
 P 4F12733D 001.png
 P 4CDA1C00 002.png

@@ -2,6 +2,7 @@ var indexPage = function () {
     var _self = this;
     var page;
     var showFlag = false;
+    var first = true;
 
     /**
      * 初始化
@@ -22,11 +23,27 @@ var indexPage = function () {
     }
 
     /**
+     * 显示
+     */
+    _self.show = function(){
+        showFlag = true;
+        page.visible = true;
+        page.alpha = 0;
+        page.endAni.wrapMode = Laya.AnimationPlayerBase.WRAP_REVERSE;
+        page.endAni.play(0, false);
+        Laya.Tween.to(page, {
+            alpha: 1
+        }, 500, Laya.Ease.linearIn);
+        if(!first){
+            page.startBtn.on(Laya.Event.CLICK, this, enterGamePage);
+        }
+    }
+
+    /**
      * 事件初始化
      */
     function eventInit() {
         iWX.wxCreateUserInfo(addUserInfo);
-        // page.startBtn.on(Laya.Event.CLICK, this, addUserInfo);
         page.ruleBtn.on(Laya.Event.CLICK, this, showRule);
     }
 
@@ -89,12 +106,18 @@ var indexPage = function () {
     function hideIndexPage() {
 
         page.zOrder = 99;
-        iGamePage.init();
-        iResultPage.init();
-        iLoginPage.init();
-        iRegPage.init();
-        iRankPage.init();
-        iTipsPage.init();
+        if (first) {
+            first = false;
+            iGamePage.init();
+            iResultPage.init();
+            iLoginPage.init();
+            iRegPage.init();
+            iRankPage.init();
+            iTipsPage.init();
+        }
+        else{
+            iGamePage.gameStart();
+        }
 
         endAnime();
 
@@ -103,7 +126,8 @@ var indexPage = function () {
         }, 500, Laya.Ease.linearIn);
 
         setTimeout(function () {
-            _self.distroy();
+            showFlag = false;
+            page.visible = false;
         }, 500);
 
     }
@@ -136,6 +160,7 @@ var indexPage = function () {
      * 结尾的动画
      */
     function endAnime() {
+        page.endAni.wrapMode = Laya.AnimationPlayerBase.WRAP_POSITIVE;
         page.endAni.play(0, false);
     }
 
