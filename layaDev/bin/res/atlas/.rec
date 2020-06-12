@@ -4,7 +4,7 @@ D images/common
 R D51D8BB6 blank.png
 P 7E42FCC6 off.png
 P FC9E70E0 play.png
-R A400651B share.jpg
+R E6AF3CC9 share.jpg
 P 52107B89 vscroll$bar.png
 P E26B933E vscroll$down.png
 P B9680947 vscroll$up.png
@@ -21,7 +21,7 @@ P 1A3471CF block.png
 R 3F5A0E3C rule.png
 P 43838E50 start.png
 P 4F7AE5D9 title.png
-P F5D82544 title2.png
+P EE152C9D title2.png
 P 8DF0C6BC vscroll$bar.png
 P EAEEE540 vscroll$down.png
 P EAEEE540 vscroll$up.png
