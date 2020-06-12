@@ -3609,7 +3609,7 @@ function layaInit() {
 
     iWX = new wxFunc();
     iWX.checkUpdateGame();
-    iWX.shareInit("快来一起玩吧~");
+    iWX.shareInit("潮玩gogogo！");
     iWX.login();
     let info = iWX.getLaunchOptionsSync();
     channelfrom = info.query.channelfrom;
