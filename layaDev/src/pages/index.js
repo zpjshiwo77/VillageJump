@@ -35,7 +35,7 @@ var indexPage = function () {
             alpha: 1
         }, 500, Laya.Ease.linearIn);
         if(!first){
-            page.startBtn.on(Laya.Event.CLICK, this, addUserInfo);
+            page.startBtn.offAll().on(Laya.Event.CLICK, this, addUserInfo);
         }
     }
 
@@ -45,6 +45,7 @@ var indexPage = function () {
     function eventInit() {
         iWX.wxCreateUserInfo(addUserInfo);
         page.ruleBtn.on(Laya.Event.CLICK, this, showRule);
+        page.startBtn.on(Laya.Event.CLICK, this, function(){});
     }
 
     /**

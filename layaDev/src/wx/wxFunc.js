@@ -38,6 +38,8 @@ var wxFunc = function () {
                     }
                 }
             })
+            systemInfo = wx.getSystemInfoSync();
+            _self.systemInfo = systemInfo;
         }
     }
 
@@ -127,8 +129,6 @@ var wxFunc = function () {
     _self.wxCreateUserInfo = function (callback) {
         if (isWX) {
             if (wx.createUserInfoButton) {
-                systemInfo = wx.getSystemInfoSync();
-                _self.systemInfo = systemInfo;
                 // console.log(systemInfo)
                 var button = wx.createUserInfoButton({
                     type: 'image',
