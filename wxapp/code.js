@@ -1295,7 +1295,7 @@ function importAPI() {
 
     _self.SessionKey = "";
 
-    var requestDomain = "https://happycs.bestcake.com/api/";
+    var requestDomain = "https://taikooli.dhteam.net:3443/";
 
     function _Ajax(opts) {
         if (iWX.isWX) {
