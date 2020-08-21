@@ -855,7 +855,7 @@ var wxFunc = function () {
                         }
                         else {
                             wx.showToast({
-                                title:"请重试",
+                                title:"游戏载入中...",
                                 icon:"none",
                                 duration:1000
                             })
