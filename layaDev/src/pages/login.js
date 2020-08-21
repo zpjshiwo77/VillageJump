@@ -100,8 +100,10 @@ var loginPage = function () {
                     steps: CoinNum,
                     couponid: couponid
                 };
+            iWX.showLoading("登陆中...");
             API.login({ logininfo: JSON.stringify(param), giftinfo: JSON.stringify(gift) })
                 .then(function (res) {
+                    iWX.hideLoading();
                     if (res.Status == "ok") {
                         hidePage();
                         if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();

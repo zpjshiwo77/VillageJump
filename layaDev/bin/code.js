@@ -831,10 +831,10 @@ var wxFunc = function () {
                     // text: 'test',
                     style: {
                         // backgroundColor:"#ffffff",
-                        left: 98 / systemInfo.pixelRatio,
-                        top: systemInfo.screenHeight / 2 - 180 / systemInfo.pixelRatio,
-                        width: 320 / systemInfo.pixelRatio,
-                        height: 360 / systemInfo.pixelRatio
+                        left: 98 / 2,
+                        top: systemInfo.screenHeight / 2 - 100 / 2,
+                        width: 340 / 2,
+                        height: 380 / 2
                     }
                 })
                 button.onTap((res) => {
@@ -1997,7 +1997,7 @@ var gamePage = function () {
 
             setTimeout(function () {
                 pressFlag = true;
-            }, 1000);
+            }, 200);
         }));
     }
 
@@ -2774,8 +2774,10 @@ var regPage = function () {
                     steps: CoinNum,
                     couponid: couponid
                 };
+            iWX.showLoading("注册中...");
             API.login({ logininfo: JSON.stringify(param), giftinfo: JSON.stringify(gift) })
                 .then(function (res) {
+                    iWX.hideLoading();
                     if (res.Status == "ok") {
                         iLoginPage.hide();
                         hide();
@@ -2967,8 +2969,10 @@ var loginPage = function () {
                     steps: CoinNum,
                     couponid: couponid
                 };
+            iWX.showLoading("登陆中...");
             API.login({ logininfo: JSON.stringify(param), giftinfo: JSON.stringify(gift) })
                 .then(function (res) {
+                    iWX.hideLoading();
                     if (res.Status == "ok") {
                         hidePage();
                         if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();

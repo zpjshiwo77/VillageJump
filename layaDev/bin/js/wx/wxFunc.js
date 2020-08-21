@@ -136,10 +136,10 @@ var wxFunc = function () {
                     // text: 'test',
                     style: {
                         // backgroundColor:"#ffffff",
-                        left: 98 / systemInfo.pixelRatio,
-                        top: systemInfo.screenHeight / 2 - 180 / systemInfo.pixelRatio,
-                        width: 320 / systemInfo.pixelRatio,
-                        height: 360 / systemInfo.pixelRatio
+                        left: 98 / 2,
+                        top: systemInfo.screenHeight / 2 - 100 / 2,
+                        width: 340 / 2,
+                        height: 380 / 2
                     }
                 })
                 button.onTap((res) => {
