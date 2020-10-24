@@ -25,12 +25,12 @@
 
     CountPageSize();
 
-    iWX = new wxFunc();
-    iWX.checkUpdateGame();
-    iWX.shareInit("潮玩gogogo！");
-    iWX.login();
-    let info = iWX.getLaunchOptionsSync();
-    channelfrom = info.query.channelfrom;
+    // iWX = new wxFunc();
+    // iWX.checkUpdateGame();
+    // iWX.shareInit("潮玩gogogo！");
+    // iWX.login();
+    // let info = iWX.getLaunchOptionsSync();
+    // channelfrom = info.query.channelfrom;
 }
 layaInit();
 

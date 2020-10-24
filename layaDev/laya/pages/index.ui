@@ -1,7 +1,8 @@
 {
+    "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":8,
+    "selectedBox":21,
+    "selecteID":23,
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
     "label":"View",
@@ -12,6 +13,7 @@
     "compId":1,
     "child":[
         {
+            "x":15,
             "type":"Sprite",
             "props":{"name":"bg"},
             "nodeParent":1,
@@ -24,7 +26,7 @@
             "child":[
                 {
                     "type":"Rect",
-                    "props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"},
+                    "props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#ffcb73"},
                     "nodeParent":2,
                     "label":"Rect",
                     "isDirectory":false,
@@ -36,6 +38,7 @@
                 }]
         },
         {
+            "x":15,
             "type":"Box",
             "props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},
             "nodeParent":1,
@@ -47,8 +50,9 @@
             "compId":7,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":210,"x":165,"width":424,"skin":"images/index/block.png","name":"block","height":428,"alpha":1},
+                    "props":{"y":210,"x":0,"width":750,"skin":"images/index/block.png","name":"block","height":760,"alpha":1},
                     "nodeParent":7,
                     "label":"Image(block)",
                     "isDirectory":false,
@@ -59,6 +63,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-13,"x":38,"skin":"images/index/title.png","name":"title","alpha":1},
                     "nodeParent":7,
@@ -71,6 +76,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":375,"width":347,"skin":"images/index/title2.png","pivotY":0,"pivotX":173,"name":"title2","height":199},
                     "nodeParent":7,
@@ -83,64 +89,83 @@
                         ]
                 },
                 {
-                    "type":"Box",
-                    "props":{"y":620,"x":98,"var":"ruleBtn","alpha":1},
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":1015,"x":174,"var":"ruleBtn","skin":"images/index/rule.png"},
                     "nodeParent":7,
-                    "label":"Box(ruleBtn)",
+                    "label":"Image(ruleBtn)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":900,"x":174,"var":"startBtn"},
+                    "nodeParent":7,
+                    "label":"Box(startBtn)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":19,
+                    "compId":21,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"skin":"images/index/rule.png","name":"rule"},
-                            "nodeParent":19,
-                            "label":"Image(rule)",
+                            "props":{"skin":"images/index/start.png","alpha":1},
+                            "nodeParent":21,
+                            "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":9,
+                            "compId":11,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
-                            "type":"Panel",
-                            "props":{"y":323,"x":33,"width":491,"var":"ruleScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":210},
-                            "nodeParent":19,
-                            "label":"Panel(ruleScroll)",
+                            "x":45,
+                            "type":"Sprite",
+                            "props":{"y":0,"x":0,"width":406,"var":"maskBlock","height":102},
+                            "nodeParent":21,
+                            "label":"Sprite(maskBlock)",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":13,
+                            "compId":23,
                             "child":[
                                 {
-                                    "type":"Text",
-                                    "props":{"y":20,"x":0,"wordWrap":true,"width":470,"var":"ruleWord","overflow":"scroll","leading":7,"fontSize":10,"color":"#000","bold":true},
-                                    "nodeParent":13,
-                                    "label":"Text(ruleWord)",
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-88,"x":-146,"skin":"images/common/light.png"},
+                                    "nodeParent":23,
+                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":14,
+                                    "compId":24,
                                     "child":[
                                         ]
                                 }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"skin":"images/index/start2.png"},
+                            "nodeParent":21,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":22,
+                            "child":[
+                                ]
                         }]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":505,"x":98,"var":"startBtn","skin":"images/index/start.png","alpha":1},
-                    "nodeParent":7,
-                    "label":"Image(startBtn)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ]
                 }]
         }],
     "animations":[
@@ -168,7 +193,7 @@
                             }],
                         "x":[
                             {
-                                "value":165,
+                                "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":8,
@@ -247,61 +272,44 @@
                     }
                 },
                 {
-                    "target":11,
+                    "target":21,
                     "keyframes":{
                         "x":[
                             {
-                                "value":98,
+                                "value":174,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":11,
+                                "target":21,
                                 "key":"x",
                                 "index":0
                             },
                             {
-                                "value":-400,
+                                "value":-500,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":11,
+                                "target":21,
                                 "key":"x",
                                 "index":14
                             }]
                     }
                 },
                 {
-                    "target":19,
+                    "target":9,
                     "keyframes":{
-                        "y":[
-                            {
-                                "value":620,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":19,
-                                "key":"y",
-                                "index":0
-                            },
-                            {
-                                "value":1172,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":19,
-                                "key":"y",
-                                "index":14
-                            }],
                         "x":[
                             {
-                                "value":98,
+                                "value":174,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":19,
+                                "target":9,
                                 "key":"x",
                                 "index":0
                             },
                             {
-                                "value":1052,
+                                "value":800,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
-                                "target":19,
+                                "target":9,
                                 "key":"x",
                                 "index":14
                             }]
@@ -311,5 +319,34 @@
             "id":1,
             "frameRate":24,
             "action":0
+        },
+        {
+            "nodes":[
+                {
+                    "target":24,
+                    "keyframes":{
+                        "x":[
+                            {
+                                "value":-145,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":24,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":400,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":24,
+                                "key":"x",
+                                "index":20
+                            }]
+                    }
+                }],
+            "name":"ani2",
+            "id":2,
+            "frameRate":24,
+            "action":2
         }]
 }
