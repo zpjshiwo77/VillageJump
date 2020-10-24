@@ -2,6 +2,8 @@ D .
 D images
 D images/common
 R D51D8BB6 blank.png
+P 4D7FD4F7 light.png
+P DA7B08AF mask.png
 P 7E42FCC6 off.png
 P FC9E70E0 play.png
 R E6AF3CC9 share.jpg
@@ -17,11 +19,20 @@ P 126D270B back.png
 P 950B69FC coin.png
 P 47FB1DD1 coupon.png
 D images/index
+<<<<<<< HEAD
 P 1A3471CF block.png
 R 3F5A0E3C rule.png
 P 43838E50 start.png
 P 4F7AE5D9 title.png
 P 12AAF6A5 title2.png
+=======
+R AF83FFE0 block.png
+P B43930B0 rule.png
+P ED5CF66E start.png
+P 25E8B131 start2.png
+P BEE4EFF9 title.png
+P 8D104225 title2.png
+>>>>>>> 292b3d032975d90419224bc226ea5467667e1c53
 P 8DF0C6BC vscroll$bar.png
 P EAEEE540 vscroll$down.png
 P EAEEE540 vscroll$up.png
