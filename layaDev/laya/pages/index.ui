@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":21,
-    "selecteID":23,
+    "selectedBox":7,
+    "selecteID":7,
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
     "label":"View",
@@ -107,14 +107,13 @@
                     "props":{"y":900,"x":174,"var":"startBtn"},
                     "nodeParent":7,
                     "label":"Box(startBtn)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":21,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"skin":"images/index/start.png","alpha":1},
                             "nodeParent":21,
@@ -128,7 +127,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Sprite",
                             "props":{"y":0,"x":0,"width":406,"var":"maskBlock","height":102},
                             "nodeParent":21,
@@ -140,7 +138,6 @@
                             "compId":23,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-88,"x":-146,"skin":"images/common/light.png"},
                                     "nodeParent":23,
@@ -154,7 +151,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"skin":"images/index/start2.png"},
                             "nodeParent":21,
@@ -340,7 +336,7 @@
                                 "tween":true,
                                 "target":24,
                                 "key":"x",
-                                "index":20
+                                "index":26
                             }]
                     }
                 }],

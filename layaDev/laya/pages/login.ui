@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":19,
-    "selecteID":21,
+    "selectedBox":3,
+    "selecteID":13,
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
     "label":"View",
@@ -18,15 +18,16 @@
             "props":{"y":0,"x":0,"name":"bg"},
             "nodeParent":1,
             "label":"Sprite(bg)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Rect",
-                    "props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#fff4d6"},
+                    "props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#ffcb73"},
                     "nodeParent":2,
                     "label":"Rect",
                     "isDirectory":false,
@@ -139,12 +140,12 @@
                     "compId":12,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":541,"x":230,"var":"loginBtn","skin":"images/login/btn2.png"},
+                    "props":{"y":541,"x":164,"var":"loginBtn","skin":"images/login/btn2.png"},
                     "nodeParent":3,
                     "label":"Image(loginBtn)",
                     "isDirectory":false,

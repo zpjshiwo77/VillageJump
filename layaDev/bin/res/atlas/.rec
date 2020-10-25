@@ -1,5 +1,9 @@
 D .
 D images
+D images/award
+R 131ABD08 0.png
+R F5F4E723 1.png
+R 39B627BD 2.png
 D images/common
 R D51D8BB6 blank.png
 P 4D7FD4F7 light.png
@@ -12,27 +16,21 @@ P E26B933E vscroll$down.png
 P B9680947 vscroll$up.png
 P 7E990267 vscroll.png
 D images/game
-P 70603166 block.png
+R 9819C8A8 bg.jpg
+P 89FC6AB2 block.png
 P 0F9C3B78 store.png
 D images/icon
-P 126D270B back.png
+P 28B87899 back.png
+P 1A7D5E62 close.png
 P 950B69FC coin.png
 P 47FB1DD1 coupon.png
 D images/index
-<<<<<<< HEAD
-P 1A3471CF block.png
-R 3F5A0E3C rule.png
-P 43838E50 start.png
-P 4F7AE5D9 title.png
-P 12AAF6A5 title2.png
-=======
 R AF83FFE0 block.png
 P B43930B0 rule.png
 P ED5CF66E start.png
 P 25E8B131 start2.png
 P BEE4EFF9 title.png
 P 8D104225 title2.png
->>>>>>> 292b3d032975d90419224bc226ea5467667e1c53
 P 8DF0C6BC vscroll$bar.png
 P EAEEE540 vscroll$down.png
 P EAEEE540 vscroll$up.png
@@ -40,8 +38,8 @@ P EAEEE540 vscroll.png
 D images/login
 R 2B3BBDA8 b1.png
 P C2025BB0 b2.png
-P 1D9026CF btn1.png
-P 2A823DFC btn2.png
+P 1C1E400C btn1.png
+P A70EEA7F btn2.png
 R 89115D69 read.png
 P 8FB216C8 reg.png
 P 4D290FF1 title.png
@@ -58,20 +56,24 @@ D images/nums
 D images/player
 D images/poster
 D images/rank
-R F58C8AFC kuang1.png
-R 7E8F0024 kuang2.png
+R ED4EDF12 kuang1.png
+R 13DB94E1 kuang2.png
+R 311BD126 kuang3.png
 P 85313EBF title.png
 D images/reg
 P A2E7FFFF login.png
-P 56A9366A ok.png
+P EDAC851C ok.png
 R 0EF786CC read.png
 P 9F30B346 title.png
 D images/result
-P 8BCC996E btn1.png
-P BBC5E32A btn2.png
+R 2C581975 block.png
+P 5D74FE9E btn1.png
+P DFC53C23 btn2.png
+P 604F639D btn2w.png
 P B16A318D btn3.png
-R 74E09D16 kuang.png
-P 4F7AE5D9 logo.png
+R C35EA332 kuang.png
+P 7C8E39AF logo.png
+P 39891EC9 mask.png
 P F0F87DB6 p.png
 P 19A2DA93 rank.png
 P 2697395E rankBtn.png
@@ -112,6 +114,24 @@ P 120BD39E 8.png
 P F3411E47 9.png
 D images/tips
 R 169E807D award.png
+D images/award/ani
+R 7B33B277 01.png
+R 87703CDE 02.png
+R 1094E516 03.png
+R A2FAA0B5 04.png
+R 8522C455 05.png
+R E252551C 06.png
+R AA532ACC 07.png
+R F18AB24B 08.png
+R 2CD8DD1B 09.png
+R AE9768BD 10.png
+R 039E21CD 11.png
+R E558C982 12.png
+R 7A94AADD 13.png
+R 225DCF99 14.png
+R 9BB8DAF9 15.png
+R 1DC40FA9 16.png
+R D9964C00 17.png
 D images/icon/coupon
 P 4F12733D 001.png
 P 4CDA1C00 002.png

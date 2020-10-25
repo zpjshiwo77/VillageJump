@@ -6,6 +6,8 @@ function importAPI() {
     _self.SessionKey = "";
 
     var requestDomain = "https://taikooli.dhteam.net:3443/";
+    var requestDomain = "http://taikooli.dhteam.net/api/";
+    
 
     function _Ajax(opts) {
         if (iWX.isWX) {
@@ -69,7 +71,7 @@ function importAPI() {
     function normalAjax(Api, data, method) {
         return new Promise((resolve, reject) => {
             var xhr = new XMLHttpRequest();
-            xhr.open('post', requestDomain + Api);
+            xhr.open('GET', requestDomain + Api);
             xhr.setRequestHeader("Content-type", method == "POST" ? "application/json": "application/x-www-form-urlencoded");
             let idata = "";
             for (let key in data) {
