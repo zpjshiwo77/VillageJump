@@ -269,7 +269,7 @@ var gamePage = function () {
             updateCoinNum(1);
             let nowStore = Sence_Stores[nowStoreIndex];
             judgeCoinNumsCoupon(Player.sprite.x, Player.sprite.y);
-            if (nowStore.infoData.ContainsCoupons > 0) requestStoreCoupon(nowStore.infoData, Player.sprite.x, Player.sprite.y);
+            if (nowStore.infoData.ContainsCoupons > 0 && !nowStore.infoData.BlindBoxOpen) requestStoreCoupon(nowStore.infoData, Player.sprite.x, Player.sprite.y);
             if (nowStore.infoData.BlindBoxOpen == 1) requestLottery(nowStore.infoData, Player.sprite.x, Player.sprite.y);
             if (nowStore.infoData.ActiveTitle) showInfoBox(nowStore.infoData);
 
@@ -316,16 +316,18 @@ var gamePage = function () {
      * 进入盲盒抽奖
      */
     function requestLottery(info, x, y){
-        iLotteryPage.show({x:x,y:y},1,"xxxxx");
-        // API.GetCouponsInfoByStore({ storekey: info.StoreKey,mobile:Mobile, playKey: PlayKey})
-        //     .then(function (res) {
-        //         var bool = judgeInCouponList(res.Tag);
-        //         if (res.Status == "ok" && res.Tag.length > 0 && bool) {
-        //             couponList.push(...res.Tag);
-        //             // couponAnime(x, y, res.Tag.length);
-        //             console.log(res)
-        //         }
-        //     })
+        API.GetCouponsInfoByStore({ storekey: info.StoreKey,mobile:Mobile, playKey: PlayKey})
+            .then(function (res) {
+                var bool = judgeInCouponList(res.Tag);
+                if (res.Status == "ok" && res.Tag.length > 0 && bool) {
+                    couponList.push(...res.Tag);
+                    iLotteryPage.show({x:x,y:y},1,res.Tag[0].CouponName);
+                    updateCouponNum(1);
+                }
+                else{
+                    iLotteryPage.show({x:x,y:y}, 0);
+                }
+            })
     }
 
     /**
