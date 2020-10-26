@@ -6,8 +6,7 @@ R F5F4E723 1.png
 R 39B627BD 2.png
 D images/common
 R D51D8BB6 blank.png
-P 4D7FD4F7 light.png
-P DA7B08AF mask.png
+P 419594D5 light.png
 P 7E42FCC6 off.png
 P FC9E70E0 play.png
 R E6AF3CC9 share.jpg
@@ -26,6 +25,7 @@ P 950B69FC coin.png
 P 47FB1DD1 coupon.png
 D images/index
 R AF83FFE0 block.png
+R 53EBB575 mask.png
 P B43930B0 rule.png
 P ED5CF66E start.png
 P 25E8B131 start2.png
@@ -73,7 +73,7 @@ P 604F639D btn2w.png
 P B16A318D btn3.png
 R C35EA332 kuang.png
 P 7C8E39AF logo.png
-P 39891EC9 mask.png
+R F6E870AC mask.png
 P F0F87DB6 p.png
 P 19A2DA93 rank.png
 P 2697395E rankBtn.png

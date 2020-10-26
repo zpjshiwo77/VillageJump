@@ -1,8 +1,7 @@
 {
-    "x":0,
     "type":"View",
-    "selectedBox":9,
-    "selecteID":49,
+    "selectedBox":1,
+    "selecteID":62,
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
     "label":"View",
@@ -13,7 +12,6 @@
     "compId":1,
     "child":[
         {
-            "x":15,
             "type":"Sprite",
             "props":{"y":0,"x":0,"name":"bg"},
             "nodeParent":1,
@@ -25,7 +23,6 @@
             "compId":2,
             "child":[
                 {
-                    "x":30,
                     "type":"Rect",
                     "props":{"width":750,"lineWidth":1,"height":1624,"fillColor":"#ffcb73"},
                     "nodeParent":2,
@@ -39,7 +36,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":200,"x":0,"width":750,"var":"cont","height":1180},
             "nodeParent":1,
@@ -51,7 +47,6 @@
             "compId":3,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":46,"skin":"images/result/logo.png","name":"logo"},
                     "nodeParent":3,
@@ -64,7 +59,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":-96,"x":131,"skin":"images/result/block.png","name":"block"},
                     "nodeParent":3,
@@ -77,7 +71,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":640,"x":375,"width":638,"pivotY":75,"pivotX":319,"name":"couponBox","height":149},
                     "nodeParent":3,
@@ -89,7 +82,6 @@
                     "compId":9,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"skin":"images/result/kuang.png"},
                             "nodeParent":9,
@@ -102,7 +94,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":28,"x":55,"width":555,"var":"couponScroll","vScrollBarSkin":"images/index/vscroll.png","renderType":"render","height":94},
                             "nodeParent":9,
@@ -118,7 +109,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"var":"couponNone","skin":"images/poster/f.png"},
                             "nodeParent":9,
@@ -133,7 +123,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":370,"x":73,"width":246,"name":"pointBox","height":184},
                     "nodeParent":3,
@@ -219,7 +208,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":757,"x":375,"width":638,"pivotX":319,"name":"btnBox","height":90},
                     "nodeParent":3,
@@ -231,7 +219,68 @@
                     "compId":21,
                     "child":[
                         {
-                            "x":45,
+                            "type":"Box",
+                            "props":{"y":0,"x":341,"width":299,"var":"awardBtn","height":101},
+                            "nodeParent":21,
+                            "label":"Box(awardBtn)",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":59,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"x":1,"skin":"images/result/btn2.png"},
+                                    "nodeParent":59,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":26,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-13,"x":-155,"skin":"images/common/light.png"},
+                                    "nodeParent":59,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":62,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-13,"x":-397,"skin":"images/result/mask.png"},
+                                    "nodeParent":59,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":63,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":0,"x":0,"skin":"images/result/btn2w.png"},
+                                    "nodeParent":59,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":60,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
                             "type":"Image",
                             "props":{"y":49,"x":319,"width":299,"visible":false,"var":"againBtn","skin":"images/result/btn1.png","pivotY":49,"pivotX":148,"height":101},
                             "nodeParent":21,
@@ -245,7 +294,6 @@
                             "$HIDDEN":true
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":-1,"var":"giveupBtn","skin":"images/result/btn1.png"},
                             "nodeParent":21,
@@ -257,85 +305,20 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":0,"x":341,"width":299,"var":"awardBtn","height":101},
-                            "nodeParent":21,
-                            "label":"Box(awardBtn)",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":59,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"skin":"images/result/btn2.png"},
-                                    "nodeParent":59,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":26,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Sprite",
-                                    "props":{"y":0,"x":0,"width":299,"var":"maskBlock","height":102},
-                                    "nodeParent":59,
-                                    "label":"Sprite(maskBlock)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":61,
-                                    "child":[
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":-74,"x":-156,"skin":"images/common/light.png"},
-                                            "nodeParent":61,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":62,
-                                            "child":[
-                                                ]
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Image",
-                                    "props":{"skin":"images/result/btn2w.png"},
-                                    "nodeParent":59,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":60,
-                                    "child":[
-                                        ]
-                                }]
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":1130,"x":58,"name":"shareBox"},
                     "nodeParent":3,
                     "label":"Box(shareBox)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":30,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":252,"var":"otherBtn","skin":"images/result/s1.png","height":45},
                             "nodeParent":30,
@@ -348,7 +331,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":447,"width":187,"var":"shareBtn","skin":"images/result/s2.png","height":45},
                             "nodeParent":30,
@@ -362,7 +344,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":900,"x":0,"width":750,"name":"rankBox","height":217},
                     "nodeParent":3,
@@ -782,7 +763,7 @@
                     "keyframes":{
                         "y":[
                             {
-                                "value":-74,
+                                "value":-13,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":62,
@@ -790,7 +771,7 @@
                                 "index":0
                             },
                             {
-                                "value":-74,
+                                "value":-13,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":62,

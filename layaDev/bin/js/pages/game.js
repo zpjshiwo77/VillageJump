@@ -270,6 +270,7 @@ var gamePage = function () {
             let nowStore = Sence_Stores[nowStoreIndex];
             judgeCoinNumsCoupon(Player.sprite.x, Player.sprite.y);
             if (nowStore.infoData.ContainsCoupons > 0) requestStoreCoupon(nowStore.infoData, Player.sprite.x, Player.sprite.y);
+            if (nowStore.infoData.BlindBoxOpen == 1) requestLottery(nowStore.infoData, Player.sprite.x, Player.sprite.y);
             if (nowStore.infoData.ActiveTitle) showInfoBox(nowStore.infoData);
 
             setTimeout(function () {
@@ -301,7 +302,7 @@ var gamePage = function () {
      * 请求优惠券
      */
     function requestStoreCoupon(info, x, y) {
-        API.GetCouponsInfoByStore({ storekey: info.StoreKey,mobile:Mobile })
+        API.GetCouponsInfoByStore({ storekey: info.StoreKey,mobile:Mobile,playKey: PlayKey})
             .then(function (res) {
                 var bool = judgeInCouponList(res.Tag);
                 if (res.Status == "ok" && res.Tag.length > 0 && bool) {
@@ -309,6 +310,22 @@ var gamePage = function () {
                     couponAnime(x, y, res.Tag.length);
                 }
             })
+    }
+
+    /**
+     * 进入盲盒抽奖
+     */
+    function requestLottery(info, x, y){
+        iLotteryPage.show({x:x,y:y},1,"xxxxx");
+        // API.GetCouponsInfoByStore({ storekey: info.StoreKey,mobile:Mobile, playKey: PlayKey})
+        //     .then(function (res) {
+        //         var bool = judgeInCouponList(res.Tag);
+        //         if (res.Status == "ok" && res.Tag.length > 0 && bool) {
+        //             couponList.push(...res.Tag);
+        //             // couponAnime(x, y, res.Tag.length);
+        //             console.log(res)
+        //         }
+        //     })
     }
 
     /**
@@ -459,6 +476,7 @@ var gamePage = function () {
         creatNav();
         creatStore();
         creatPlayer();
+        creatLottery();
     }
 
     /**
@@ -492,6 +510,13 @@ var gamePage = function () {
             let item = new Nav(page.cont);
             Navs.push(item);
         }
+    }
+
+    /**
+     * 创建抽奖的页面
+     */
+    function creatLottery(){
+        iLotteryPage.init();
     }
 
     /**

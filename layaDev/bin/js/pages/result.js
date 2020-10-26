@@ -389,11 +389,6 @@ var resultPage = function () {
         page = new resultUI();
         Laya.stage.addChild(page);
         page.cont.y = (WindowH - page.cont.height) / 2;
-        let maskSp = new Laya.Sprite();
-        let maskRes = Laya.Loader.getRes("images/result/mask.png");
-		maskSp.graphics.drawTexture(maskRes);
-		// maskSp.pivot(50, 50);
-        page.maskBlock.mask = maskSp;
         page.visible = false;
     }
 }

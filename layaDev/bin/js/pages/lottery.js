@@ -2,6 +2,7 @@ var lotteryPage = function () {
     var _self = this;
     var page;
     var showFlag = false;
+    var retx = 370,retY = 635;
 
     /**
      * 初始化
@@ -23,12 +24,38 @@ var lotteryPage = function () {
     /**
      * 显示
      */
-    _self.show = function () {
+    _self.show = function (pos,award,awardWord) {
+        page.lotteryBox.x = pos.x;
+        page.lotteryBox.y = pos.y + (WindowH - page.cont.height) / 2;
+        page.lotteryBox.scaleX = 0.1;
+        page.lotteryBox.scaleY = 0.1;
+
+        page.awardImg.source = Laya.Loader.getRes("images/award/"+award+".png");
+        if(award == 0){
+            page.awardWord.visible = false;
+        }
+        else{
+            page.awardWord.visible = true;
+            page.awardWord.text = awardWord;
+        }
+
+        Laya.Tween.to(page.lotteryBox, {
+            x: retx,
+            y: retY,
+            scaleX: 1,
+            scaleY: 1
+        }, PAGE_TRF_TIME, Laya.Ease.linearIn);
+
         page.visible = true;
         page.alpha = 0;
         Laya.Tween.to(page, {
             alpha: 1
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
+
+        setTimeout(function(){
+            lotteryAni();
+        }, PAGE_TRF_TIME + 50)
+        
         API.addPV({ pagepath: "/pages/lottery" });
     }
 
@@ -42,6 +69,9 @@ var lotteryPage = function () {
 
         setTimeout(function () {
             page.visible = false;
+            page.awardBox.visible = false;
+            page.lotteryBox.alpha = 1;
+            page.lotteryAni.index = 0;
         }, PAGE_TRF_TIME + 20);
     }
 
@@ -65,8 +95,20 @@ var lotteryPage = function () {
     function uiInit() {
         page = new lotteryUI();
         Laya.stage.addChild(page);
-        page.cont.y = (WindowH - page.cont.height) / 2 + page.cont.pivotY;
+        page.cont.y = (WindowH - page.cont.height) / 2;
         page.visible = false;
+    }
+
+    /**
+     * 抽奖的动画
+     */
+    function lotteryAni(){
+        page.lotteryAni.play(0,false);
+
+        setTimeout(function(){
+            page.awardBox.visible = true;
+            page.awardAni.play(0,false);
+        },105 * 17)
     }
 }
 

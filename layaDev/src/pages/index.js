@@ -154,11 +154,6 @@ var indexPage = function () {
     function uiInit() {
         page = new indexUI();
         Laya.stage.addChild(page);
-        let maskSp = new Laya.Sprite();
-        let maskRes = Laya.Loader.getRes("images/common/mask.png");
-		maskSp.graphics.drawTexture(maskRes);
-		// maskSp.pivot(50, 50);
-        page.maskBlock.mask = maskSp;
         page.cont.y = (WindowH - page.cont.height) / 2;
     }
 

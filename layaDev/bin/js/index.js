@@ -42,7 +42,7 @@ function preLoadComplate() {
     // iBgm.init();
     iRulePage.init();
     // RequestStoreInfoTest();
-    DevelopTest();
+    // DevelopTest();
 
     // Laya.URL.basePath = "https://beatsAdgame.beats-digital.com/";
 
@@ -86,7 +86,14 @@ function DevelopTest() {
     // iResultPage.init();
     // iResultPage.show();
     iLotteryPage.init();
-    iLotteryPage.show();
+    let pos = {x:100,y:100}
+    setTimeout(()=>{
+        iLotteryPage.show(pos,0);
+    },1000)
+    
+    setTimeout(()=>{
+        iLotteryPage.show(pos,1,"xxxxxxxxx\n\rxxxxxxx");
+    },6000)
 }
 
 /**
