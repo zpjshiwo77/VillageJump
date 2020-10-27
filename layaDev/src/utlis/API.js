@@ -5,7 +5,7 @@ function importAPI() {
 
     _self.SessionKey = "";
 
-    var requestDomain = "https://taikooli.dhteam.net:3443/";
+    // var requestDomain = "https://taikooli.dhteam.net:3443/";
     var requestDomain = "http://taikooli.dhteam.net/api/";
     
 
