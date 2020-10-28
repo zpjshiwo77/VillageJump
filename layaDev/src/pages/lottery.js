@@ -3,6 +3,8 @@ var lotteryPage = function () {
     var page;
     var showFlag = false;
     var retx = 370,retY = 635;
+    var lotteryAniFlag = false;
+    var callback = null;
 
     /**
      * 初始化
@@ -24,7 +26,7 @@ var lotteryPage = function () {
     /**
      * 显示
      */
-    _self.show = function (pos,award,awardWord) {
+    _self.show = function (pos,award,awardWord,func) {
         page.lotteryBox.x = pos.x;
         page.lotteryBox.y = pos.y + (WindowH - page.cont.height) / 2;
         page.lotteryBox.scaleX = 0.1;
@@ -53,8 +55,10 @@ var lotteryPage = function () {
         }, PAGE_TRF_TIME, Laya.Ease.linearIn);
 
         setTimeout(function(){
-            lotteryAni();
+            lotteryAniFlag = true;
         }, PAGE_TRF_TIME + 50)
+
+        if(func) callback = func;
         
         API.addPV({ pagepath: "/pages/lottery" });
     }
@@ -80,6 +84,7 @@ var lotteryPage = function () {
      */
     function eventInit() {
         page.closeBtn.on(Laya.Event.CLICK, this, hidePage);
+        page.lotteryBox.on(Laya.Event.CLICK, this, lotteryAni)
     }
 
     /**
@@ -103,12 +108,16 @@ var lotteryPage = function () {
      * 抽奖的动画
      */
     function lotteryAni(){
-        page.lotteryAni.play(0,false);
+        if(lotteryAniFlag){
+            lotteryAniFlag = false;
+            page.lotteryAni.play(0,false);
 
-        setTimeout(function(){
-            page.awardBox.visible = true;
-            page.awardAni.play(0,false);
-        },105 * 17)
+            setTimeout(function(){
+                page.awardBox.visible = true;
+                page.awardAni.play(0,false);
+                if(callback) callback();
+            },105 * 17)
+        }
     }
 }
 

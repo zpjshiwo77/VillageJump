@@ -321,8 +321,9 @@ var gamePage = function () {
                 var bool = judgeInCouponList(res.Tag);
                 if (res.Status == "ok" && res.Tag.length > 0 && bool) {
                     couponList.push(...res.Tag);
-                    iLotteryPage.show({x:x,y:y},1,res.Tag[0].CouponName);
-                    updateCouponNum(1);
+                    iLotteryPage.show({x:x,y:y},1,res.Tag[0].CouponName,function(){
+                        updateCouponNum(1);
+                    });
                 }
                 else{
                     iLotteryPage.show({x:x,y:y}, 0);
