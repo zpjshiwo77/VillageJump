@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":7,
-    "selecteID":6,
+    "selectedBox":8,
+    "selecteID":9,
     "props":{"width":750,"sceneColor":"#000000","height":1624},
     "nodeParent":-1,
     "label":"View",
@@ -26,14 +26,14 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"skin":"images/game/bg.jpg"},
+                    "type":"Rect",
+                    "props":{"y":0,"x":0,"width":750,"lineWidth":0,"height":1624,"fillColor":"#ffcb73"},
                     "nodeParent":2,
-                    "label":"Image",
+                    "label":"Rect",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":24,
+                    "compId":25,
                     "child":[
                         ]
                 }]
@@ -198,7 +198,7 @@
                         {
                             "x":45,
                             "type":"Text",
-                            "props":{"y":0,"x":0,"wordWrap":true,"width":425,"var":"infoWord","text":"星巴克2020.03.24-2020.09.102020.03.24-2020.0当季新品已上市！当季新品已上市！当季新品 已上市！当季新品已上市！当季新品已上市！ 当季新品已上市！当季新品已上市！当季新品 已上市！当季新品已上市！当季新品已上市！","overflow":"scroll","leading":10,"fontSize":24,"font":"Microsoft YaHei","color":"#000","bold":false},
+                            "props":{"y":0,"x":0,"wordWrap":true,"width":425,"var":"infoWord","text":"星巴克2020.03.24-2020.09.102020.03.24-2020.0当季新品已上市！当季新品已上市！当季新品 已上市！当季新品已上市！当季新品已上市！ 当季新品已上市！当季新品已上市！当季新品 已上市！当季新品已上市！当季新品已上市！","overflow":"scroll","leading":10,"fontSize":26,"font":"Microsoft YaHei","color":"#000","bold":false},
                             "nodeParent":8,
                             "label":"Text(infoWord)",
                             "isDirectory":false,

@@ -15,7 +15,6 @@ P E26B933E vscroll$down.png
 P B9680947 vscroll$up.png
 P 7E990267 vscroll.png
 D images/game
-R 9819C8A8 bg.jpg
 P 89FC6AB2 block.png
 P 0F9C3B78 store.png
 D images/icon
@@ -78,7 +77,7 @@ P F0F87DB6 p.png
 P 19A2DA93 rank.png
 P 2697395E rankBtn.png
 P 7B728D48 s1.png
-P 50F2865A s2.png
+P 3DE1D2AB s2.png
 D images/rule
 P 0914E8B4 close.png
 R 0AF94600 cont.png
@@ -113,7 +112,7 @@ P E7B23D70 7.png
 P 120BD39E 8.png
 P F3411E47 9.png
 D images/tips
-R 169E807D award.png
+R 8F4623A0 award.png
 D images/award/ani
 R 7B33B277 01.png
 R 87703CDE 02.png
