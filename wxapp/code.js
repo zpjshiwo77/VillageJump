@@ -414,7 +414,8 @@ let GameContH = 0;
 let loadStoreFlag = false;
 let channelfrom = "";
 
-let CoinNum = 0,couponList = [], CoinVal = 0, CoinToScores = 0;
+let Step = 0,CoinNum = 0,couponList = [], CoinVal = 0, CoinToScores = 0, CoinValue = 0;
+let GameCoinAddNum = 0,GameCoinAddRound = 1;
 let GAME_LEVEL = 2;                             //游戏等级
 
 let storeDatas = [];
@@ -1727,7 +1728,9 @@ var indexPage = function () {
         IsMember = data.IsMember == "0" ? false : true;
         Mobile = data.Mobile;
         CoinToScores = data.CoinToScores;
-        CoinVal = data.NEXTSTEP;
+        CoinVal = parseInt(data.NEXTSTEP);
+        GameCoinAddNum = data.GameCoinAddNum;
+        GameCoinAddRound = data.GameCoinAddRound;
         GAME_LEVEL = data.GameLevel;
     }
 
@@ -2163,7 +2166,8 @@ var gamePage = function () {
      */
     function updateCoinNum(num) {
         coinNum += num;
-        iUtils.makeNum(coinNumText,coinNum * CoinVal)
+        CoinValue = num == 0 ? 0 : CoinValue + CoinVal + parseInt(coinNum / GameCoinAddRound) * GameCoinAddNum;
+        iUtils.makeNum(coinNumText,CoinValue);
         CoinNum = coinNum;
     }
 
@@ -2519,9 +2523,8 @@ var resultPage = function () {
         })
             .then(() => {
                 let arr = [];
-
-                let w1 = makePosterNum(canvas, ctx, 34, 137, 495, CoinNum * CoinVal);
-                let w2 = makePosterNum(canvas, ctx, 23, 137, 565, parseInt(CoinNum * CoinVal * CoinToScores));
+                let w1 = makePosterNum(canvas, ctx, 34, 137, 495, CoinValue);
+                let w2 = makePosterNum(canvas, ctx, 23, 137, 565, parseInt(CoinValue * CoinToScores));
                 let w3 = makePosterNum(canvas, ctx, 34, 137, 637, couponList.length);
 
                 arr.push(...w1, ...w2, ...w3);
@@ -2645,8 +2648,8 @@ var resultPage = function () {
      * 渲染页面
      */
     function renderPage(coinNum) {
-        iUtils.makeNum(page.coinNum, coinNum * CoinVal);
-        iUtils.makeNum(page.pointNum, parseInt(coinNum * CoinVal * CoinToScores));
+        iUtils.makeNum(page.coinNum, CoinValue);
+        iUtils.makeNum(page.pointNum, parseInt(CoinValue * CoinToScores));
         iUtils.makeNum(page.couponNum, couponList.length);
 
         var len = couponList.length;
@@ -2694,14 +2697,14 @@ var resultPage = function () {
             openid: iWX.openId,
             playkey: PlayKey,
             mobile: Mobile,
-            totalcoins: CoinNum * CoinVal,
+            totalcoins: CoinValue,
             steps: CoinNum,
             couponid: couponid
         }
         API.EndGame(data)
             .then(function (res) {
                 if (res.Status == "ok") {
-                    if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
+                    if (couponList.length > 0 ||  parseInt(CoinValue * CoinToScores) > 0) iTipsPage.show();
                     requestRank();
                 }
                 // else iWX.alert(res.Msg);
@@ -2828,7 +2831,7 @@ var regPage = function () {
                     openid: iWX.openId,
                     playkey: PlayKey,
                     mobile: phone,
-                    totalcoins: CoinNum  * CoinVal,
+                    totalcoins: CoinValue,
                     steps: CoinNum,
                     couponid: couponid
                 };
@@ -2839,7 +2842,7 @@ var regPage = function () {
                     if (res.Status == "ok") {
                         iLoginPage.hide();
                         hide();
-                        if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
+                        if (couponList.length > 0 ||  parseInt(CoinValue * CoinToScores) > 0) iTipsPage.show();
                         iResultPage.updateIsMember();
                         Mobile = phone;
                     }
@@ -3023,7 +3026,7 @@ var loginPage = function () {
                     openid: iWX.openId,
                     playkey: PlayKey,
                     mobile: phone,
-                    totalcoins: CoinNum * CoinVal,
+                    totalcoins: CoinValue,
                     steps: CoinNum,
                     couponid: couponid
                 };
@@ -3033,7 +3036,7 @@ var loginPage = function () {
                     iWX.hideLoading();
                     if (res.Status == "ok") {
                         hidePage();
-                        if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
+                        if (couponList.length > 0 ||  parseInt(CoinValue * CoinToScores) > 0) iTipsPage.show();
                         iResultPage.updateIsMember();
                         Mobile = phone;
                     }

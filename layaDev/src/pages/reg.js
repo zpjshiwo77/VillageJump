@@ -73,7 +73,7 @@ var regPage = function () {
                     openid: iWX.openId,
                     playkey: PlayKey,
                     mobile: phone,
-                    totalcoins: CoinNum  * CoinVal,
+                    totalcoins: CoinValue,
                     steps: CoinNum,
                     couponid: couponid
                 };
@@ -84,7 +84,7 @@ var regPage = function () {
                     if (res.Status == "ok") {
                         iLoginPage.hide();
                         hide();
-                        if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
+                        if (couponList.length > 0 ||  parseInt(CoinValue * CoinToScores) > 0) iTipsPage.show();
                         iResultPage.updateIsMember();
                         Mobile = phone;
                     }

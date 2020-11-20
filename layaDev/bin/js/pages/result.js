@@ -160,9 +160,8 @@ var resultPage = function () {
         })
             .then(() => {
                 let arr = [];
-
-                let w1 = makePosterNum(canvas, ctx, 34, 137, 495, CoinNum * CoinVal);
-                let w2 = makePosterNum(canvas, ctx, 23, 137, 565, parseInt(CoinNum * CoinVal * CoinToScores));
+                let w1 = makePosterNum(canvas, ctx, 34, 137, 495, CoinValue);
+                let w2 = makePosterNum(canvas, ctx, 23, 137, 565, parseInt(CoinValue * CoinToScores));
                 let w3 = makePosterNum(canvas, ctx, 34, 137, 637, couponList.length);
 
                 arr.push(...w1, ...w2, ...w3);
@@ -286,8 +285,8 @@ var resultPage = function () {
      * 渲染页面
      */
     function renderPage(coinNum) {
-        iUtils.makeNum(page.coinNum, coinNum * CoinVal);
-        iUtils.makeNum(page.pointNum, parseInt(coinNum * CoinVal * CoinToScores));
+        iUtils.makeNum(page.coinNum, CoinValue);
+        iUtils.makeNum(page.pointNum, parseInt(CoinValue * CoinToScores));
         iUtils.makeNum(page.couponNum, couponList.length);
 
         var len = couponList.length;
@@ -335,14 +334,14 @@ var resultPage = function () {
             openid: iWX.openId,
             playkey: PlayKey,
             mobile: Mobile,
-            totalcoins: CoinNum * CoinVal,
+            totalcoins: CoinValue,
             steps: CoinNum,
             couponid: couponid
         }
         API.EndGame(data)
             .then(function (res) {
                 if (res.Status == "ok") {
-                    if (couponList.length > 0 ||  parseInt(CoinNum * CoinVal * CoinToScores) > 0) iTipsPage.show();
+                    if (couponList.length > 0 ||  parseInt(CoinValue * CoinToScores) > 0) iTipsPage.show();
                     requestRank();
                 }
                 // else iWX.alert(res.Msg);

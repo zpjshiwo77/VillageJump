@@ -144,7 +144,9 @@ var indexPage = function () {
         IsMember = data.IsMember == "0" ? false : true;
         Mobile = data.Mobile;
         CoinToScores = data.CoinToScores;
-        CoinVal = data.NEXTSTEP;
+        CoinVal = parseInt(data.NEXTSTEP);
+        GameCoinAddNum = data.GameCoinAddNum;
+        GameCoinAddRound = data.GameCoinAddRound;
         GAME_LEVEL = data.GameLevel;
     }
 

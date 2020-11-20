@@ -410,7 +410,8 @@ var gamePage = function () {
      */
     function updateCoinNum(num) {
         coinNum += num;
-        iUtils.makeNum(coinNumText,coinNum * CoinVal)
+        CoinValue = num == 0 ? 0 : CoinValue + CoinVal + parseInt(coinNum / GameCoinAddRound) * GameCoinAddNum;
+        iUtils.makeNum(coinNumText,CoinValue);
         CoinNum = coinNum;
     }
 
