@@ -25,7 +25,7 @@ let loadStoreFlag = false;
 let channelfrom = "";
 
 let Step = 0,CoinNum = 0,couponList = [], CoinVal = 0, CoinToScores = 0, CoinValue = 0;
-let GameCoinAddNum = 0,GameCoinAddRound = 1;
+let GameCoinAddNum = 0,GameCoinAddRound = 1,MaxRoundStep = 100;
 let GAME_LEVEL = 2;                             //游戏等级
 
 let storeDatas = [];

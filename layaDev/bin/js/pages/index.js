@@ -147,6 +147,7 @@ var indexPage = function () {
         CoinVal = parseInt(data.NEXTSTEP);
         GameCoinAddNum = data.GameCoinAddNum;
         GameCoinAddRound = data.GameCoinAddRound;
+        MaxRoundStep = data.MaxRoundStep;
         GAME_LEVEL = data.GameLevel;
     }
 

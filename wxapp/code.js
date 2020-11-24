@@ -415,7 +415,7 @@ let loadStoreFlag = false;
 let channelfrom = "";
 
 let Step = 0,CoinNum = 0,couponList = [], CoinVal = 0, CoinToScores = 0, CoinValue = 0;
-let GameCoinAddNum = 0,GameCoinAddRound = 1;
+let GameCoinAddNum = 0,GameCoinAddRound = 1,MaxRoundStep = 100;
 let GAME_LEVEL = 2;                             //游戏等级
 
 let storeDatas = [];
@@ -1731,6 +1731,7 @@ var indexPage = function () {
         CoinVal = parseInt(data.NEXTSTEP);
         GameCoinAddNum = data.GameCoinAddNum;
         GameCoinAddRound = data.GameCoinAddRound;
+        MaxRoundStep = data.MaxRoundStep;
         GAME_LEVEL = data.GameLevel;
     }
 
@@ -2166,7 +2167,8 @@ var gamePage = function () {
      */
     function updateCoinNum(num) {
         coinNum += num;
-        CoinValue = num == 0 ? 0 : CoinValue + CoinVal + parseInt(coinNum / GameCoinAddRound) * GameCoinAddNum;
+        let step = coinNum > MaxRoundStep ? MaxRoundStep : coinNum;
+        CoinValue = num == 0 ? 0 : CoinValue + CoinVal + parseInt(step / GameCoinAddRound) * GameCoinAddNum;
         iUtils.makeNum(coinNumText,CoinValue);
         CoinNum = coinNum;
     }
